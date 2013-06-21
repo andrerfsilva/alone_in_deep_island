@@ -29,7 +29,7 @@ Array UUID_ARRAY string "UUID://05D1E246-DB6B-471A-B4A5-4787FB1B989C//";
 Constant Story "Alone in Deep Island";
 Constant Headline "An Interactive Fiction";
 Constant Story_Author SC_2;
-Serial "130620";
+Serial "130621";
 
 Default Story 0;
 Default Headline 0;
@@ -4292,7 +4292,7 @@ Global lightflag = false;
 ];
 
 
-Constant REQUISITION_STACK_SIZE = 3*24;
+Constant REQUISITION_STACK_SIZE = 3*29;
 Array requisition_stack --> REQUISITION_STACK_SIZE;
 Global requisition_stack_pointer = 0;
 
@@ -9313,17 +9313,20 @@ Constant DirectionObject_9 = I55_down;
 Constant DirectionObject_10 = in_obj;
 Constant DirectionObject_11 = out_obj;
 Array Map_Storage -->
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I88_prision_cell
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I89_wumpus_world
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I90_study
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I91_corridor
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I92_main_hall
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I93_bar
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I94_matrix
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I95_torture_chamber
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I96_dojo
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I97_control_room
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I98_office
+ 0 0 0 I91_small_corridor 0 0 I98_another_cell 0 0 0 0 0 ! Exits from: I88_prision_cell
+ I88_prision_cell 0 0 I93_study 0 0 I92_wumpus_world I95_art_corridor 0 0 0 0 ! Exits from: I91_small_corridor
+ 0 0 0 0 0 0 0 I91_small_corridor 0 0 0 0 ! Exits from: I92_wumpus_world
+ I91_small_corridor 0 0 I94_video_room 0 0 0 0 0 0 0 0 ! Exits from: I93_study
+ I93_study 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I94_video_room
+ 0 0 0 I97_bar 0 0 I91_small_corridor I96_main_hall 0 0 0 0 ! Exits from: I95_art_corridor
+ 0 0 0 0 0 0 I95_art_corridor 0 0 0 0 0 ! Exits from: I96_main_hall
+ I95_art_corridor 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I97_bar
+ 0 0 0 0 0 0 0 I88_prision_cell 0 0 0 0 ! Exits from: I98_another_cell
+ 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I99_matrix
+ 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I100_torture_chamber
+ 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I101_dojo
+ 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I102_control_room
+ 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I103_office
 ;
 
 Class VPH_Class;
@@ -9686,7 +9689,7 @@ Object selfobj ""
     with cap_short_name "Yourself"
     has mark_as_thing
     with IK2_Count 0
-    with IK2_Link nothing
+    with IK2_Link I89_old_table
     with IK8_Count 0
     with IK8_Link nothing
     with KD_Count 8
@@ -9697,142 +9700,215 @@ Object selfobj ""
 Object I88_prision_cell ""
     class K1_room
     with short_name "Prision Cell"
+    with description text_routine_0
+    has proper
     with vector 0
     with room_index -1
     with list_together 0
+    with cap_short_name "Prision Cell"
     has mark_as_room
     with IK1_Count 0
-    with IK1_Link I89_wumpus_world
+    with IK1_Link I91_small_corridor
     with KD_Count 1
     with name 'prision' 'cell' 
 ;
 
-Object I89_wumpus_world ""
+Object -> I89_old_table ""
+    class K2_thing
+    with short_name "old table"
+    with initial SC_5
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 1
+    with IK2_Link I90_bed
+    with KD_Count 2
+    with name 'old' 'table' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I90_bed ""
+    class K2_thing
+    with short_name "bed"
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 2
+    with IK2_Link nothing
+    with KD_Count 2
+    with name 'bed' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object I91_small_corridor ""
     class K1_room
-    with short_name SC_5
-    has proper
+    with short_name "Small Corridor"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 1
-    with IK1_Link I90_study
+    with IK1_Link I92_wumpus_world
+    with KD_Count 1
+    with name 'small' 'corridor' 
+;
+
+Object I92_wumpus_world ""
+    class K1_room
+    with short_name SC_6
+    has proper
+    with vector 0
+    with room_index -1
+    with list_together 0
+    has mark_as_room
+    with IK1_Count 2
+    with IK1_Link I93_study
     with KD_Count 1
     with name 'wumpus' 'world' 
 ;
 
-Object I90_study ""
+Object I93_study ""
     class K1_room
     with short_name "Study"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 2
-    with IK1_Link I91_corridor
+    with IK1_Count 3
+    with IK1_Link I94_video_room
     with KD_Count 1
     with name 'study' 
 ;
 
-Object I91_corridor ""
+Object I94_video_room ""
     class K1_room
-    with short_name "Corridor"
+    with short_name "Video Room"
+    has proper
+    with vector 0
+    with room_index -1
+    with list_together 0
+    with cap_short_name "Video Room"
+    has mark_as_room
+    with IK1_Count 4
+    with IK1_Link I95_art_corridor
+    with KD_Count 1
+    with name 'video' 'room' 
+;
+
+Object I95_art_corridor ""
+    class K1_room
+    with short_name "Art Corridor"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 3
-    with IK1_Link I92_main_hall
+    with IK1_Count 5
+    with IK1_Link I96_main_hall
     with KD_Count 1
-    with name 'corridor' 
+    with name 'art' 'corridor' 
 ;
 
-Object I92_main_hall ""
+Object I96_main_hall ""
     class K1_room
     with short_name "Main Hall"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 4
-    with IK1_Link I93_bar
+    with IK1_Count 6
+    with IK1_Link I97_bar
     with KD_Count 1
     with name 'main' 'hall' 
 ;
 
-Object I93_bar ""
+Object I97_bar ""
     class K1_room
     with short_name "Bar"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 5
-    with IK1_Link I94_matrix
+    with IK1_Count 7
+    with IK1_Link I98_another_cell
     with KD_Count 1
     with name 'bar' 
 ;
 
-Object I94_matrix ""
+Object I98_another_cell ""
+    class K1_room
+    with short_name "Another Cell"
+    has proper
+    with vector 0
+    with room_index -1
+    with list_together 0
+    with cap_short_name "Another Cell"
+    has mark_as_room
+    with IK1_Count 8
+    with IK1_Link I99_matrix
+    with KD_Count 1
+    with name 'another' 'cell' 
+;
+
+Object I99_matrix ""
     class K1_room
     with short_name "Matrix"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 6
-    with IK1_Link I95_torture_chamber
+    with IK1_Count 9
+    with IK1_Link I100_torture_chamber
     with KD_Count 1
     with name 'matrix' 
 ;
 
-Object I95_torture_chamber ""
+Object I100_torture_chamber ""
     class K1_room
     with short_name "Torture Chamber"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 7
-    with IK1_Link I96_dojo
+    with IK1_Count 10
+    with IK1_Link I101_dojo
     with KD_Count 1
     with name 'torture' 'chamber' 
 ;
 
-Object I96_dojo ""
+Object I101_dojo ""
     class K1_room
     with short_name "Dojo"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 8
-    with IK1_Link I97_control_room
+    with IK1_Count 11
+    with IK1_Link I102_control_room
     with KD_Count 1
     with name 'dojo' 
 ;
 
-Object I97_control_room ""
+Object I102_control_room ""
     class K1_room
     with short_name "Control Room"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 9
-    with IK1_Link I98_office
+    with IK1_Count 12
+    with IK1_Link I103_office
     with KD_Count 1
     with name 'control' 'room' 
 ;
 
-Object I98_office ""
+Object I103_office ""
     class K1_room
-    with short_name SC_6
+    with short_name SC_7
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 10
+    with IK1_Count 13
     with IK1_Link nothing
     with KD_Count 1
     with name 'office' 
@@ -9862,7 +9938,7 @@ Constant I86_referred_to_a_determinat = 19;
 Constant I87_i_beg_your_pardon_error = 20;
 Array Global_Vars -->
   (false) ! 7
-  (SC_7) ! 24
+  (SC_8) ! 24
   (SC_2) ! 29
   (EMPTY_TEXT_VALUE) ! 30
   (EMPTY_TEXT_VALUE) ! 31
@@ -9875,14 +9951,14 @@ Array Global_Vars -->
 
 
 Array T0_final_question_options table  tab_0_0 tab_0_1 tab_0_2 tab_0_3 tab_0_4;
-Array tab_0_0 table $0064 0  (SC_8)  (SC_9)  (SC_10)  (SC_11)  (SC_12) ;
+Array tab_0_0 table $0064 0  (SC_9)  (SC_10)  (SC_11)  (SC_12)  (SC_13) ;
 Array tab_0_1 table $0465 1  (0)  (0)  (1)  (0)  (0) ;
 Array tab_0_2 table $2066 2  (Consult_Grammar_95)  (Consult_Grammar_96)  (Consult_Grammar_97)  (Consult_Grammar_98)  (Consult_Grammar_99) ;
 Array tab_0_3 table $0067 3  (IMMEDIATELY_RESTART_VM_R)  (IMMEDIATELY_RESTORE_SAVED_R)  TABLE_NOVALUE (IMMEDIATELY_QUIT_R)  (IMMEDIATELY_UNDO_R) ;
 Array tab_0_4 table $0068 4  TABLE_NOVALUE TABLE_NOVALUE (V26_amusing_a_victorious_pla)  TABLE_NOVALUE TABLE_NOVALUE;
 Array T1_locale_priorities table  tab_1_0 tab_1_1;
-Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE;
-Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE;
+Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
+Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
 Array TB_Blanks -> 
   ! For table T0_final_question_options
   $00  ! Column 0
@@ -9892,7 +9968,7 @@ Array TB_Blanks ->
   $1b  ! Column 4
   
   ! For table T1_locale_priorities
-  $03  ! Column 1
+  $0f  ! Column 1
   
   ! End of table
   NULL NULL;
@@ -10468,7 +10544,7 @@ Array ActionHappened --> 0 0 0 0 0 0;
 [ R_20 ;
       ! phrase 1
       ! [1: if the current item from the multiple object list is not nothing , say ~[current item from the multiple object list]: [run paragraph on]~]
-       if (((~~((multiple_object_item == nothing))))) { say__p=1;ParaContent();  print (PrintShortName) multiple_object_item; ParaContent();  print (PrintText) SC_13; ParaContent();  RunParagraphOn();  .L_Say2; .L_SayX2;  }
+       if (((~~((multiple_object_item == nothing))))) { say__p=1;ParaContent();  print (PrintShortName) multiple_object_item; ParaContent();  print (PrintText) SC_14; ParaContent();  RunParagraphOn();  .L_Say2; .L_SayX2;  }
    rfalse;
 ];
 ! No specific request
@@ -10871,7 +10947,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_60, 60);
       ! phrase 1
       ! [1: say ~[listing group size in words] ~]
-      say__p=1;ParaContent();  print (number) say__n=(listing_size); ParaContent();  print (PrintText) SC_14;  .L_Say4; .L_SayX4;
+      say__p=1;ParaContent();  print (number) say__n=(listing_size); ParaContent();  print (PrintText) SC_15;  .L_Say4; .L_SayX4;
       ! phrase 2
       ! [2: carry out the printing the plural name activity with the item]
        CarryOutActivity(V1_printing_the_plural_name_, t_0); 
@@ -11084,7 +11160,7 @@ self = noun;
        if (((t_0 < 1))) {  if (ProcessRulebook(IMMEDIATELY_QUIT_R)) rtrue;   }
       ! phrase 10
       ! [10: say ~Would you like to ~]
-      say__p=1;ParaContent();  print (PrintText) SC_15;  .L_Say5; .L_SayX5;
+      say__p=1;ParaContent();  print (PrintText) SC_16;  .L_Say5; .L_SayX5;
       ! phrase 11
       ! [11: repeat through the table of final question options begin]
        @push ct_0; @push ct_1;
@@ -11111,23 +11187,23 @@ self = noun;
                    if (((t_0 == 0)))  {
                      ! phrase 18
                      ! [18: say ~?[line break]~]
-                     say__p=1;ParaContent();  print (PrintText) SC_16; ParaContent();  new_line;  .L_Say7; .L_SayX7;
+                     say__p=1;ParaContent();  print (PrintText) SC_17; ParaContent();  new_line;  .L_Say7; .L_SayX7;
                      ! phrase 19
                      ! [19: otherwise if the named options count is 1]
                       } else if (((t_0 == 1))) { 
                      ! phrase 20
                      ! [20: if the serial comma option is active , say ~,~]
-                      if ((((Adj_22_t1_v15(5))))) { say__p=1;ParaContent();  print (PrintText) SC_17;  .L_Say8; .L_SayX8;  }
+                      if ((((Adj_22_t1_v15(5))))) { say__p=1;ParaContent();  print (PrintText) SC_18;  .L_Say8; .L_SayX8;  }
                      ! phrase 21
                      ! [21: say ~ or ~]
-                     say__p=1;ParaContent();  print (PrintText) SC_18;  .L_Say9; .L_SayX9;
+                     say__p=1;ParaContent();  print (PrintText) SC_19;  .L_Say9; .L_SayX9;
                      ! phrase 22
                      ! [22: otherwise]
                      } else {
 
                      ! phrase 23
                      ! [23: say ~, ~]
-                     say__p=1;ParaContent();  print (PrintText) SC_19;  .L_Say10; .L_SayX10;
+                     say__p=1;ParaContent();  print (PrintText) SC_20;  .L_Say10; .L_SayX10;
                      ! phrase 24
                      ! [24: end if]
                      }
@@ -11156,7 +11232,7 @@ self = noun;
 [ R_68 ;
       ! phrase 1
       ! [1: say ~> [run paragraph on]~]
-      say__p=1;ParaContent();  print (PrintText) SC_20; ParaContent();  RunParagraphOn();  .L_Say11; .L_SayX11;
+      say__p=1;ParaContent();  print (PrintText) SC_21; ParaContent();  RunParagraphOn();  .L_Say11; .L_SayX11;
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -11409,40 +11485,40 @@ self = noun;
                 if (((t_0 ofclass K1_room)))  {
                   ! phrase 22
                   ! [22: if the domain is the location , say ~You ~]
-                   if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_21;  .L_Say12; .L_SayX12;  }
+                   if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_22;  .L_Say12; .L_SayX12;  }
                   ! phrase 23
                   ! [23: otherwise say ~In [the domain] you ~]
-                   else { say__p=1;ParaContent();  print (PrintText) SC_22; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_23;  .L_Say13; .L_SayX13;  }
+                   else { say__p=1;ParaContent();  print (PrintText) SC_23; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_24;  .L_Say13; .L_SayX13;  }
                   ! phrase 24
                   ! [24: otherwise if the domain is a supporter]
                    } else if (((t_0 ofclass K6_supporter))) { 
                   ! phrase 25
                   ! [25: say ~On [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_24; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_23;  .L_Say14; .L_SayX14;
+                  say__p=1;ParaContent();  print (PrintText) SC_25; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_24;  .L_Say14; .L_SayX14;
                   ! phrase 26
                   ! [26: otherwise if the domain is an animal]
                    } else if (((t_0 ofclass K12_animal))) { 
                   ! phrase 27
                   ! [27: say ~On [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_24; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_23;  .L_Say15; .L_SayX15;
+                  say__p=1;ParaContent();  print (PrintText) SC_25; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_24;  .L_Say15; .L_SayX15;
                   ! phrase 28
                   ! [28: otherwise]
                   } else {
 
                   ! phrase 29
                   ! [29: say ~In [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_22; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_23;  .L_Say16; .L_SayX16;
+                  say__p=1;ParaContent();  print (PrintText) SC_23; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_24;  .L_Say16; .L_SayX16;
                   ! phrase 30
                   ! [30: end if]
                   }
 
                ! phrase 31
                ! [31: say ~can [if the locale paragraph count is greater than 0]also [end if]see ~]
-               say__p=1;ParaContent();  print (PrintText) SC_25; 
+               say__p=1;ParaContent();  print (PrintText) SC_26; 
 	if (~~(((((Global_Vars-->8) > 0))))) jump L_Say17;
-		ParaContent();  print (PrintText) SC_26; 
+		ParaContent();  print (PrintText) SC_27; 
 	.L_Say17; .L_SayX17;
-		ParaContent();  print (PrintText) SC_27;  .L_Say18; .L_SayX18;
+		ParaContent();  print (PrintText) SC_28;  .L_Say18; .L_SayX18;
                ! phrase 32
                ! [32: let the common holder be nothing]
                 t_2 = nothing; 
@@ -11488,10 +11564,10 @@ self = noun;
 		@pull subst__v;  .L_Say19; .L_SayX19;  }
                ! phrase 44
                ! [44: if the domain is the location , say ~ here~]
-                if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_28;  .L_Say20; .L_SayX20;  }
+                if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_29;  .L_Say20; .L_SayX20;  }
                ! phrase 45
                ! [45: say ~.[paragraph break]~]
-               say__p=1;ParaContent();  print (PrintText) SC_29; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say21; .L_SayX21;
+               say__p=1;ParaContent();  print (PrintText) SC_30; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say21; .L_SayX21;
                ! phrase 46
                ! [46: unfilter list recursion]
                 list_filter_routine = 0; 
@@ -11752,13 +11828,13 @@ self = noun;
 
                ! phrase 13
                ! [13: say ~On [the item] ~]
-               say__p=1;ParaContent();  print (PrintText) SC_24; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_14;  .L_Say26; .L_SayX26;
+               say__p=1;ParaContent();  print (PrintText) SC_25; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_15;  .L_Say26; .L_SayX26;
                ! phrase 14
                ! [14: list the contents of the item , as a sentence , including contents , giving brief inventory information , tersely , not listing concealed items , prefacing with is/are , listing marked items only]
                 WriteListFrom(child(t_0), 3800); 
                ! phrase 15
                ! [15: say ~.[paragraph break]~]
-               say__p=1;ParaContent();  print (PrintText) SC_29; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say27; .L_SayX27;
+               say__p=1;ParaContent();  print (PrintText) SC_30; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say27; .L_SayX27;
                ! phrase 16
                ! [16: end if]
                }
@@ -11826,13 +11902,13 @@ self = noun;
              (Global_Vars-->8) = (Global_Vars-->8) + 1; 
             ! phrase 11
             ! [11: say ~On [the item] ~]
-            say__p=1;ParaContent();  print (PrintText) SC_24; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_14;  .L_Say28; .L_SayX28;
+            say__p=1;ParaContent();  print (PrintText) SC_25; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_15;  .L_Say28; .L_SayX28;
             ! phrase 12
             ! [12: list the contents of the item , as a sentence , including contents , giving brief inventory information , tersely , not listing concealed items , prefacing with is/are , listing marked items only]
              WriteListFrom(child(t_0), 3800); 
             ! phrase 13
             ! [13: say ~.[paragraph break]~]
-            say__p=1;ParaContent();  print (PrintText) SC_29; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say29; .L_SayX29;
+            say__p=1;ParaContent();  print (PrintText) SC_30; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say29; .L_SayX29;
             ! phrase 14
             ! [14: end if]
             }
@@ -11882,7 +11958,7 @@ self = noun;
        GL__M(##Inv,2,noun); 
       ! phrase 2
       ! [2: say ~:[line break]~]
-      say__p=1;ParaContent();  print (PrintText) SC_30; ParaContent();  new_line;  .L_Say30; .L_SayX30;
+      say__p=1;ParaContent();  print (PrintText) SC_31; ParaContent();  new_line;  .L_Say30; .L_SayX30;
       ! phrase 3
       ! [3: list the contents of the player , with newlines , indented , including contents , giving inventory information , with extra indentation]
        WriteListFrom(child(player), 8215); 
@@ -13478,7 +13554,7 @@ self = noun;
           if (((~~(((MStack-->MstVO(20007,3)) == nothing)))))  {
             ! phrase 49
             ! [49: say ~ ~]
-            say__p=1;ParaContent();  print (PrintText) SC_14;  .L_Say31; .L_SayX31;
+            say__p=1;ParaContent();  print (PrintText) SC_15;  .L_Say31; .L_SayX31;
             ! phrase 50
             ! [50: if the vehicle gone by is a supporter , issue actor-based library message going action number 20 for the vehicle gone by]
              if ((((MStack-->MstVO(20007,3)) ofclass K6_supporter))) {  AGL__M(##Go,20,(MStack-->MstVO(20007,3)));   }
@@ -13533,7 +13609,7 @@ self = noun;
              AGL__M(##Go,26,noun); 
             ! phrase 66
             ! [66: say ~.~]
-            say__p=1;ParaContent();  print (PrintText) SC_29;  new_line; .L_Say32; .L_SayX32;
+            say__p=1;ParaContent();  print (PrintText) SC_30;  new_line; .L_Say32; .L_SayX32;
             ! phrase 67
             ! [67: try looking]
              TryAction(0, player, ##Look, 0, 0);; 
@@ -13546,7 +13622,7 @@ self = noun;
 
          ! phrase 70
          ! [70: say ~.~]
-         say__p=1;ParaContent();  print (PrintText) SC_29;  new_line; .L_Say33; .L_SayX33;
+         say__p=1;ParaContent();  print (PrintText) SC_30;  new_line; .L_Say33; .L_SayX33;
          ! phrase 71
          ! [71: end if]
          }
@@ -21790,7 +21866,7 @@ Constant SLOW_ROUTE_FINDING;
 #endif;
 
 Constant NUM_DOORS = 0;
-Constant NUM_ROOMS = 11;
+Constant NUM_ROOMS = 14;
 
 Array DoorRoutingViable -> NUM_DOORS+1;
 
@@ -21977,7 +22053,7 @@ Array FWMatrix --> NUM_ROOMS*NUM_ROOMS;
 ];
 #ENDIF;
 
-Constant MAX_ROUTE_LENGTH = 24 + 32;
+Constant MAX_ROUTE_LENGTH = 29 + 32;
 
 [ RelationRouteTo relation from to count  handler;
 	if (count) {
@@ -25743,6 +25819,17 @@ Verb meta 'tree'
        WriteListFrom(child(t_0), 264); 
    rfalse;
 ];
+[ text_routine_0;
+say__p=1;
+	if (~~(((((Adj_40_t1_v9(self))))))) jump L_Say41;
+		ParaContent();  print (PrintText) SC_32; 
+	.L_Say41; .L_SayX41;
+		ParaContent();  print (PrintText) SC_33; 
+	if (~~(((((Adj_39_t1_v9(self))))))) jump L_Say42;
+		ParaContent();  print (PrintText) SC_34;  .L_Say42; .L_SayX42;
+    rtrue;
+];
+
 
 
 
@@ -27421,34 +27508,38 @@ ArgumentTypeFailed(filename, line);
 Array ConstantListPointers --> 
  0 0;
 
-Constant SC_14 = " ";
-Constant SC_28 = " here";
-Constant SC_18 = " or ";
-Constant SC_23 = " you ";
-Constant SC_19 = ", ";
-Constant SC_17 = ",";
-Constant SC_29 = ".";
-Constant SC_13 = ": ";
-Constant SC_30 = ":";
-Constant SC_20 = "> ";
-Constant SC_7 = ">";
-Constant SC_16 = "?";
+Constant SC_15 = " ";
+Constant SC_34 = " Anyway, this is your home now.";
+Constant SC_29 = " here";
+Constant SC_19 = " or ";
+Constant SC_24 = " you ";
+Constant SC_20 = ", ";
+Constant SC_18 = ",";
+Constant SC_30 = ".";
+Constant SC_14 = ": ";
+Constant SC_31 = ":";
+Constant SC_21 = "> ";
+Constant SC_8 = ">";
+Constant SC_17 = "?";
+Constant SC_5 = "An old wooden table is on the corner. So old and fragile. You can even see the trails of termite. There is an oil lamp on the table.";
 Constant SC_2 = "André, Danyele, Henrique, Márcio and Wakim";
 Constant SC_4 = "As good-looking as ever.";
-Constant SC_5 = "Dark Room";
-Constant SC_6 = "Dr. Pesadelo's Office";
-Constant SC_22 = "In ";
-Constant SC_24 = "On ";
-Constant SC_11 = "QUIT";
-Constant SC_8 = "RESTART";
-Constant SC_9 = "RESTORE a saved game";
-Constant SC_12 = "UNDO the last command";
-Constant SC_15 = "Would you like to ";
-Constant SC_21 = "You ";
-Constant SC_26 = "also ";
-Constant SC_25 = "can ";
-Constant SC_27 = "see ";
-Constant SC_10 = "see some suggestions for AMUSING things to do";
+Constant SC_6 = "Dark Room";
+Constant SC_7 = "Dr. Pesadelo's Office";
+Constant SC_23 = "In ";
+Constant SC_25 = "On ";
+Constant SC_12 = "QUIT";
+Constant SC_9 = "RESTART";
+Constant SC_10 = "RESTORE a saved game";
+Constant SC_33 = "This cell is so dirty. It looks like a prision. It even smells like a prision! ";
+Constant SC_32 = "This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I seems they are observing how you behave. Anyway, this is your home now. ";
+Constant SC_13 = "UNDO the last command";
+Constant SC_16 = "Would you like to ";
+Constant SC_22 = "You ";
+Constant SC_27 = "also ";
+Constant SC_26 = "can ";
+Constant SC_28 = "see ";
+Constant SC_11 = "see some suggestions for AMUSING things to do";
 Constant SC_3 = "the";
 
 #ifndef p0_specification; Constant p0_specification = 0; #endif;

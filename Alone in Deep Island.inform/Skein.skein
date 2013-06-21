@@ -1,21 +1,419 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Skein rootNode="node-0x0290A458" xmlns="http://www.logicalshift.org.uk/IF/Skein">
+<Skein rootNode="node-0x030E4300" xmlns="http://www.logicalshift.org.uk/IF/Skein">
   <generator>Inform 7 for Windows</generator>
-  <activeNode nodeId="node-0x02C103C8"/>
-  <item nodeId="node-0x0290A458">
+  <activeNode nodeId="node-0x0319ECF8"/>
+  <item nodeId="node-0x030E4300">
     <command xml:space="preserve">- start -</command>
-    <result xml:space="preserve">Alone in Deep Island&#x000A;An Interactive Fiction by Andr&#x00E9;, Danyele, Henrique, M&#x00E1;rcio and Wakim&#x000A;Release 1 / Serial number 130620 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD&#x000A;&#x000A;Prision Cell&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Alone in Deep Island&#x000A;An Interactive Fiction by Andr&#x00E9;, Danyele, Henrique, M&#x00E1;rcio and Wakim&#x000A;Release 1 / Serial number 130621 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD&#x000A;&#x000A;Prision Cell&#x000A;This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I seems they are observing how you behave. Anyway, this is your home now. This cell is so dirty. It looks like a prision. It even smells like a prision! &#x000A;&#x000A;An old wooden table is on the corner. So old and fragile. You can even see the trails of termite. There is an oil lamp on the table.&#x000A;&#x000A;You can also see a bed here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
     <temporary score="0">NO</temporary>
     <children>
-      <child nodeId="node-0x02C103C8"/>
+      <child nodeId="node-0x030E4370"/>
+      <child nodeId="node-0x030EC0F0"/>
+      <child nodeId="node-0x030EC240"/>
+      <child nodeId="node-0x030EC320"/>
+      <child nodeId="node-0x030EC390"/>
+      <child nodeId="node-0x030EC470"/>
+      <child nodeId="node-0x030EC080"/>
     </children>
   </item>
-  <item nodeId="node-0x02C103C8">
+  <item nodeId="node-0x030E4370">
     <command xml:space="preserve">n</command>
     <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x030EC0F0">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Prision Cell&#x000A;This is the room I've been kept since I arrived in this cursed place. Here I witnessed the suffering and despair of many patients... or should I say prisioners?! Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I think they are observing how I behave. Anyway, this is my home now.&#x000A;&#x000A;An old wooden table.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC160"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC160">
+    <command xml:space="preserve">take table</command>
+    <result xml:space="preserve">Taken.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC1D0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC1D0">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying:&#x000A;  a table&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x030EC240">
+    <command xml:space="preserve">take table</command>
+    <result xml:space="preserve">Taken.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC2B0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC2B0">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying:&#x000A;  an old table&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x030EC320">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">Prision Cell&#x000A;This cell is so dirty. It looks like a prison. Actually, It smells like a prison!  Anyway, this is your home now.&#x000A;&#x000A;An old wooden table is on the corner. There is an oil lamp on the table.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x030EC390">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Small Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC400"/>
+      <child nodeId="node-0x03185578"/>
+      <child nodeId="node-0x031855E8"/>
+      <child nodeId="node-0x031858F8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC400">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Prision Cell&#x000A;This cell is so dirty. It looks like a prision. It even smells like a prision!  Anyway, this is your home now.&#x000A;&#x000A;An old wooden table is on the corner. So old and fragile. You can even see the trails of termite. There is an oil lamp on the table.&#x000A;&#x000A;You can also see a bed here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x03185578">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Dark Room&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185508"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185508">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Small Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185498"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185498">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Prision Cell&#x000A;This cell is so dirty. It looks like a prision. It even smells like a prision!  Anyway, this is your home now.&#x000A;&#x000A;An old wooden table is on the corner. So old and fragile. You can even see the trails of termite. There is an oil lamp on the table.&#x000A;&#x000A;You can also see a bed here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x031855E8">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Study&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185658"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185658">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Video Room&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x031856C8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x031856C8">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185738"/>
+      <child nodeId="node-0x03185A48"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185738">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x031857A8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x031857A8">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Study&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185818"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185818">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Small Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185888"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185888">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Prision Cell&#x000A;This cell is so dirty. It looks like a prision. It even smells like a prision!  Anyway, this is your home now.&#x000A;&#x000A;An old wooden table is on the corner. So old and fragile. You can even see the trails of termite. There is an oil lamp on the table.&#x000A;&#x000A;You can also see a bed here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x03185A48">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Study&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185AB8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185AB8">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Small Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185B28"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185B28">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Art Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185B98"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185B98">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Main Hall&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0319EAC8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0319EAC8">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Art Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0319EB38"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0319EB38">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Bar&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0319EBA8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0319EBA8">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0319EC18"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0319EC18">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Art Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0319EC88"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0319EC88">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Small Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0319ECF8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0319ECF8">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Prision Cell&#x000A;This cell is so dirty. It looks like a prision. It even smells like a prision!  Anyway, this is your home now.&#x000A;&#x000A;An old wooden table is on the corner. So old and fragile. You can even see the trails of termite. There is an oil lamp on the table.&#x000A;&#x000A;You can also see a bed here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x031858F8">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Art Corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185968"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185968">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x030EC470">
+    <command xml:space="preserve">a</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC5C0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC5C0">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">small corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC550"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC550">
+    <command xml:space="preserve">c</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC4E0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC4E0">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC630"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC630">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x030EC6A0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x030EC6A0">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Prision Cell&#x000A;This cell is so dirty. It looks like a prision. It even smells like a prision!  Anyway, this is your home now.&#x000A;&#x000A;An old wooden table is on the corner. So old and fragile. You can even see the trails of termite. There is an oil lamp on the table.&#x000A;&#x000A;You can also see a bed here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x030EC080">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Another Cell&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x03185428"/>
+    </children>
+  </item>
+  <item nodeId="node-0x03185428">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Prision Cell&#x000A;This cell is so dirty. It looks like a prision. It even smells like a prision!  Anyway, this is your home now.&#x000A;&#x000A;An old wooden table is on the corner. So old and fragile. You can even see the trails of termite. There is an oil lamp on the table.&#x000A;&#x000A;You can also see a bed here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
