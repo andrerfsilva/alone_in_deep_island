@@ -1,2 +1,4 @@
-alone_in_deep_island
+Alone in Deep-Island
 ====================
+
+Trabalho de Jogos. Ficção interativa.
