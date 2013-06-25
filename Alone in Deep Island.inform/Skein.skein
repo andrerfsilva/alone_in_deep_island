@@ -1,21 +1,394 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Skein rootNode="node-0x030E4300" xmlns="http://www.logicalshift.org.uk/IF/Skein">
+<Skein rootNode="node-0x02D253F0" xmlns="http://www.logicalshift.org.uk/IF/Skein">
   <generator>Inform 7 for Windows</generator>
-  <activeNode nodeId="node-0x030EC470"/>
-  <item nodeId="node-0x030E4300">
+  <activeNode nodeId="node-0x02D253F0"/>
+  <item nodeId="node-0x02D253F0">
     <command xml:space="preserve">- start -</command>
-    <result xml:space="preserve">Alone in Deep Island&#x000A;An Interactive Fiction by Andr&#x00E9;, Danyele, Henrique, M&#x00E1;rcio and Wakim&#x000A;Release 1 / Serial number 130622 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD&#x000A;&#x000A;Carla's Cell&#x000A;This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I seems they are observing how you behave. Anyway, this is your home now. This cell is so dirty. It looks like a prision. It even smells like a prision! &#x000A;&#x000A;An old wooden table is on the corner. So old and rot that you can even see the trails of termite.&#x000A;&#x000A;You can also see a heavy barred door and an iron bed here.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Alone in Deep Island&#x000A;An Interactive Fiction by Andr&#x00E9;, Danyele, Henrique, M&#x00E1;rcio and Wakim&#x000A;Release 1 / Serial number 130625 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD&#x000A;&#x000A;Carla's Cell&#x000A;This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I seems they are observing how you behave. Anyway, this is your home now. This cell is so dirty. It looks like a prision. It even smells like a prision! &#x000A;&#x000A;You can see a heavy barred door and an iron bed here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
-    <changed>YES</changed>
+    <changed>NO</changed>
     <temporary score="0">NO</temporary>
     <children>
-      <child nodeId="node-0x030EC470"/>
+      <child nodeId="node-0x02D25460"/>
+      <child nodeId="node-0x02D254D0"/>
+      <child nodeId="node-0x02D305D8"/>
+      <child nodeId="node-0x02D30EB8"/>
+      <child nodeId="node-0x02D31078"/>
     </children>
   </item>
-  <item nodeId="node-0x030EC470">
+  <item nodeId="node-0x02D25460">
     <command xml:space="preserve">take key</command>
     <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02D254D0">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D25540"/>
+      <child nodeId="node-0x02D2EDD0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D25540">
+    <command xml:space="preserve">x door</command>
+    <result xml:space="preserve">You see nothing special about the heavy barred door.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02D2EDD0">
+    <command xml:space="preserve">sw</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D2F038"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D2F038">
+    <command xml:space="preserve">se</command>
+    <result xml:space="preserve">(first opening the heavy barred door)&#x000A;&#x000A;Prison Hall&#x000A;An old wooden table is on the corner. So old and rot that you can even see the trails of termite.&#x000A;&#x000A;You can also see a rusty barred door, a heavy barred door, a chair and keeper here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D2F118"/>
+      <child nodeId="node-0x02D30D68"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D2F118">
+    <command xml:space="preserve">x keeper</command>
+    <result xml:space="preserve">You see nothing special about keeper.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D2F188"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D2F188">
+    <command xml:space="preserve">say hi</command>
+    <result xml:space="preserve">(to keeper)&#x000A;There is no reply.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D2F1F8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D2F1F8">
+    <command xml:space="preserve">take key</command>
+    <result xml:space="preserve">That seems to belong to keeper.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02D30D68">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Corridor&#x000A;You can see Knowledge door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30DD8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30DD8">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Prison Hall&#x000A;An old wooden table is on the corner. So old and rot that you can even see the trails of termite.&#x000A;&#x000A;You can also see a rusty barred door, a heavy barred door, a chair and keeper here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30E48"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30E48">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Corridor&#x000A;You can see Knowledge door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02D305D8">
+    <command xml:space="preserve">sit</command>
+    <result xml:space="preserve">What do you want to sit on?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D306C0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D306C0">
+    <command xml:space="preserve">bed</command>
+    <result xml:space="preserve">That's not something you can sit down on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30730"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30730">
+    <command xml:space="preserve">sit</command>
+    <result xml:space="preserve">What do you want to sit on?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D307A0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D307A0">
+    <command xml:space="preserve">floor</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30828"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30828">
+    <command xml:space="preserve">sit</command>
+    <result xml:space="preserve">What do you want to sit on?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30898"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30898">
+    <command xml:space="preserve">ground</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30908"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30908">
+    <command xml:space="preserve">sit</command>
+    <result xml:space="preserve">What do you want to sit on?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30978"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30978">
+    <command xml:space="preserve">me</command>
+    <result xml:space="preserve">But you're already in yourself.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D309E8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D309E8">
+    <command xml:space="preserve">enter me</command>
+    <result xml:space="preserve">But you're already in yourself.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30A58"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30A58">
+    <command xml:space="preserve">jump</command>
+    <result xml:space="preserve">You jump on the spot, fruitlessly.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30AC8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30AC8">
+    <command xml:space="preserve">dance</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30B38"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30B38">
+    <command xml:space="preserve">say ji</command>
+    <result xml:space="preserve">(to yourself)&#x000A;There is no reply.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02D30EB8">
+    <command xml:space="preserve">se</command>
+    <result xml:space="preserve">(first opening the heavy barred door)&#x000A;&#x000A;Prison Hall&#x000A;An old wooden table is on the corner. So old and rot that you can even see the trails of termite.&#x000A;&#x000A;You can also see a rusty barred door, a heavy barred door, a chair and keeper here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30F28"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30F28">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Corridor&#x000A;You can see a knowledge door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D30F98"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D30F98">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">black door&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D31008"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D31008">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Dark Room&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02D31078">
+    <command xml:space="preserve">l s</command>
+    <result xml:space="preserve">You see nothing unexpected in that direction.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D310E8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D310E8">
+    <command xml:space="preserve">lse</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D31158"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D31158">
+    <command xml:space="preserve">l se</command>
+    <result xml:space="preserve">You see nothing unexpected in that direction.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D311C8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D311C8">
+    <command xml:space="preserve">x se</command>
+    <result xml:space="preserve">You see nothing unexpected in that direction.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D31238"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D31238">
+    <command xml:space="preserve">se</command>
+    <result xml:space="preserve">(first opening the heavy barred door)&#x000A;&#x000A;Prison Hall&#x000A;An old wooden table is on the corner. So old and rot that you can even see the trails of termite.&#x000A;&#x000A;You can also see a rusty barred door, a heavy barred door, a chair and keeper here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D312A8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D312A8">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Corridor&#x000A;You can see a black door and a knowledge door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D31318"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D31318">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D31388"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D31388">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02D313F8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02D313F8">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">(first opening the black door)&#x000A;&#x000A;Dark Room&#x000A;You can see a black door here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>

@@ -29,7 +29,7 @@ Array UUID_ARRAY string "UUID://05D1E246-DB6B-471A-B4A5-4787FB1B989C//";
 Constant Story "Alone in Deep Island";
 Constant Headline "An Interactive Fiction";
 Constant Story_Author SC_2;
-Serial "130622";
+Serial "130625";
 
 Default Story 0;
 Default Headline 0;
@@ -4292,7 +4292,7 @@ Global lightflag = false;
 ];
 
 
-Constant REQUISITION_STACK_SIZE = 3*36;
+Constant REQUISITION_STACK_SIZE = 3*42;
 Array requisition_stack --> REQUISITION_STACK_SIZE;
 Global requisition_stack_pointer = 0;
 
@@ -9290,13 +9290,13 @@ Array KindHierarchy --> K0_kind (0) K1_room (0) K2_thing (0) K3_direction (0) K4
 Constant IK1_First = I88_carla_s_cell;
 Constant IK2_First = selfobj;
 Constant IK3_First = I46_north;
-Constant IK4_First = I92_heavy_barred_door;
+Constant IK4_First = I90_heavy_barred_door;
 Constant IK5_First = nothing;
-Constant IK6_First = I91_iron_bed;
+Constant IK6_First = I89_iron_bed;
 Constant IK7_First = nothing;
 Constant IK8_First = selfobj;
-Constant IK9_First = I104_subfloor;
-Constant IK10_First = nothing;
+Constant IK9_First = I113_prison_sector;
+Constant IK10_First = I95_keeper;
 Constant IK11_First = nothing;
 Constant IK12_First = nothing;
 Constant IK13_First = nothing;
@@ -9317,20 +9317,17 @@ Constant DirectionObject_9 = I55_down;
 Constant DirectionObject_10 = in_obj;
 Constant DirectionObject_11 = out_obj;
 Array Map_Storage -->
- 0 0 0 I92_heavy_barred_door 0 0 0 0 0 0 0 0 ! Exits from: I88_carla_s_cell
- I92_heavy_barred_door I97_rusty_barred_door 0 I99_study I100_video_room 0 I98_wumpus_world I101_art_corridor 0 0 0 0 ! Exits from: I93_small_corridor
- 0 0 0 0 0 I97_rusty_barred_door 0 0 0 0 0 0 ! Exits from: I96_ana_s_cell
- 0 0 0 0 0 0 0 I93_small_corridor 0 0 0 0 ! Exits from: I98_wumpus_world
- I93_small_corridor 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I99_study
- 0 0 I93_small_corridor 0 0 0 0 0 0 0 0 0 ! Exits from: I100_video_room
- 0 0 0 I103_bar 0 0 I93_small_corridor I102_main_hall 0 0 0 0 ! Exits from: I101_art_corridor
- 0 0 0 0 0 0 I101_art_corridor 0 0 0 0 0 ! Exits from: I102_main_hall
- I101_art_corridor 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I103_bar
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I106_matrix
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I107_torture_chamber
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I108_dojo
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I109_control_room
- 0 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I110_office
+ 0 0 0 0 I90_heavy_barred_door 0 0 0 0 0 0 0 ! Exits from: I88_carla_s_cell
+ 0 I98_rusty_barred_door I90_heavy_barred_door I99_corridor 0 0 0 0 0 0 0 0 ! Exits from: I91_prison_hall
+ 0 0 0 0 0 I98_rusty_barred_door 0 0 0 0 0 0 ! Exits from: I93_ana_s_cell
+ I91_prison_hall 0 0 I100_knowledge_door 0 0 I103_black_door 0 I107_upper_corridor 0 0 0 ! Exits from: I99_corridor
+ I100_knowledge_door 0 0 I104_automatic_door 0 0 0 0 0 0 0 0 ! Exits from: I101_study
+ 0 0 0 0 0 0 0 I103_black_door 0 0 0 0 ! Exits from: I102_wumpus_world
+ I104_automatic_door 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I105_video_room
+ I112_escape_door 0 0 I115_golden_door 0 0 0 I109_carved_door 0 I99_corridor 0 0 ! Exits from: I107_upper_corridor
+ 0 0 0 0 0 0 I109_carved_door 0 0 0 0 0 ! Exits from: I108_atelier
+ 0 0 0 I112_escape_door 0 0 0 0 0 0 0 0 ! Exits from: I111_bar
+ I115_golden_door 0 0 0 0 0 0 0 0 0 0 0 ! Exits from: I114_office
 ;
 
 Class VPH_Class;
@@ -9693,9 +9690,9 @@ Object selfobj ""
     with cap_short_name "Yourself"
     has mark_as_thing
     with IK2_Count 0
-    with IK2_Link I89_old_table
+    with IK2_Link I89_iron_bed
     with IK8_Count 0
-    with IK8_Link nothing
+    with IK8_Link I95_keeper
     with KD_Count 8
     with name 'yourself' 
     with action_bitmap 0 0 0 0 0 0 
@@ -9705,7 +9702,7 @@ Object I88_carla_s_cell ""
     class K1_room
     with short_name "Carla's Cell"
     with description text_routine_0
-    with map_region I104_subfloor
+    with map_region I113_prison_sector
     has proper
     with vector 0
     with room_index -1
@@ -9713,127 +9710,130 @@ Object I88_carla_s_cell ""
     with cap_short_name "Carla's Cell"
     has mark_as_room
     with IK1_Count 0
-    with IK1_Link I93_small_corridor
+    with IK1_Link I91_prison_hall
     with KD_Count 1
     with name 'carla^s' 'cell' 
 ;
 
-Object -> I89_old_table ""
+Object -> I89_iron_bed ""
+    class K6_supporter
+    with short_name "iron bed"
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 1
+    with IK2_Link I90_heavy_barred_door
+    with IK6_Count 0
+    with IK6_Link nothing
+    with KD_Count 6
+    with name 'iron' 'bed' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object I90_heavy_barred_door ""
+    class K4_door
+    with short_name "heavy barred door"
+    with with_key I92_iron_key
+    has lockable
+    has ~locked
+    with vector 0
+    with door_dir [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I88_carla_s_cell) return I50_southeast; return I48_northwest; ],
+    with door_to [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I88_carla_s_cell) return I91_prison_hall; return I88_carla_s_cell; ],
+    with found_in I88_carla_s_cell I91_prison_hall
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 2
+    with IK2_Link I94_chair
+    with IK4_Count 0
+    with IK4_Link I98_rusty_barred_door
+    with KD_Count 4
+    with name 'heavy' 'barred' 'door' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object I91_prison_hall ""
+    class K1_room
+    with short_name "Prison Hall"
+    with map_region I113_prison_sector
+    has proper
+    with vector 0
+    with room_index -1
+    with list_together 0
+    with cap_short_name "Prison Hall"
+    has mark_as_room
+    with IK1_Count 1
+    with IK1_Link I93_ana_s_cell
+    with KD_Count 1
+    with name 'prison' 'hall' 
+;
+
+Object -> I94_chair ""
+    class K2_thing
+    with short_name "chair"
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 4
+    with IK2_Link I95_keeper
+    with KD_Count 2
+    with name 'chair' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I95_keeper ""
+    class K10_man
+    with short_name "keeper"
+    has proper
+    with vector 0
+    with list_together 0
+    with cap_short_name "Keeper"
+    has mark_as_thing
+    with IK2_Count 5
+    with IK2_Link I92_iron_key
+    with IK8_Count 1
+    with IK8_Link nothing
+    with IK10_Count 0
+    with IK10_Link nothing
+    with KD_Count 10
+    with name 'keeper' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> -> I92_iron_key ""
+    class K2_thing
+    with short_name "iron key"
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 3
+    with IK2_Link I96_old_table
+    with KD_Count 2
+    with name 'iron' 'key' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I96_old_table ""
     class K2_thing
     with short_name "old table"
     with initial SC_5
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 1
-    with IK2_Link I91_iron_bed
+    with IK2_Count 6
+    with IK2_Link I97_lamp
     with KD_Count 2
     with name 'old' 'table' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I91_iron_bed ""
-    class K6_supporter
-    with short_name "iron bed"
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 3
-    with IK2_Link I90_lamp
-    with IK6_Count 0
-    with IK6_Link I95_chair
-    with KD_Count 6
-    with name 'iron' 'bed' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object I90_lamp ""
-    class K2_thing
-    with short_name "lamp"
-    with description SC_6
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 2
-    with IK2_Link I92_heavy_barred_door
-    with KD_Count 2
-    with name 'lamp' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object I92_heavy_barred_door ""
-    class K4_door
-    with short_name "heavy barred door"
-    with with_key I94_iron_key
-    has lockable
-    has locked
-    with vector 0
-    with door_dir [ loc; loc = location;
-            if (loc == thedark) loc = real_location;
-            if (loc == I88_carla_s_cell) return I49_south; return I46_north; ],
-    with door_to [ loc; loc = location;
-            if (loc == thedark) loc = real_location;
-            if (loc == I88_carla_s_cell) return I93_small_corridor; return I88_carla_s_cell; ],
-    with found_in I88_carla_s_cell I93_small_corridor
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 4
-    with IK2_Link I95_chair
-    with IK4_Count 0
-    with IK4_Link I97_rusty_barred_door
-    with KD_Count 4
-    with name 'heavy' 'barred' 'door' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object I93_small_corridor ""
-    class K1_room
-    with short_name "Small Corridor"
-    with map_region I104_subfloor
-    has proper
-    with vector 0
-    with room_index -1
-    with list_together 0
-    with cap_short_name "Small Corridor"
-    has mark_as_room
-    with IK1_Count 1
-    with IK1_Link I96_ana_s_cell
-    with KD_Count 1
-    with name 'small' 'corridor' 
-;
-
-Object -> I95_chair ""
-    class K6_supporter
-    with short_name "chair"
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 6
-    with IK2_Link I94_iron_key
-    with IK6_Count 1
-    with IK6_Link nothing
-    with KD_Count 6
-    with name 'chair' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object -> -> I94_iron_key ""
-    class K2_thing
-    with short_name "iron key"
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 5
-    with IK2_Link I97_rusty_barred_door
-    with KD_Count 2
-    with name 'iron' 'key' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object I96_ana_s_cell ""
+Object I93_ana_s_cell ""
     class K1_room
     with short_name "Ana's Cell"
-    with map_region I104_subfloor
+    with map_region I113_prison_sector
     has proper
     with vector 0
     with room_index -1
@@ -9841,216 +9841,356 @@ Object I96_ana_s_cell ""
     with cap_short_name "Ana's Cell"
     has mark_as_room
     with IK1_Count 2
-    with IK1_Link I98_wumpus_world
+    with IK1_Link I99_corridor
     with KD_Count 1
     with name 'ana^s' 'cell' 
 ;
 
-Object I97_rusty_barred_door ""
+Object I97_lamp ""
+    class K2_thing
+    with short_name "lamp"
+    with description SC_6
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 7
+    with IK2_Link I98_rusty_barred_door
+    with KD_Count 2
+    with name 'lamp' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object I98_rusty_barred_door ""
     class K4_door
     with short_name "rusty barred door"
-    with with_key I94_iron_key
+    with with_key I92_iron_key
     has lockable
     has locked
     with vector 0
     with door_dir [ loc; loc = location;
             if (loc == thedark) loc = real_location;
-            if (loc == I96_ana_s_cell) return I51_southwest; return I47_northeast; ],
+            if (loc == I93_ana_s_cell) return I51_southwest; return I47_northeast; ],
     with door_to [ loc; loc = location;
             if (loc == thedark) loc = real_location;
-            if (loc == I96_ana_s_cell) return I93_small_corridor; return I96_ana_s_cell; ],
-    with found_in I96_ana_s_cell I93_small_corridor
+            if (loc == I93_ana_s_cell) return I91_prison_hall; return I93_ana_s_cell; ],
+    with found_in I93_ana_s_cell I91_prison_hall
     with list_together 0
     has mark_as_thing
-    with IK2_Count 7
-    with IK2_Link nothing
+    with IK2_Count 8
+    with IK2_Link I100_knowledge_door
     with IK4_Count 1
-    with IK4_Link nothing
+    with IK4_Link I100_knowledge_door
     with KD_Count 4
     with name 'rusty' 'barred' 'door' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I98_wumpus_world ""
+Object I99_corridor ""
+    class K1_room
+    with short_name "Corridor"
+    has proper
+    with vector 0
+    with room_index -1
+    with list_together 0
+    with cap_short_name "Corridor"
+    has mark_as_room
+    with IK1_Count 3
+    with IK1_Link I101_study
+    with KD_Count 1
+    with name 'corridor' 
+;
+
+Object I100_knowledge_door ""
+    class K4_door
+    with short_name "knowledge door"
+    with vector 0
+    with door_dir [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I99_corridor) return I49_south; return I46_north; ],
+    with door_to [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I99_corridor) return I101_study; return I99_corridor; ],
+    with found_in I99_corridor I101_study
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 9
+    with IK2_Link I103_black_door
+    with IK4_Count 2
+    with IK4_Link I103_black_door
+    with KD_Count 4
+    with name 'knowledge' 'door' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object I101_study ""
+    class K1_room
+    with short_name "Study"
+    has proper
+    with vector 0
+    with room_index -1
+    with list_together 0
+    with cap_short_name "Study"
+    has mark_as_room
+    with IK1_Count 4
+    with IK1_Link I102_wumpus_world
+    with KD_Count 1
+    with name 'study' 
+;
+
+Object I102_wumpus_world ""
     class K1_room
     with short_name SC_7
-    with map_region I104_subfloor
     has proper
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 3
-    with IK1_Link I99_study
+    with IK1_Count 5
+    with IK1_Link I105_video_room
     with KD_Count 1
     with name 'wumpus' 'world' 
 ;
 
-Object I99_study ""
-    class K1_room
-    with short_name "Study"
-    with map_region I104_subfloor
+Object I103_black_door ""
+    class K4_door
+    with short_name "black door"
     with vector 0
-    with room_index -1
+    with door_dir [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I102_wumpus_world) return I53_west; return I52_east; ],
+    with door_to [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I102_wumpus_world) return I99_corridor; return I102_wumpus_world; ],
+    with found_in I102_wumpus_world I99_corridor
     with list_together 0
-    has mark_as_room
-    with IK1_Count 4
-    with IK1_Link I100_video_room
-    with KD_Count 1
-    with name 'study' 
+    has mark_as_thing
+    with IK2_Count 10
+    with IK2_Link I104_automatic_door
+    with IK4_Count 3
+    with IK4_Link I104_automatic_door
+    with KD_Count 4
+    with name 'black' 'door' 
+    with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I100_video_room ""
+Object I104_automatic_door ""
+    class K4_door
+    with short_name "automatic door"
+    with with_key I106_id_card
+    has lockable
+    has locked
+    with vector 0
+    with door_dir [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I101_study) return I49_south; return I46_north; ],
+    with door_to [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I101_study) return I105_video_room; return I101_study; ],
+    with found_in I101_study I105_video_room
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 11
+    with IK2_Link I106_id_card
+    with IK4_Count 4
+    with IK4_Link I109_carved_door
+    with KD_Count 4
+    with name 'automatic' 'door' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object I105_video_room ""
     class K1_room
     with short_name "Video Room"
-    with map_region I104_subfloor
     has proper
     with vector 0
     with room_index -1
     with list_together 0
     with cap_short_name "Video Room"
     has mark_as_room
-    with IK1_Count 5
-    with IK1_Link I101_art_corridor
+    with IK1_Count 6
+    with IK1_Link I107_upper_corridor
     with KD_Count 1
     with name 'video' 'room' 
 ;
 
-Object I101_art_corridor ""
-    class K1_room
-    with short_name "Art Corridor"
-    with map_region I105_groundfloor
+Object I106_id_card ""
+    class K2_thing
+    with short_name "id card"
     with vector 0
-    with room_index -1
     with list_together 0
-    has mark_as_room
-    with IK1_Count 6
-    with IK1_Link I102_main_hall
-    with KD_Count 1
-    with name 'art' 'corridor' 
+    has mark_as_thing
+    with IK2_Count 12
+    with IK2_Link I109_carved_door
+    with KD_Count 2
+    with name 'id' 'card' 
+    with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I102_main_hall ""
+Object I107_upper_corridor ""
     class K1_room
-    with short_name "Main Hall"
-    with map_region I105_groundfloor
+    with short_name "Upper Corridor"
+    has proper
     with vector 0
     with room_index -1
     with list_together 0
+    with cap_short_name "Upper Corridor"
     has mark_as_room
     with IK1_Count 7
-    with IK1_Link I103_bar
+    with IK1_Link I108_atelier
     with KD_Count 1
-    with name 'main' 'hall' 
+    with name 'upper' 'corridor' 
 ;
 
-Object I103_bar ""
+Object I108_atelier ""
     class K1_room
-    with short_name "Bar"
-    with map_region I105_groundfloor
+    with short_name "Atelier"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 8
-    with IK1_Link I106_matrix
+    with IK1_Link I111_bar
     with KD_Count 1
-    with name 'bar' 
+    with name 'atelier' 
 ;
 
-Object I104_subfloor ""
-    class K9_region
-    with short_name "Subfloor"
-    has proper
+Object I109_carved_door ""
+    class K4_door
+    with short_name "carved door"
+    with with_key I110_chisel
+    has lockable
+    has locked
     with vector 0
+    with door_dir [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I107_upper_corridor) return I53_west; return I52_east; ],
+    with door_to [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I107_upper_corridor) return I108_atelier; return I107_upper_corridor; ],
+    with found_in I107_upper_corridor I108_atelier
     with list_together 0
-    with cap_short_name "Subfloor"
-    with regional_found_in [; if (TestRegionalContainment(location, I104_subfloor)) rtrue; rfalse; ],
-    with IK9_Count 0
-    with IK9_Link I105_groundfloor
-    with KD_Count 9
-    with name 'subfloor' 
+    has mark_as_thing
+    with IK2_Count 13
+    with IK2_Link I110_chisel
+    with IK4_Count 5
+    with IK4_Link I112_escape_door
+    with KD_Count 4
+    with name 'carved' 'door' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I105_groundfloor ""
-    class K9_region
-    with short_name "Groundfloor"
-    has proper
+Object I110_chisel ""
+    class K2_thing
+    with short_name "chisel"
     with vector 0
     with list_together 0
-    with cap_short_name "Groundfloor"
-    with regional_found_in [; if (TestRegionalContainment(location, I105_groundfloor)) rtrue; rfalse; ],
-    with IK9_Count 1
-    with IK9_Link nothing
-    with KD_Count 9
-    with name 'groundfloor' 
+    has mark_as_thing
+    with IK2_Count 14
+    with IK2_Link I112_escape_door
+    with KD_Count 2
+    with name 'chisel' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I106_matrix ""
+Object I111_bar ""
     class K1_room
-    with short_name "Matrix"
+    with short_name "Bar"
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 9
-    with IK1_Link I107_torture_chamber
+    with IK1_Link I114_office
     with KD_Count 1
-    with name 'matrix' 
+    with name 'bar' 
 ;
 
-Object I107_torture_chamber ""
-    class K1_room
-    with short_name "Torture Chamber"
+Object I112_escape_door ""
+    class K4_door
+    with short_name "escape door"
     with vector 0
-    with room_index -1
+    with door_dir [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I111_bar) return I49_south; return I46_north; ],
+    with door_to [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I111_bar) return I107_upper_corridor; return I111_bar; ],
+    with found_in I111_bar I107_upper_corridor
     with list_together 0
-    has mark_as_room
-    with IK1_Count 10
-    with IK1_Link I108_dojo
-    with KD_Count 1
-    with name 'torture' 'chamber' 
+    has mark_as_thing
+    with IK2_Count 15
+    with IK2_Link I115_golden_door
+    with IK4_Count 6
+    with IK4_Link I115_golden_door
+    with KD_Count 4
+    with name 'escape' 'door' 
+    with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I108_dojo ""
-    class K1_room
-    with short_name "Dojo"
+Object I113_prison_sector ""
+    class K9_region
+    with short_name "Prison Sector"
+    has proper
     with vector 0
-    with room_index -1
     with list_together 0
-    has mark_as_room
-    with IK1_Count 11
-    with IK1_Link I109_control_room
-    with KD_Count 1
-    with name 'dojo' 
+    with cap_short_name "Prison Sector"
+    with regional_found_in [; if (TestRegionalContainment(location, I113_prison_sector)) rtrue; rfalse; ],
+    with IK9_Count 0
+    with IK9_Link nothing
+    with KD_Count 9
+    with name 'prison' 'sector' 
+    with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I109_control_room ""
-    class K1_room
-    with short_name "Control Room"
-    with vector 0
-    with room_index -1
-    with list_together 0
-    has mark_as_room
-    with IK1_Count 12
-    with IK1_Link I110_office
-    with KD_Count 1
-    with name 'control' 'room' 
-;
-
-Object I110_office ""
+Object I114_office ""
     class K1_room
     with short_name SC_8
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
-    with IK1_Count 13
+    with IK1_Count 10
     with IK1_Link nothing
     with KD_Count 1
     with name 'office' 
+;
+
+Object I115_golden_door ""
+    class K4_door
+    with short_name "golden door"
+    with with_key I116_password
+    has lockable
+    has locked
+    with vector 0
+    with door_dir [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I107_upper_corridor) return I49_south; return I46_north; ],
+    with door_to [ loc; loc = location;
+            if (loc == thedark) loc = real_location;
+            if (loc == I107_upper_corridor) return I114_office; return I107_upper_corridor; ],
+    with found_in I107_upper_corridor I114_office
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 16
+    with IK2_Link I116_password
+    with IK4_Count 7
+    with IK4_Link nothing
+    with KD_Count 4
+    with name 'golden' 'door' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object I116_password ""
+    class K2_thing
+    with short_name "password"
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 17
+    with IK2_Link nothing
+    with KD_Count 2
+    with name 'password' 
+    with action_bitmap 0 0 0 0 0 0 
 ;
 
 Constant I65_figure_of_cover = 1;
@@ -10096,8 +10236,8 @@ Array tab_0_2 table $2066 2  (Consult_Grammar_95)  (Consult_Grammar_96)  (Consul
 Array tab_0_3 table $0067 3  (IMMEDIATELY_RESTART_VM_R)  (IMMEDIATELY_RESTORE_SAVED_R)  TABLE_NOVALUE (IMMEDIATELY_QUIT_R)  (IMMEDIATELY_UNDO_R) ;
 Array tab_0_4 table $0068 4  TABLE_NOVALUE TABLE_NOVALUE (V26_amusing_a_victorious_pla)  TABLE_NOVALUE TABLE_NOVALUE;
 Array T1_locale_priorities table  tab_1_0 tab_1_1;
-Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
-Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
+Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
+Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
 Array TB_Blanks -> 
   ! For table T0_final_question_options
   $00  ! Column 0
@@ -10107,7 +10247,7 @@ Array TB_Blanks ->
   $1b  ! Column 4
   
   ! For table T1_locale_priorities
-  $ff $01  ! Column 1
+  $ff $ff $07  ! Column 1
   
   ! End of table
   NULL NULL;
@@ -22004,8 +22144,8 @@ Constant SLOW_ROUTE_FINDING;
 #endif;
 #endif;
 
-Constant NUM_DOORS = 2;
-Constant NUM_ROOMS = 14;
+Constant NUM_DOORS = 8;
+Constant NUM_ROOMS = 11;
 
 Array DoorRoutingViable -> NUM_DOORS+1;
 
@@ -22192,7 +22332,7 @@ Array FWMatrix --> NUM_ROOMS*NUM_ROOMS;
 ];
 #ENDIF;
 
-Constant MAX_ROUTE_LENGTH = 36 + 32;
+Constant MAX_ROUTE_LENGTH = 42 + 32;
 
 [ RelationRouteTo relation from to count  handler;
 	if (count) {
