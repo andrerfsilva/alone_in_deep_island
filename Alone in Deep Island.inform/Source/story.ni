@@ -1,5 +1,7 @@
 "Alone in Deep Island" by "André, Danyele, Henrique, Márcio and Wakim"
 
+[Boa referencia: http://eblong.com/zarf/i7index/]
+
 Part - Posture Rules 
 
 Section - Sit, lie and stand
@@ -153,7 +155,24 @@ An Waiter is a kind of Intern.
 
 Part - Powers
 
-[http://inform7.com/learn/eg/dm/source_21.html - conceito de morto]
+Section - Powers Variables
+
+[Variaveis de controle dos poderes]
+The power is a kind of value. The power are allowed and denied.
+
+The Telekinesis Power is a power that varies. The Telekinesis Power is allowed.
+The Pyrokinesis Power is a power that varies. The Pyrokinesis Power is denied.
+
+Section - Telekinesis Power
+
+[Falta definir o que cada poder faz ao something]
+Telekinesis is an action applying to one thing. Understand "Use telekinesis on [something]" as telekinesis. Understand "Use telekinesis in [something]" as telekinesis.
+Evil Telekinesis is an action applying to one thing. Understand "Use evil telekinesis on [something]" as evil telekinesis. Understand "Use evil telekinesis in [something]" as evil telekinesis.
+
+Pyrokinesis is an action applying to one thing. Understand "Use pyrokinesis on [something]" as telekinesis. Understand "Use pyrokinesis in [something]" as pyrokinesis.
+Evil Pyrokinesis is an action applying to one thing. Understand "Use evil pyrokinesis on [something]" as evil telekinesis. Understand "Use evil pyrokinesis in [something]" as evil pyrokinesis.
+
+[http://inform7.com/learn/eg/dm/source_21.html - conceito de morto, podemos usar]
 
 Part - Help
 
@@ -168,6 +187,10 @@ examine SOMETHING[line break]
 look under SOMETHING[line break]
 check SOMETHING[line break]
 give SOMETHING to SOMEONE[line break]
+use Telekinesis on SOMETHING[line break]
+use evil Telekinesis on SOMETHING[line break]
+use Pyrokinesis on SOMETHING[line break]
+use evil Pyrokinesis on SOMETHING[line break]
 Maybe you can try others....".
 Instead of doing something other than examining with help, say "It´s only a help page, man![line break]".
 
@@ -219,9 +242,63 @@ The knowledge door is a door.
 The knowledge door is lockable and closed.
 
 [--- Wumpus World puzzle ---]
-Wumpus World is a room. The printed name of Wumpus World is "Dark Room".
+Wumpus World is a region. The printed name of Wumpus World is "Dark Room".
 
-The black door is east of Corridor and west of Wumpus World.
+[Wumpus World eh uma matrix 4x4]
+
+[Primeira linha]
+Wumpus1x1 is a dark room. Wumpus1x1 is in Wumpus World.
+Wumpus1x2 is a dark room. Wumpus1x2 is in Wumpus World.
+Wumpus1x3 is a dark room. Wumpus1x3 is in Wumpus World.
+Wumpus1x4 is a dark room. Wumpus1x4 is in Wumpus World.
+
+[Segunda linha]
+Wumpus2x1 is a dark room. Wumpus2x1 is in Wumpus World.
+Wumpus2x2 is a dark room. Wumpus2x2 is in Wumpus World.
+Wumpus2x3 is a dark room. Wumpus2x3 is in Wumpus World.
+Wumpus2x4 is a dark room. Wumpus2x4 is in Wumpus World.
+
+[Terceira linha]
+Wumpus3x1 is a dark room. Wumpus3x1 is in Wumpus World.
+Wumpus3x2 is a dark room. Wumpus3x2 is in Wumpus World.
+Wumpus3x3 is a dark room. Wumpus3x3 is in Wumpus World.
+Wumpus3x4 is a dark room. Wumpus3x4 is in Wumpus World.
+
+[Quarta linha]
+Wumpus4x1 is a dark room. Wumpus4x1 is in Wumpus World.
+Wumpus4x2 is a dark room. Wumpus4x2 is in Wumpus World.
+Wumpus4x3 is a dark room. Wumpus4x3 is in Wumpus World.
+Wumpus4x4 is a dark room. Wumpus4x4 is in Wumpus World.
+
+[Primeira linha]
+Wumpus1x2 is east of Wumpus1x1.
+Wumpus1x3 is east of Wumpus1x2.
+Wumpus1x4 is east of Wumpus1x3.
+
+[Segunda linha]
+Wumpus2x1 is south of Wumpus1x1.
+Wumpus2x2 is east of Wumpus2x1 and south of Wumpus1x2.
+Wumpus2x3 is east of Wumpus2x2 and south of Wumpus1x3.
+Wumpus2x4 is east of Wumpus2x3 and south of Wumpus1x4.
+
+[Terceira linha]
+Wumpus3x1 is south of Wumpus2x1.
+Wumpus3x2 is east of Wumpus3x1 and south of Wumpus2x2.
+Wumpus3x3 is east of Wumpus3x2 and south of Wumpus2x3.
+Wumpus3x4 is east of Wumpus3x3 and south of Wumpus2x4.
+
+[Quarta linha]
+Wumpus4x1 is south of Wumpus3x1.
+Wumpus4x2 is east of Wumpus4x1 and south of Wumpus3x2.
+Wumpus4x3 is east of Wumpus4x2 and south of Wumpus3x3.
+Wumpus4x4 is east of Wumpus4x3 and south of Wumpus3x4.
+
+Visibility rule when in Wumpus1x1:
+	if examining: 
+		there is insufficient light;
+	there is sufficient light.
+
+The black door is east of Corridor and west of Wumpus1x1.
 The black door is a door.
 The black door is lockable and closed.
 
