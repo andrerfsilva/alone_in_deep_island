@@ -1,8 +1,8 @@
 "Alone in Deep Island" by "André, Danyele, Henrique, Márcio and Wakim"
 
-Part 1 - Posture Rules 
+Part - Posture Rules 
 
-Section 1 - Sit, lie and stand
+Section - Sit, lie and stand
 
 [Regras de posicionamento http://inform7.com/learn/man/Rex346.html]
 
@@ -85,9 +85,9 @@ Check an actor going somewhere:
 		silently try the actor taking position standing; 
 		if the actor is not standing, stop the action.
 
-Part 2 - Object definitions
+Part - Object definitions
 
-Section 1 - Posture Kinds
+Section - Posture Kinds
 
 A chair is a kind of supporter. A chair is always enterable. Every chair allows seated and standing. A chair is usually seated.
 A sofa is a kind of supporter. A sofa is always enterable. Every sofa allows seated, standing and reclining. A sofa is usually seated.
@@ -95,7 +95,33 @@ A bed is a kind of supporter. A bed is always enterable. Every bed allows seated
 
 A iron bed is a kind of bed.
 
-Section 2 - Scenery
+Section - Kinds
+
+A key is a kind of thing. It is portable.
+
+A paper is a kind of thing.
+
+A bottle is a kind of thing. A drink bottle is a bottle.
+
+A cloth is a kind of thing.
+
+A password is a kind of thing. It is portable.
+
+A toy is a kind of thing. It is portable.
+
+A box is a kind of thing.
+
+A lamp is a kind of thing.
+
+Section - Special Kinds
+
+[Definir as coisas que possuem logica especial]
+
+[Bebidas do bar]
+[TV da sala de video]
+[Cadeira da sala de estudo]
+
+Section - Scenery
 
 A table is a scenery.
 
@@ -113,33 +139,7 @@ A statue is a scenery.
 
 A painting is a scenery.
 
-Section 3 - Kinds
-
-A key is a kind of thing.
-
-A paper is a kind of thing.
-
-A bottle is a kind of thing. A drink bottle is a bottle.
-
-A cloth is a kind of thing.
-
-A password is a kind of thing.
-
-A toy is a kind of thing.
-
-A box is a kind of thing.
-
-A lamp is a kind of thing.
-
-Section 4 - Special Kinds
-
-[Definir as coisas que possuem logica especial]
-
-[Bebidas do bar]
-[TV da sala de video]
-[Cadeira da sala de estudo]
-
-Part 3 - Persons
+Part - Persons
 
 Dr Pesadelo is a man.
 
@@ -151,22 +151,43 @@ An Intern is a kind of person
 
 An Waiter is a kind of Intern.
 
-Part 4 - Powers
+Part - Powers
 
 [http://inform7.com/learn/eg/dm/source_21.html - conceito de morto]
 
-Part 5 - The Game
+Part - Help
+
+help is a backdrop which is everywhere. "[italic type]-----------------HELP PAGE------------------[line break][line break]There is some typical comands:[line break][line break]
+go DOOR's NAME[line break]
+go through DOOR's NAME [line break]
+go DIRECTION[line break]
+get SOMETHING[line break]
+look (to see the room)[line break]
+look at SOMETHING[line break]
+examine SOMETHING[line break]
+look under SOMETHING[line break]
+check SOMETHING[line break]
+give SOMETHING to SOMEONE[line break]
+Maybe you can try others....".
+Instead of doing something other than examining with help, say "It´s only a help page, man![line break]".
+
+Understand "[something]" as examining.
+
+Part - The Game
+
+[Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
+The description of door is "The [noun] door it's just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
 
 [--- Prision Cell, first puzzle ---]
 Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I seems they are observing how you behave. Anyway, this is your home now. [end if]This cell is so dirty. It looks like a prision. It even smells like a prision! [if visited] Anyway, this is your home now."
 
-The Carla's bed is an iron bed in Carla's Cell.
+The Carla's bed is an iron bed in Carla's Cell. 
 
-There is an window in the Carla's Cell. The description of window is "Description of window"
+There is an window in the Carla's Cell. "Description of window"
 
 A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall.
 The heavy barred door is a door. 
-The heavy barred door is lockable and unlocked.
+The heavy barred door is lockable, unlocked and closed.
 The iron key unlocks the heavy barred door.
 
 [--- Ana's Cell ---]
@@ -183,11 +204,11 @@ The iron key is a key. The Keeper carries the iron key.
 
 The old table is here. "An old wooden table is on the corner. So old and rot that you can even see the trails of termite."
 
-The description of the lamp is "An ordinary oil lamp. It is lit."
+The description of the lamp is "An ordinary oil lamp. It is lit.".
 
 A rusty barred door is northeast of Prison Hall and southwest of Ana's Cell.
 The rusty barred door is a door.
-The rusty barred door is lockable and locked.
+The rusty barred door is lockable, locked and closed.
 The iron key is a key. The iron key unlocks the rusty barred door.
 
 [--- Corridor ---]
@@ -195,19 +216,21 @@ Corridor is a room. Corridor is south of Prison Hall.
 
 The knowledge door is south of Corridor and north of Study.
 The knowledge door is a door.
+The knowledge door is lockable and closed.
 
 [--- Wumpus World puzzle ---]
 Wumpus World is a room. The printed name of Wumpus World is "Dark Room".
 
 The black door is east of Corridor and west of Wumpus World.
 The black door is a door.
+The black door is lockable and closed.
 
 [--- Study ---]
 The Study is a room.
 
 The automatic door is north of Video Room and south of Study.
 The automatic door is a door.
-The automatic door is lockable and locked.
+The automatic door is lockable, locked and closed.
 The id card is a password.
 The id card unlocks the automatic door.
 
@@ -222,7 +245,7 @@ The Atelier is a room.
 
 The carved door is west of Upper Corridor and east of Atelier.
 The carved door is a door.
-The carved door is lockable and locked.
+The carved door is lockable, locked and closed.
 The chisel is a key. The chisel unlocks the carved door.
 
 [--- Bar ---]
@@ -236,7 +259,7 @@ The Office is a room. The printed name of the office is "Dr. Pesadelo's Office".
 
 The golden door is south of Upper Corridor and north of The Office.
 The golden door is a door.
-The golden door is lockable and locked.
+The golden door is lockable, locked and closed.
 The secret password is a password. The secret password unlocks the golden door. [se der, implementar um terminal para digitar senha]
 
 [Regions]
