@@ -141,6 +141,8 @@ A statue is a scenery.
 
 A painting is a scenery.
 
+A shadow is a scenery.
+
 Part - Persons
 
 Dr Pesadelo is a man.
@@ -163,14 +165,53 @@ The power is a kind of value. The power are allowed and denied.
 The Telekinesis Power is a power that varies. The Telekinesis Power is allowed.
 The Pyrokinesis Power is a power that varies. The Pyrokinesis Power is denied.
 
-Section - Telekinesis Power
+Section - Powers Definition
 
-[Falta definir o que cada poder faz ao something]
-Telekinesis is an action applying to one thing. Understand "Use telekinesis on [something]" as telekinesis. Understand "Use telekinesis in [something]" as telekinesis.
-Evil Telekinesis is an action applying to one thing. Understand "Use evil telekinesis on [something]" as evil telekinesis. Understand "Use evil telekinesis in [something]" as evil telekinesis.
+Telekinesis is an action applying to one thing.
+Understand "telekinesis on [something]" or "tele on [something]" or "telekinesis in [something]" or "tele in [something]" or "telekinesis [something]" or "tele [something]" as telekinesis.
 
-Pyrokinesis is an action applying to one thing. Understand "Use pyrokinesis on [something]" as telekinesis. Understand "Use pyrokinesis in [something]" as pyrokinesis.
-Evil Pyrokinesis is an action applying to one thing. Understand "Use evil pyrokinesis on [something]" as evil telekinesis. Understand "Use evil pyrokinesis in [something]" as evil pyrokinesis.
+Evil Telekinesis is an action applying to one thing.
+Understand "evil telekinesis on [something]" or "evil tele on [something]" or "evil telekinesis in [something]" or "evil tele in [something]" or "evil telekinesis [something]" or "evil tele [something]" as evil telekinesis.
+
+Pyrokinesis is an action applying to one thing.
+Understand "pyrokinesis on [something]" or "pyrokinesis in [something]" or "pyrokinesis [something]" or "pyro on [something]" or "pyro in [something]" or "pyro [something]" as pyrokinesis.
+
+Evil Pyrokinesis is an action applying to one thing.
+Understand "evil pyrokinesis on [something]" or "evil pyrokinesis in [something]" or "evil pyrokinesis [something]" or  "evil pyro on [something]" or "evil pyro in [something]" or "evil pyro [something]" as evil pyrokinesis. 
+
+Section - Powers Behaviors
+
+[Definir o que acontece ao usar a Telecinese, podemos definir kinds para cada tipo de efeito da telecinese]
+
+[Telekinesis]
+Before telekinesis something:
+	if something is scenery:
+		say "[noun] affected by telekinesis";
+	otherwise:
+		say "Not affected by telekinesis".
+
+Before evil telekinesis something:
+	if something is scenery:
+		say "[noun] affected by evil telekinesis";
+	otherwise:
+		say "Not affected by evil telekinesis".
+
+[Pyrokinesis]
+
+Before pyrokinesis something:
+	if Pyrokinesis Power is denied:
+		say "You don't have learned the Pyrokinesis Yet";
+		stop the action;
+	otherwise if something is scenery:
+		say "[noun] affected by pyrokinesis";
+	otherwise:
+		say "Not affected by pyrokinesis".
+
+Before evil pyrokinesis something:
+	if something is scenery:
+		say "[noun] affected by evil pyrokinesis";
+	otherwise:
+		say "Not affected by evil pyrokinesis".
 
 [http://inform7.com/learn/eg/dm/source_21.html - conceito de morto, podemos usar]
 
@@ -187,13 +228,15 @@ examine SOMETHING[line break]
 look under SOMETHING[line break]
 check SOMETHING[line break]
 give SOMETHING to SOMEONE[line break]
-use Telekinesis on SOMETHING[line break]
-use evil Telekinesis on SOMETHING[line break]
+telekinesis in/on SOMETHING[line break]
+evil telekinesis in/on SOMETHING[line break]
+tele on/in SOMETHING[line break]
+evil tele in/on SOMETHING[line break]
 use Pyrokinesis on SOMETHING[line break]
 use evil Pyrokinesis on SOMETHING[line break]
 Maybe you can try others....".
-Instead of doing something other than examining with help, say "It´s only a help page, man![line break]".
 
+Instead of doing something other than examining with help, say "It´s only a help page, man![line break]".
 Understand "[something]" as examining.
 
 Part - The Game
@@ -243,6 +286,11 @@ The knowledge door is lockable and closed.
 
 [--- Wumpus World puzzle ---]
 Wumpus World is a region. The printed name of Wumpus World is "Dark Room".
+
+Rule for printing the description of a dark room:
+	say "I can feel:[line break] [list of objects in dark room]"
+	
+[A ideia eh definir items para descrever sensacoes de norte, sul, leste e oeste]
 
 [Wumpus World eh uma matrix 4x4]
 
