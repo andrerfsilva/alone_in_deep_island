@@ -167,12 +167,18 @@ The Pyrokinesis Power is a power that varies. The Pyrokinesis Power is denied.
 
 Section - Powers Definition
 
+[Telekinesis]
+[Achei que telekinesis e evil telekinesis são muito vamos. Vamos dar nomes de verbos aos poderes.]
 Telekinesis is an action applying to one thing.
 Understand "telekinesis on [something]" or "tele on [something]" or "telekinesis in [something]" or "tele in [something]" or "telekinesis [something]" or "tele [something]" as telekinesis.
 
 Evil Telekinesis is an action applying to one thing.
 Understand "evil telekinesis on [something]" or "evil tele on [something]" or "evil telekinesis in [something]" or "evil tele in [something]" or "evil telekinesis [something]" or "evil tele [something]" as evil telekinesis.
 
+Levitating is an action applying to one thing.
+Understand "levitate [something]" as levitating.
+
+[Pyrokinesis]
 Pyrokinesis is an action applying to one thing.
 Understand "pyrokinesis on [something]" or "pyrokinesis in [something]" or "pyrokinesis [something]" or "pyro on [something]" or "pyro in [something]" or "pyro [something]" as pyrokinesis.
 
@@ -189,7 +195,7 @@ Before telekinesis something:
 		say "[noun] affected by telekinesis";
 	otherwise:
 		say "Not affected by telekinesis".
-
+		
 Before evil telekinesis something:
 	if something is scenery:
 		say "[noun] affected by evil telekinesis";
@@ -244,7 +250,7 @@ Part - The Game
 [Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
 The description of door is "The [noun] door it's just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
 
-[--- Prision Cell, first puzzle ---]
+[--- Carla's Cell, first puzzle ---]
 Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I seems they are observing how you behave. Anyway, this is your home now. [end if]This cell is so dirty. It looks like a prision. It even smells like a prision! [if visited] Anyway, this is your home now."
 
 The Carla's bed is an iron bed in Carla's Cell. 
@@ -253,8 +259,19 @@ There is an window in the Carla's Cell. "Description of window"
 
 A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall.
 The heavy barred door is a door. 
-The heavy barred door is lockable, unlocked and closed.
+The heavy barred door is lockable and locked.
 The iron key unlocks the heavy barred door.
+
+The iron key is a key. The iron key is in Carla's Cell. [Virtualmente, é como se a chave estivesse nessa sala. Foi a solução que achei para permitir usar o poder na chave daqui. OBS: usei o verbo "levitate" para denotar o poder.]
+Before levitating the iron key:
+	now the player has the iron key;
+	say "You focus you thoughts on the key. Suddenly, but gently, it starts levitating and moving towards yourself. It passess throught the barred door. You reach out and easily take it still in the air. The key is yours!".
+Instead of taking the iron key, say "You cannot reach the keeper's belt."
+
+Before listing nondescript items: 
+	if the iron key is marked for listing: 
+		say "You can see a keeper sleeping outside, bending on a chair. A ring of iron keys is on his belt."; 
+		change the iron key to not marked for listing.
 
 [--- Ana's Cell ---]
 Ana's Cell is a room.
@@ -265,8 +282,8 @@ The Ana's bed is an iron bed in Ana's Cell.
 Prison Hall is a room.
 
 A wooden chair is a chair. The wooden char is in the Prison Hall.
-In the Prison Hall is a man called Keeper.
-The iron key is a key. The Keeper carries the iron key.
+In the Prison Hall is a man called the keeper.
+[The iron key is a key. The keeper carries the iron key.]
 
 The old table is here. "An old wooden table is on the corner. So old and rot that you can even see the trails of termite."
 
