@@ -168,7 +168,7 @@ The Pyrokinesis Power is a power that varies. The Pyrokinesis Power is denied.
 Section - Powers Definition
 
 [Telekinesis]
-[Achei que telekinesis e evil telekinesis são muito vamos. Vamos dar nomes de verbos aos poderes.]
+[Achei que telekinesis e evil telekinesis muito vagos. Vamos dar nomes de verbos aos poderes.]
 Telekinesis is an action applying to one thing.
 Understand "telekinesis on [something]" or "tele on [something]" or "telekinesis in [something]" or "tele in [something]" or "telekinesis [something]" or "tele [something]" as telekinesis.
 
@@ -253,9 +253,9 @@ The description of door is "The [noun] door it's just a door, do you know how to
 [--- Carla's Cell, first puzzle ---]
 Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I seems they are observing how you behave. Anyway, this is your home now. [end if]This cell is so dirty. It looks like a prision. It even smells like a prision! [if visited] Anyway, this is your home now."
 
-The Carla's bed is an iron bed in Carla's Cell. 
+Carla's bed is an iron bed in Carla's Cell. 
 
-There is an window in the Carla's Cell. "Description of window"
+A window is in Carla's Cell. "Description of window"
 
 A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall.
 The heavy barred door is a door. 
