@@ -113,6 +113,9 @@ A chair is affectable.
 
 Section - Special Kinds
 
+chisel is a key.
+madness key is a key.
+
 [Definir as coisas que possuem logica especial]
 
 [Bebidas do bar]
@@ -129,7 +132,6 @@ A tv is a scenery.
 A monitor is a scenery.
 A statue is a scenery.
 A painting is a scenery. painting is affectable.
-A shadow is a scenery.
 A bed is scenery.
 
 Part - Persons
@@ -138,7 +140,8 @@ Dr Pesadelo is a man.
 Carla is a woman.
 Ana is a woman.
 An intern is a kind of person.
-An waiter is a kind of intern.
+A waiter is a kind of intern.
+A shadow is a kind of animal.
 
 Part - Powers
 
@@ -164,9 +167,6 @@ Understand "force choke [something]" or "fc [something]" as force choking.
 [Pyrokinesis]
 firing is an action applying to one thing.
 Understand "set fire on [something]" or "set fire in [something]" or "set fire [something]" or "fire on [something]" or "fire in [something]" or "fire [something]" as firing.
-
-[burning is an action applying to one thing.
-Understand "burn [something]" or "burn in [something]" or "burn [something]" as burning.]
 
 Section - Powers Behaviors
 
@@ -202,7 +202,10 @@ Before burning something:
 
 Part - Help
 
-help is a backdrop which is everywhere. "[italic type]-----------------HELP PAGE------------------[line break][line break]There is some typical commIt'sands:[line break][line break]
+helping is an action applying to nothing. Understand "help" as helping.
+
+Instead of helping:
+	say "[italic type]-----------------HELP PAGE------------------[line break][line break]There is some typical commIt'sands:[line break][line break]
 go DOOR's NAME[line break]
 go through DOOR's NAME [line break]
 go DIRECTION[line break]
@@ -217,12 +220,12 @@ levitate in/on SOMETHING[line break]
 force chocke in/on SOMETHING[line break]
 lev on/in SOMETHING[line break]
 chocke in/on SOMETHING[line break]
-use Pyrokinesis on SOMETHING[line break]
-use evil Pyrokinesis on SOMETHING[line break]
+set fire in/on SOMETHING[line break]
+fire in/on SOMETHING[line break]
+set fire SOMETHING[line break]
+fire SOMETHING[line break]
+burn SOMETHING[line break]
 Maybe you can try others....".
-
-Instead of doing something other than examining with help, say "It's only a help page, man![line break]".
-Understand "[something]" as examining.
 
 Part - The Game
 
@@ -288,9 +291,7 @@ The knowledge door is lockable and closed.
 Wumpus World is a region. The printed name of Wumpus World is "Dark Room".
 
 Rule for printing the description of a dark room:
-	say "I can feel:[line break] [list of objects in dark room]"
-	
-[A ideia eh definir items para descrever sensacoes de norte, sul, leste e oeste]
+	say "Your are in [location]".
 
 [Wumpus World eh uma matrix 4x4]
 
@@ -317,6 +318,31 @@ Wumpus4x1 is a dark room. Wumpus4x1 is in Wumpus World.
 Wumpus4x2 is a dark room. Wumpus4x2 is in Wumpus World.
 Wumpus4x3 is a dark room. Wumpus4x3 is in Wumpus World.
 Wumpus4x4 is a dark room. Wumpus4x4 is in Wumpus World.
+
+shadow is not marked for listing.
+
+There is a shadow in Wumpus2x2. There is a shadow in Wumpus3x3.
+There is a shadow in Wumpus2x4.
+
+The maddness key is in Wumpus1x3.
+The chisel is in Wumpus3x4.
+
+After going to a dark room:
+	say "[list of objects in location]";
+	if there is a shadow in location:
+		end the story saying "You was killed by an Shadow!";
+	otherwise if there is a chisel in location:
+		now the player has the chisel;
+		say "You got the chisel.";
+		if the player has the madness key:
+			say "Now you can leave.";
+	otherwise if there is a madness key in location:
+		now the player has the madness key;
+		say "You got the maddness key!";
+		if the player has the chisel:
+			say "Now you can leave.";
+	otherwise:
+		continue the action.
 
 [Primeira linha]
 Wumpus1x2 is east of Wumpus1x1.
