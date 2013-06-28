@@ -22,7 +22,7 @@ placeholder [IFID] = "05D1E246-DB6B-471A-B4A5-4787FB1B989C"
 placeholder [RELEASE] = "1"
 placeholder [YEAR] = "2013"
 placeholder [TITLE] = "Alone in Deep Island"
-placeholder [AUTHOR] = "André, Danyele, Henrique, Márcio and Wakim"
+placeholder [AUTHOR] = "IM/EBA Alliance of Game Masters"
 placeholder [BLURB] = "A work of interactive fiction."
 
 ! Other material to release

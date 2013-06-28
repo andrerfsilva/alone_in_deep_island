@@ -1,4 +1,4 @@
-"Alone in Deep Island" by "André, Danyele, Henrique, Márcio and Wakim"
+"Alone in Deep Island" by "IM/EBA Alliance of Game Masters"
 
 [Boa referencia: http://eblong.com/zarf/i7index/]
 
@@ -6,7 +6,7 @@ Part - Posture Rules
 
 Section - Sit, lie and stand
 
-[Regras de posicionamento http://inform7.com/learn/man/Rex346.html]
+[Regras de posicionamento. Referência: http://inform7.com/learn/man/Rex346.html]
 
 A posture is a kind of value. The postures are seated, standing, and reclining.
 A person has a posture. The posture of a person is usually standing.
@@ -95,24 +95,17 @@ A chair is a kind of supporter. A chair is always enterable. Every chair allows 
 A sofa is a kind of supporter. A sofa is always enterable. Every sofa allows seated, standing and reclining. A sofa is usually seated.
 A bed is a kind of supporter. A bed is always enterable. Every bed allows seated, standing and reclining. A bed is usually reclining.
 
-A iron bed is a kind of bed.
+An iron bed is a kind of bed.
 
 Section - Kinds
 
 A key is a kind of thing. It is portable.
-
 A paper is a kind of thing.
-
 A bottle is a kind of thing. A drink bottle is a bottle.
-
 A cloth is a kind of thing.
-
 A password is a kind of thing. It is portable.
-
 A toy is a kind of thing. It is portable.
-
 A box is a kind of thing.
-
 A lamp is a kind of thing.
 
 Section - Special Kinds
@@ -126,34 +119,23 @@ Section - Special Kinds
 Section - Scenery
 
 A table is a scenery.
-
 A window is a scenery.
-
 A safe is a scenery.
-
 A shelf is a scenery.
-
 A tv is a scenery.
-
 A monitor is a scenery.
-
 A statue is a scenery.
-
 A painting is a scenery.
-
 A shadow is a scenery.
+A bed is scenery.
 
 Part - Persons
 
 Dr Pesadelo is a man.
-
 Carla is a woman.
-
 Ana is a woman.
-
-An Intern is a kind of person
-
-An Waiter is a kind of Intern.
+An intern is a kind of person.
+An waiter is a kind of intern.
 
 Part - Powers
 
@@ -169,14 +151,17 @@ Section - Powers Definition
 
 [Telekinesis]
 [Achei que telekinesis e evil telekinesis muito vagos. Vamos dar nomes de verbos aos poderes.]
-Telekinesis is an action applying to one thing.
-Understand "telekinesis on [something]" or "tele on [something]" or "telekinesis in [something]" or "tele in [something]" or "telekinesis [something]" or "tele [something]" as telekinesis.
+Telekinesising is an action applying to one thing.
+Understand "telekinesis on [something]" or "tele on [something]" or "telekinesis in [something]" or "tele in [something]" or "telekinesis [something]" or "tele [something]" as telekinesising.
 
 Evil Telekinesis is an action applying to one thing.
 Understand "evil telekinesis on [something]" or "evil tele on [something]" or "evil telekinesis in [something]" or "evil tele in [something]" or "evil telekinesis [something]" or "evil tele [something]" as evil telekinesis.
 
 Levitating is an action applying to one thing.
-Understand "levitate [something]" as levitating.
+Understand "levitate [something]" or "lev [something]" as levitating.
+
+Force choking is an action applying to one thing.
+Understand "force choke [something]" or "fc [something]" as force choking.
 
 [Pyrokinesis]
 Pyrokinesis is an action applying to one thing.
@@ -190,7 +175,7 @@ Section - Powers Behaviors
 [Definir o que acontece ao usar a Telecinese, podemos definir kinds para cada tipo de efeito da telecinese]
 
 [Telekinesis]
-Before telekinesis something:
+Before telekinesising something:
 	if something is scenery:
 		say "[noun] affected by telekinesis";
 	otherwise:
@@ -201,6 +186,9 @@ Before evil telekinesis something:
 		say "[noun] affected by evil telekinesis";
 	otherwise:
 		say "Not affected by evil telekinesis".
+		
+Instead of levitating a scenery, say "It is fixed in place."
+
 
 [Pyrokinesis]
 
@@ -223,7 +211,7 @@ Before evil pyrokinesis something:
 
 Part - Help
 
-help is a backdrop which is everywhere. "[italic type]-----------------HELP PAGE------------------[line break][line break]There is some typical comands:[line break][line break]
+help is a backdrop which is everywhere. "[italic type]-----------------HELP PAGE------------------[line break][line break]There is some typical commIt'sands:[line break][line break]
 go DOOR's NAME[line break]
 go through DOOR's NAME [line break]
 go DIRECTION[line break]
@@ -242,22 +230,22 @@ use Pyrokinesis on SOMETHING[line break]
 use evil Pyrokinesis on SOMETHING[line break]
 Maybe you can try others....".
 
-Instead of doing something other than examining with help, say "It´s only a help page, man![line break]".
+Instead of doing something other than examining with help, say "It's only a help page, man![line break]".
 Understand "[something]" as examining.
 
 Part - The Game
 
 [Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
-The description of door is "The [noun] door it's just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
+The description of door is "The [noun] is just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
 
 [--- Carla's Cell, first puzzle ---]
-Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. I seems they are observing how you behave. Anyway, this is your home now. [end if]This cell is so dirty. It looks like a prision. It even smells like a prision! [if visited] Anyway, this is your home now."
+Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. It seems they are observing how you behave. [paragraph break][end if]This cell is so dirty. It looks like a prison. It even smells like a prison. An uncomfortable iron bed is on the corner of the room. There is also a window on the east wall. You can see the other cells through it."
 
 Carla's bed is an iron bed in Carla's Cell. 
 
-A window is in Carla's Cell. "Description of window"
+A window is in Carla's Cell. "It is made of bulletproof glass. You can see another 'patient' chained in straitjacket in the next room. She looks so bleak. Maybe the 'treatment' is working..."
 
-A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall.
+A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. "A barred door leads southeast to the prison hall."
 The heavy barred door is a door. 
 The heavy barred door is lockable and locked.
 The iron key unlocks the heavy barred door.
@@ -270,7 +258,7 @@ Instead of taking the iron key, say "You cannot reach the keeper's belt."
 
 Before listing nondescript items: 
 	if the iron key is marked for listing: 
-		say "You can see a keeper sleeping outside, bending on a chair. A ring of iron keys is on his belt."; 
+		say "Through the barred door you can see a keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes."; 
 		change the iron key to not marked for listing.
 
 [--- Ana's Cell ---]
@@ -294,8 +282,11 @@ The rusty barred door is a door.
 The rusty barred door is lockable, locked and closed.
 The iron key is a key. The iron key unlocks the rusty barred door.
 
+A heavy iron door is south of Prison Hall and north of Corridor.
+The heavy iron door is a door.
+
 [--- Corridor ---]
-Corridor is a room. Corridor is south of Prison Hall.
+Corridor is a room.
 
 The knowledge door is south of Corridor and north of Study.
 The knowledge door is a door.
