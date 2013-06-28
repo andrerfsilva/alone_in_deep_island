@@ -463,7 +463,19 @@ A rum bottle is on the bar counter.
 
 Instead of drinking tequila:
 	now the player has the office's password;
-	say "You feel good. The bartender gives you the secret password.".
+	say "You feel good. The bartender gives you the office's password.".
+
+Instead of drinking rum:
+	end the story saying "You enter alcohol coma and sleep forever!".
+	
+Instead of drinking ale:
+	end the story saying "It is poison!".
+	
+Instead of drinking vodka:
+	say "You feel nothing.".
+
+Instead of drinking mead:
+	say "You feel nothing.".
 
 The escape door is north of Upper Corridor and south of Bar.
 The escape door is a door.
