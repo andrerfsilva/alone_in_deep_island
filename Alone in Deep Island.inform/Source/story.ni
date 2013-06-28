@@ -99,14 +99,17 @@ An iron bed is a kind of bed.
 
 Section - Kinds
 
-A key is a kind of thing. It is portable.
-A paper is a kind of thing.
-A bottle is a kind of thing. A drink bottle is a bottle.
-A cloth is a kind of thing.
-A password is a kind of thing. It is portable.
-A toy is a kind of thing. It is portable.
-A box is a kind of thing.
+A thing can be affectable.
+
+A key is a kind of thing. It is portable. key is affectable.
+A paper is a kind of thing. paper is affectable. 
+A bottle is a kind of thing. bottle is affectable. A drink bottle is a bottle.
+A cloth is a kind of thing. cloth is affectable.
+A password is a kind of thing. It is portable. password is affectable.
+A toy is a kind of thing. It is portable. toy is affectable.
+A box is a kind of thing. box is affectable.
 A lamp is a kind of thing.
+A chair is affectable.
 
 Section - Special Kinds
 
@@ -125,7 +128,7 @@ A shelf is a scenery.
 A tv is a scenery.
 A monitor is a scenery.
 A statue is a scenery.
-A painting is a scenery.
+A painting is a scenery. painting is affectable.
 A shadow is a scenery.
 A bed is scenery.
 
@@ -151,61 +154,49 @@ Section - Powers Definition
 
 [Telekinesis]
 [Achei que telekinesis e evil telekinesis muito vagos. Vamos dar nomes de verbos aos poderes.]
-Telekinesising is an action applying to one thing.
-Understand "telekinesis on [something]" or "tele on [something]" or "telekinesis in [something]" or "tele in [something]" or "telekinesis [something]" or "tele [something]" as telekinesising.
 
-Evil Telekinesis is an action applying to one thing.
-Understand "evil telekinesis on [something]" or "evil tele on [something]" or "evil telekinesis in [something]" or "evil tele in [something]" or "evil telekinesis [something]" or "evil tele [something]" as evil telekinesis.
-
-Levitating is an action applying to one thing.
+levitating is an action applying to one thing.
 Understand "levitate [something]" or "lev [something]" as levitating.
 
-Force choking is an action applying to one thing.
+force choking is an action applying to one thing.
 Understand "force choke [something]" or "fc [something]" as force choking.
 
 [Pyrokinesis]
-Pyrokinesis is an action applying to one thing.
-Understand "pyrokinesis on [something]" or "pyrokinesis in [something]" or "pyrokinesis [something]" or "pyro on [something]" or "pyro in [something]" or "pyro [something]" as pyrokinesis.
+firing is an action applying to one thing.
+Understand "set fire on [something]" or "set fire in [something]" or "set fire [something]" or "fire on [something]" or "fire in [something]" or "fire [something]" as firing.
 
-Evil Pyrokinesis is an action applying to one thing.
-Understand "evil pyrokinesis on [something]" or "evil pyrokinesis in [something]" or "evil pyrokinesis [something]" or  "evil pyro on [something]" or "evil pyro in [something]" or "evil pyro [something]" as evil pyrokinesis. 
+[burning is an action applying to one thing.
+Understand "burn [something]" or "burn in [something]" or "burn [something]" as burning.]
 
 Section - Powers Behaviors
 
 [Definir o que acontece ao usar a Telecinese, podemos definir kinds para cada tipo de efeito da telecinese]
 
 [Telekinesis]
-Before telekinesising something:
-	if something is scenery:
-		say "[noun] affected by telekinesis";
-	otherwise:
-		say "Not affected by telekinesis".
-		
-Before evil telekinesis something:
-	if something is scenery:
-		say "[noun] affected by evil telekinesis";
-	otherwise:
-		say "Not affected by evil telekinesis".
-		
-Instead of levitating a scenery, say "It is fixed in place."
+Before levitating something:
+	if something is not affectable:
+		say "[noun] not affected by Telekinesis";
+		stop the action.
 
+Before force choking something:
+	if something is not affectable:
+		say "[noun] not affected by Telekinesis";
+		stop the action.
 
 [Pyrokinesis]
 
-Before pyrokinesis something:
+Before firing something:
 	if Pyrokinesis Power is denied:
-		say "You don't have learned the Pyrokinesis Yet";
+		say "You don't have learned the Pyrokinesis yet";
 		stop the action;
-	otherwise if something is scenery:
-		say "[noun] affected by pyrokinesis";
-	otherwise:
-		say "Not affected by pyrokinesis".
+	otherwise if something is not affectable:
+		say "[noun] not affect by Pyrokinesis";
+		stop the action.
 
-Before evil pyrokinesis something:
-	if something is scenery:
-		say "[noun] affected by evil pyrokinesis";
-	otherwise:
-		say "Not affected by evil pyrokinesis".
+Before burning something:
+	if something is not affectable:
+		say "[noun] not affected by pyrokinesis";
+		stop the action.
 
 [http://inform7.com/learn/eg/dm/source_21.html - conceito de morto, podemos usar]
 
@@ -222,10 +213,10 @@ examine SOMETHING[line break]
 look under SOMETHING[line break]
 check SOMETHING[line break]
 give SOMETHING to SOMEONE[line break]
-telekinesis in/on SOMETHING[line break]
-evil telekinesis in/on SOMETHING[line break]
-tele on/in SOMETHING[line break]
-evil tele in/on SOMETHING[line break]
+levitate in/on SOMETHING[line break]
+force chocke in/on SOMETHING[line break]
+lev on/in SOMETHING[line break]
+chocke in/on SOMETHING[line break]
 use Pyrokinesis on SOMETHING[line break]
 use evil Pyrokinesis on SOMETHING[line break]
 Maybe you can try others....".
@@ -253,7 +244,8 @@ The iron key unlocks the heavy barred door.
 The iron key is a key. The iron key is in Carla's Cell. [Virtualmente, é como se a chave estivesse nessa sala. Foi a solução que achei para permitir usar o poder na chave daqui. OBS: usei o verbo "levitate" para denotar o poder.]
 Before levitating the iron key:
 	now the player has the iron key;
-	say "You focus you thoughts on the key. Suddenly, but gently, it starts levitating and moving towards yourself. It passess throught the barred door. You reach out and easily take it still in the air. The key is yours!".
+	say "You focus you thoughts on the key. Suddenly, but gently, it starts levitating and moving towards yourself. It passess throught the barred door. You reach out and easily take it still in the air. The key is yours!";
+	stop the action.
 Instead of taking the iron key, say "You cannot reach the keeper's belt."
 
 Before listing nondescript items: 
