@@ -397,8 +397,19 @@ A TV is on the desk.
 A brown sofa is a sofa in Video Room.
 
 Before sitting on the sofa:
-	now the Pyrokinesis Power is allowed;
-	say "You watch a very brutal war film. Something changed inside you. You feel the power of flames rising. Now you can burn them all!".
+	say "You feel relaxed. Almost in transe. The TV programme calls your attention...".
+
+[Watching is an action applying to one thing.
+Understand "watch [something]" as watching.]
+
+Instead of examining the TV:
+	if the Pyrokinesis Power is allowed:
+		say "Just bullshit propaganda now...";
+	otherwise if the player is seated on the sofa:
+		now the Pyrokinesis Power is allowed;
+		say "You watch a Nazi docummentary of the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can burn them all!";
+	otherwise:
+		say "There is some interesting docummentary being broadcast. Maybe you should sit on the sofa and watch it..."
 
 [--- Upper Corridor ---]
 Upper Corridor is a room. Upper Corridor is up from Corridor.

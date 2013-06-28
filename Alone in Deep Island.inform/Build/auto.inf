@@ -12282,10 +12282,7 @@ self = noun;
 self = noun;
    if (debug_rules) DB_Rule(R_769, 769);
       ! phrase 1
-      ! [1: now the pyrokinesis power is allowed]
-       (Global_Vars-->10) = I120_allowed; 
-      ! phrase 2
-      ! [2: say ~You watch a very brutal war film. Something changed inside you. You feel the power of flames rising. Now you can burn them all!~]
+      ! [1: say ~You feel relaxed. Almost in transe. The TV programme calls your attention...~]
       say__p=1;ParaContent();  print (PrintText) SC_23;  new_line; .L_Say8; .L_SayX8;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_769, 769, true);
@@ -12397,15 +12394,17 @@ self = noun;
 ! ----------------------------------------------------------------------------------------------------
 ! Rules in rulebook: Instead (B21_instead)
 ! ----------------------------------------------------------------------------------------------------
-! Rule 1/5 ! Instead of taking the iron key:
+! Rule 1/6 ! Instead of taking the iron key:
+!   === which is equally specific with ===
+! Rule 2/6 ! Instead of examining the TV:
 !   >>> III.4.1 - Action/How/What Happens >>>
-! Rule 2/5 ! Instead of doing something other than examining with help:
+! Rule 3/6 ! Instead of doing something other than examining with help:
 !   >>> I - Number of aspects constrained >>>
-! Rule 3/5 ! Instead of an actor lying down:
+! Rule 4/6 ! Instead of an actor lying down:
 !   === which is equally specific with ===
-! Rule 4/5 ! Instead of an actor sitting down:
+! Rule 5/6 ! Instead of an actor sitting down:
 !   === which is equally specific with ===
-! Rule 5/5 ! Instead of an actor standing up:
+! Rule 6/6 ! Instead of an actor standing up:
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! Instead of taking the iron key:
@@ -12422,6 +12421,43 @@ self = noun;
    rfalse;
 ];
 ! No specific request
+! Instead of examining the TV:
+[ R_770 ;
+   if ((action ==##Examine) &&  (actor==player) && ((noun == I109_tv) && (true))) { ! Runs only when pattern matches
+self = noun;
+   if (debug_rules) DB_Rule(R_770, 770);
+      ! phrase 1
+      ! [1: if the pyrokinesis power is allowed begin]
+       if ((((Global_Vars-->10) == I120_allowed)))  {
+         ! phrase 2
+         ! [2: say ~Just bullshit propaganda now...~]
+         say__p=1;ParaContent();  print (PrintText) SC_29;  new_line; .L_Say15; .L_SayX15;
+         ! phrase 3
+         ! [3: otherwise if the player is seated on the sofa]
+          } else if (((player ofclass K2_thing) && ((Adj_74_t1_v9(player))) && (SupporterOf(player) ofclass K17_sofa))) { 
+         ! phrase 4
+         ! [4: now the pyrokinesis power is allowed]
+          (Global_Vars-->10) = I120_allowed; 
+         ! phrase 5
+         ! [5: say ~You watch a Nazi docummentary of the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can burn them all!~]
+         say__p=1;ParaContent();  print (PrintText) SC_30;  new_line; .L_Say16; .L_SayX16;
+         ! phrase 6
+         ! [6: otherwise]
+         } else {
+
+         ! phrase 7
+         ! [7: say ~There is some interesting docummentary being broadcast. Maybe you should sit on the sofa and watch it...~]
+         say__p=1;ParaContent();  print (PrintText) SC_31;  new_line; .L_Say17; .L_SayX17;
+         ! phrase 8
+         ! [8: end if]
+         }
+
+      RulebookFails(); rtrue;
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_770, 770, true);
+   rfalse;
+];
+! No specific request
 ! Instead of doing something other than examining with help:
 [ R_759 ;
    if ((action ~=##Examine) &&  (actor==player) && ((noun == I122_help) && (true))) { ! Runs only when pattern matches
@@ -12429,7 +12465,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_759, 759);
       ! phrase 1
       ! [1: say ~It's only a help page, man![line break]~]
-      say__p=1;ParaContent();  print (PrintText) SC_29; ParaContent();  new_line;  .L_Say15; .L_SayX15;
+      say__p=1;ParaContent();  print (PrintText) SC_32; ParaContent();  new_line;  .L_Say18; .L_SayX18;
       RulebookFails(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_759, 759, true);
@@ -12547,7 +12583,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_59, 59);
       ! phrase 1
       ! [1: say the printed plural name of the item]
-      say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(9, self=t_0,plural); @pull self;  .L_Say16; .L_SayX16;
+      say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(9, self=t_0,plural); @pull self;  .L_Say19; .L_SayX19;
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_59, 59, true);
@@ -12570,7 +12606,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_60, 60);
       ! phrase 1
       ! [1: say ~[listing group size in words] ~]
-      say__p=1;ParaContent();  print (number) say__n=(listing_size); ParaContent();  print (PrintText) SC_30;  .L_Say17; .L_SayX17;
+      say__p=1;ParaContent();  print (number) say__n=(listing_size); ParaContent();  print (PrintText) SC_33;  .L_Say20; .L_SayX20;
       ! phrase 2
       ! [2: carry out the printing the plural name activity with the item]
        CarryOutActivity(V1_printing_the_plural_name_, t_0); 
@@ -12594,7 +12630,7 @@ self = noun;
        if ((((Adj_53_t1_v9(I127_iron_key)))))  {
          ! phrase 2
          ! [2: say ~Through the barred door you can see a keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes.~]
-         say__p=1;ParaContent();  print (PrintText) SC_31;  new_line; .L_Say18; .L_SayX18;
+         say__p=1;ParaContent();  print (PrintText) SC_34;  new_line; .L_Say21; .L_SayX21;
          ! phrase 3
          ! [3: change the iron key to not marked for listing]
           SetEitherOrProperty(I127_iron_key, ~workflag, false, 0); 
@@ -12616,11 +12652,11 @@ self = noun;
 [ R_763 ;
       ! phrase 1
       ! [1: say ~I can feel:[line break] [list of objects in dark room]~]
-      say__p=1;ParaContent();  print (PrintText) SC_32; ParaContent();  new_line; ParaContent();  print (PrintText) SC_30; ParaContent();  @push subst__v;
+      say__p=1;ParaContent();  print (PrintText) SC_35; ParaContent();  new_line; ParaContent();  print (PrintText) SC_33; ParaContent();  @push subst__v;
 		objectloop (subst__v ofclass Object) if (((true) && (ContainerOf(subst__v) ofclass K1_room) && ((Adj_38_t1_v9(ContainerOf(subst__v))))))
 		give subst__v workflag2; else give subst__v ~workflag2;
 		WriteListOfMarkedObjects(ENGLISH_BIT+NOARTICLE_BIT);
-		@pull subst__v;  .L_Say19; .L_SayX19;
+		@pull subst__v;  .L_Say22; .L_SayX22;
       RulebookSucceeds(); rtrue;
    rfalse;
 ];
@@ -12828,7 +12864,7 @@ self = noun;
        if (((t_0 < 1))) {  if (ProcessRulebook(IMMEDIATELY_QUIT_R)) rtrue;   }
       ! phrase 10
       ! [10: say ~Would you like to ~]
-      say__p=1;ParaContent();  print (PrintText) SC_33;  .L_Say20; .L_SayX20;
+      say__p=1;ParaContent();  print (PrintText) SC_36;  .L_Say23; .L_SayX23;
       ! phrase 11
       ! [11: repeat through the table of final question options begin]
        @push ct_0; @push ct_1;
@@ -12846,7 +12882,7 @@ self = noun;
                 if (( (ExistsTableLookUpEntry(ct_0,100,ct_1)) ))  {
                   ! phrase 15
                   ! [15: say final question wording entry]
-                  say__p=1;ParaContent();  print (PrintText) TableLookUpEntry(ct_0,100,ct_1);  .L_Say21; .L_SayX21;
+                  say__p=1;ParaContent();  print (PrintText) TableLookUpEntry(ct_0,100,ct_1);  .L_Say24; .L_SayX24;
                   ! phrase 16
                   ! [16: decrease named options count by 1]
                    t_0 = t_0 - 1; 
@@ -12855,23 +12891,23 @@ self = noun;
                    if (((t_0 == 0)))  {
                      ! phrase 18
                      ! [18: say ~?[line break]~]
-                     say__p=1;ParaContent();  print (PrintText) SC_34; ParaContent();  new_line;  .L_Say22; .L_SayX22;
+                     say__p=1;ParaContent();  print (PrintText) SC_37; ParaContent();  new_line;  .L_Say25; .L_SayX25;
                      ! phrase 19
                      ! [19: otherwise if the named options count is 1]
                       } else if (((t_0 == 1))) { 
                      ! phrase 20
                      ! [20: if the serial comma option is active , say ~,~]
-                      if ((((Adj_22_t1_v15(5))))) { say__p=1;ParaContent();  print (PrintText) SC_35;  .L_Say23; .L_SayX23;  }
+                      if ((((Adj_22_t1_v15(5))))) { say__p=1;ParaContent();  print (PrintText) SC_38;  .L_Say26; .L_SayX26;  }
                      ! phrase 21
                      ! [21: say ~ or ~]
-                     say__p=1;ParaContent();  print (PrintText) SC_36;  .L_Say24; .L_SayX24;
+                     say__p=1;ParaContent();  print (PrintText) SC_39;  .L_Say27; .L_SayX27;
                      ! phrase 22
                      ! [22: otherwise]
                      } else {
 
                      ! phrase 23
                      ! [23: say ~, ~]
-                     say__p=1;ParaContent();  print (PrintText) SC_37;  .L_Say25; .L_SayX25;
+                     say__p=1;ParaContent();  print (PrintText) SC_40;  .L_Say28; .L_SayX28;
                      ! phrase 24
                      ! [24: end if]
                      }
@@ -12900,7 +12936,7 @@ self = noun;
 [ R_68 ;
       ! phrase 1
       ! [1: say ~> [run paragraph on]~]
-      say__p=1;ParaContent();  print (PrintText) SC_38; ParaContent();  RunParagraphOn();  .L_Say26; .L_SayX26;
+      say__p=1;ParaContent();  print (PrintText) SC_41; ParaContent();  RunParagraphOn();  .L_Say29; .L_SayX29;
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -13153,40 +13189,40 @@ self = noun;
                 if (((t_0 ofclass K1_room)))  {
                   ! phrase 22
                   ! [22: if the domain is the location , say ~You ~]
-                   if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_39;  .L_Say27; .L_SayX27;  }
+                   if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_42;  .L_Say30; .L_SayX30;  }
                   ! phrase 23
                   ! [23: otherwise say ~In [the domain] you ~]
-                   else { say__p=1;ParaContent();  print (PrintText) SC_40; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_41;  .L_Say28; .L_SayX28;  }
+                   else { say__p=1;ParaContent();  print (PrintText) SC_43; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_44;  .L_Say31; .L_SayX31;  }
                   ! phrase 24
                   ! [24: otherwise if the domain is a supporter]
                    } else if (((t_0 ofclass K6_supporter))) { 
                   ! phrase 25
                   ! [25: say ~On [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_42; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_41;  .L_Say29; .L_SayX29;
+                  say__p=1;ParaContent();  print (PrintText) SC_45; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_44;  .L_Say32; .L_SayX32;
                   ! phrase 26
                   ! [26: otherwise if the domain is an animal]
                    } else if (((t_0 ofclass K12_animal))) { 
                   ! phrase 27
                   ! [27: say ~On [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_42; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_41;  .L_Say30; .L_SayX30;
+                  say__p=1;ParaContent();  print (PrintText) SC_45; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_44;  .L_Say33; .L_SayX33;
                   ! phrase 28
                   ! [28: otherwise]
                   } else {
 
                   ! phrase 29
                   ! [29: say ~In [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_40; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_41;  .L_Say31; .L_SayX31;
+                  say__p=1;ParaContent();  print (PrintText) SC_43; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_44;  .L_Say34; .L_SayX34;
                   ! phrase 30
                   ! [30: end if]
                   }
 
                ! phrase 31
                ! [31: say ~can [if the locale paragraph count is greater than 0]also [end if]see ~]
-               say__p=1;ParaContent();  print (PrintText) SC_43; 
-	if (~~(((((Global_Vars-->8) > 0))))) jump L_Say32;
-		ParaContent();  print (PrintText) SC_44; 
-	.L_Say32; .L_SayX32;
-		ParaContent();  print (PrintText) SC_45;  .L_Say33; .L_SayX33;
+               say__p=1;ParaContent();  print (PrintText) SC_46; 
+	if (~~(((((Global_Vars-->8) > 0))))) jump L_Say35;
+		ParaContent();  print (PrintText) SC_47; 
+	.L_Say35; .L_SayX35;
+		ParaContent();  print (PrintText) SC_48;  .L_Say36; .L_SayX36;
                ! phrase 32
                ! [32: let the common holder be nothing]
                 t_2 = nothing; 
@@ -13229,13 +13265,13 @@ self = noun;
 		give subst__v workflag2; else give subst__v ~workflag2;
 		WriteListOfMarkedObjects(ENGLISH_BIT+RECURSE_BIT+PARTINV_BIT+
 			TERSE_BIT+CONCEAL_BIT);
-		@pull subst__v;  .L_Say34; .L_SayX34;  }
+		@pull subst__v;  .L_Say37; .L_SayX37;  }
                ! phrase 44
                ! [44: if the domain is the location , say ~ here~]
-                if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_46;  .L_Say35; .L_SayX35;  }
+                if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_49;  .L_Say38; .L_SayX38;  }
                ! phrase 45
                ! [45: say ~.[paragraph break]~]
-               say__p=1;ParaContent();  print (PrintText) SC_47; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say36; .L_SayX36;
+               say__p=1;ParaContent();  print (PrintText) SC_50; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say39; .L_SayX39;
                ! phrase 46
                ! [46: unfilter list recursion]
                 list_filter_routine = 0; 
@@ -13414,7 +13450,7 @@ self = noun;
        if (((~~(((Adj_55_t1_v9(t_0)))))))  {
          ! phrase 2
          ! [2: if a paragraph break is pending , say ~[conditional paragraph break]~]
-          if (( (say__p) )) { say__p=1;ParaContent();  DivideParagraphPoint();  .L_Say37; .L_SayX37;  }
+          if (( (say__p) )) { say__p=1;ParaContent();  DivideParagraphPoint();  .L_Say40; .L_SayX40;  }
          ! phrase 3
          ! [3: carry out the writing a paragraph about activity with the item]
           CarryOutActivity(V6_writing_a_paragraph_about, t_0); 
@@ -13429,7 +13465,7 @@ self = noun;
              (Adj_55_t2_v9(t_0)); 
             ! phrase 7
             ! [7: say ~[command clarification break]~]
-            say__p=1;ParaContent();  CommandClarificationBreak();  .L_Say38; .L_SayX38;
+            say__p=1;ParaContent();  CommandClarificationBreak();  .L_Say41; .L_SayX41;
             ! phrase 8
             ! [8: end if]
             }
@@ -13467,10 +13503,10 @@ self = noun;
              (Global_Vars-->8) = (Global_Vars-->8) + 1; 
             ! phrase 4
             ! [4: say ~[initial appearance of the item]~]
-            say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(9, self=t_0,initial); @pull self;  .L_Say39; .L_SayX39;
+            say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(9, self=t_0,initial); @pull self;  .L_Say42; .L_SayX42;
             ! phrase 5
             ! [5: say ~[paragraph break]~]
-            say__p=1;ParaContent();  DivideParagraphPoint(); new_line;  .L_Say40; .L_SayX40;
+            say__p=1;ParaContent();  DivideParagraphPoint(); new_line;  .L_Say43; .L_SayX43;
             ! phrase 6
             ! [6: if a locale-supportable thing is on the item begin]
              if ((Prop_11(,t_0)))  {
@@ -13496,13 +13532,13 @@ self = noun;
 
                ! phrase 13
                ! [13: say ~On [the item] ~]
-               say__p=1;ParaContent();  print (PrintText) SC_42; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_30;  .L_Say41; .L_SayX41;
+               say__p=1;ParaContent();  print (PrintText) SC_45; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_33;  .L_Say44; .L_SayX44;
                ! phrase 14
                ! [14: list the contents of the item , as a sentence , including contents , giving brief inventory information , tersely , not listing concealed items , prefacing with is/are , listing marked items only]
                 WriteListFrom(child(t_0), 3800); 
                ! phrase 15
                ! [15: say ~.[paragraph break]~]
-               say__p=1;ParaContent();  print (PrintText) SC_47; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say42; .L_SayX42;
+               say__p=1;ParaContent();  print (PrintText) SC_50; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say45; .L_SayX45;
                ! phrase 16
                ! [16: end if]
                }
@@ -13570,13 +13606,13 @@ self = noun;
              (Global_Vars-->8) = (Global_Vars-->8) + 1; 
             ! phrase 11
             ! [11: say ~On [the item] ~]
-            say__p=1;ParaContent();  print (PrintText) SC_42; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_30;  .L_Say43; .L_SayX43;
+            say__p=1;ParaContent();  print (PrintText) SC_45; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_33;  .L_Say46; .L_SayX46;
             ! phrase 12
             ! [12: list the contents of the item , as a sentence , including contents , giving brief inventory information , tersely , not listing concealed items , prefacing with is/are , listing marked items only]
              WriteListFrom(child(t_0), 3800); 
             ! phrase 13
             ! [13: say ~.[paragraph break]~]
-            say__p=1;ParaContent();  print (PrintText) SC_47; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say44; .L_SayX44;
+            say__p=1;ParaContent();  print (PrintText) SC_50; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say47; .L_SayX47;
             ! phrase 14
             ! [14: end if]
             }
@@ -13626,7 +13662,7 @@ self = noun;
        GL__M(##Inv,2,noun); 
       ! phrase 2
       ! [2: say ~:[line break]~]
-      say__p=1;ParaContent();  print (PrintText) SC_48; ParaContent();  new_line;  .L_Say45; .L_SayX45;
+      say__p=1;ParaContent();  print (PrintText) SC_51; ParaContent();  new_line;  .L_Say48; .L_SayX48;
       ! phrase 3
       ! [3: list the contents of the player , with newlines , indented , including contents , giving inventory information , with extra indentation]
        WriteListFrom(child(player), 8215); 
@@ -14855,11 +14891,11 @@ self = noun;
        if ((((ContainerOf(actor) ofclass K1_room))) && (((~~((actor.p56_posture == I90_standing))))))  {
          ! phrase 2
          ! [2: say ~([if the actor is not the player][the actor] [end if]first standing up)[command clarification break]~]
-         say__p=1;ParaContent();  print (PrintText) SC_49; 
-	if (~~((((~~((actor == player))))))) jump L_Say46;
-		ParaContent();  print (the) actor; ParaContent();  print (PrintText) SC_30; 
-	.L_Say46; .L_SayX46;
-		ParaContent();  print (PrintText) SC_50; ParaContent();  CommandClarificationBreak();  .L_Say47; .L_SayX47;
+         say__p=1;ParaContent();  print (PrintText) SC_52; 
+	if (~~((((~~((actor == player))))))) jump L_Say49;
+		ParaContent();  print (the) actor; ParaContent();  print (PrintText) SC_33; 
+	.L_Say49; .L_SayX49;
+		ParaContent();  print (PrintText) SC_53; ParaContent();  CommandClarificationBreak();  .L_Say50; .L_SayX50;
          ! phrase 3
          ! [3: silently try the actor taking position standing]
           @push keep_silent; keep_silent=1; TryAction(0, actor, ##A86_taking_position, I90_standing, 0);; @pull keep_silent; 
@@ -15254,7 +15290,7 @@ self = noun;
           if (((~~(((MStack-->MstVO(20007,3)) == nothing)))))  {
             ! phrase 49
             ! [49: say ~ ~]
-            say__p=1;ParaContent();  print (PrintText) SC_30;  .L_Say48; .L_SayX48;
+            say__p=1;ParaContent();  print (PrintText) SC_33;  .L_Say51; .L_SayX51;
             ! phrase 50
             ! [50: if the vehicle gone by is a supporter , issue actor-based library message going action number 20 for the vehicle gone by]
              if ((((MStack-->MstVO(20007,3)) ofclass K6_supporter))) {  AGL__M(##Go,20,(MStack-->MstVO(20007,3)));   }
@@ -15309,7 +15345,7 @@ self = noun;
              AGL__M(##Go,26,noun); 
             ! phrase 66
             ! [66: say ~.~]
-            say__p=1;ParaContent();  print (PrintText) SC_47;  new_line; .L_Say49; .L_SayX49;
+            say__p=1;ParaContent();  print (PrintText) SC_50;  new_line; .L_Say52; .L_SayX52;
             ! phrase 67
             ! [67: try looking]
              TryAction(0, player, ##Look, 0, 0);; 
@@ -15322,7 +15358,7 @@ self = noun;
 
          ! phrase 70
          ! [70: say ~.~]
-         say__p=1;ParaContent();  print (PrintText) SC_47;  new_line; .L_Say50; .L_SayX50;
+         say__p=1;ParaContent();  print (PrintText) SC_50;  new_line; .L_Say53; .L_SayX53;
          ! phrase 71
          ! [71: end if]
          }
@@ -15949,7 +15985,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_172, 172);
       ! phrase 1
       ! [1: say bold type]
-      say__p=1;ParaContent();  style bold;  .L_Say51; .L_SayX51;
+      say__p=1;ParaContent();  style bold;  .L_Say54; .L_SayX54;
       ! phrase 2
       ! [2: if the visibility level count is 0 begin]
        if ((((MStack-->MstVO(20011,2)) == 0)))  {
@@ -15967,21 +16003,21 @@ self = noun;
           } else if ((((MStack-->MstVO(20011,3)) == real_location))) { 
          ! phrase 7
          ! [7: say ~[visibility ceiling]~]
-         say__p=1;ParaContent();  print (PrintShortName) (MStack-->MstVO(20011,3));  .L_Say52; .L_SayX52;
+         say__p=1;ParaContent();  print (PrintShortName) (MStack-->MstVO(20011,3));  .L_Say55; .L_SayX55;
          ! phrase 8
          ! [8: otherwise]
          } else {
 
          ! phrase 9
          ! [9: say ~[The visibility ceiling]~]
-         say__p=1;ParaContent();  print (The) (MStack-->MstVO(20011,3));  .L_Say53; .L_SayX53;
+         say__p=1;ParaContent();  print (The) (MStack-->MstVO(20011,3));  .L_Say56; .L_SayX56;
          ! phrase 10
          ! [10: end if]
          }
 
       ! phrase 11
       ! [11: say roman type]
-      say__p=1;ParaContent();  style roman;  .L_Say54; .L_SayX54;
+      say__p=1;ParaContent();  style roman;  .L_Say57; .L_SayX57;
       ! phrase 12
       ! [12: let intermediate level be the visibility-holder of the actor]
        t_0 =  VisibilityParent(actor) ; 
@@ -16000,10 +16036,10 @@ self = noun;
 
       ! phrase 17
       ! [17: say line break]
-      say__p=1;ParaContent();  new_line;  .L_Say55; .L_SayX55;
+      say__p=1;ParaContent();  new_line;  .L_Say58; .L_SayX58;
       ! phrase 18
       ! [18: say run paragraph on with special look spacing]
-      say__p=1;ParaContent();  SpecialLookSpacingBreak();  .L_Say56; .L_SayX56;
+      say__p=1;ParaContent();  SpecialLookSpacingBreak();  .L_Say59; .L_SayX59;
    } ! Runs only when actor is the player
    else if (debug_rules > 1) DB_Rule(R_172, 172, true);
    rfalse;
@@ -16209,7 +16245,7 @@ self = noun;
        if ((((WhetherProvides(noun, false, description)))) && (((~~((GProperty(OBJECT_TY, noun,description) == EMPTY_TEXT_VALUE))))))  {
          ! phrase 2
          ! [2: say ~[the description of the noun][line break]~]
-         say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(OBJECT_TY, self=noun,description); @pull self; ParaContent();  new_line;  .L_Say57; .L_SayX57;
+         say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(OBJECT_TY, self=noun,description); @pull self; ParaContent();  new_line;  .L_Say60; .L_SayX60;
          ! phrase 3
          ! [3: now examine text printed is true]
           (MStack-->MstVO(20012,0)) = 1; 
@@ -18985,13 +19021,13 @@ self = noun;
           if (((actor == player)))  {
             ! phrase 3
             ! [3: say ~You can't take that position [in-on the holder of the actor].~]
-            say__p=1;ParaContent();  print (PrintText) SC_51; ParaContent(); (Resolver_5( (HolderOf(actor)) ,"source", 53));ParaContent();  print (PrintText) SC_47;  new_line; .L_Say58; .L_SayX58;
+            say__p=1;ParaContent();  print (PrintText) SC_54; ParaContent(); (Resolver_5( (HolderOf(actor)) ,"source", 53));ParaContent();  print (PrintText) SC_50;  new_line; .L_Say61; .L_SayX61;
             ! phrase 4
             ! [4: otherwise if the actor is visible]
              } else if ((((Adj_3_t1_v9(actor))))) { 
             ! phrase 5
             ! [5: say ~[The actor] can't take that position.~]
-            say__p=1;ParaContent();  print (The) actor; ParaContent();  print (PrintText) SC_52;  new_line; .L_Say59; .L_SayX59;
+            say__p=1;ParaContent();  print (The) actor; ParaContent();  print (PrintText) SC_55;  new_line; .L_Say62; .L_SayX62;
             ! phrase 6
             ! [6: end if]
             }
@@ -19021,14 +19057,14 @@ self = noun;
           if (((actor == player)))  {
             ! phrase 3
             ! [3: say ~You are already [the posture understood].~]
-            say__p=1;ParaContent();  print (PrintText) SC_53; ParaContent();  print (T58) parsed_number; ParaContent();  print (PrintText) SC_47;  new_line; .L_Say60; .L_SayX60;
+            say__p=1;ParaContent();  print (PrintText) SC_56; ParaContent();  print (T58) parsed_number; ParaContent();  print (PrintText) SC_50;  new_line; .L_Say63; .L_SayX63;
             ! phrase 4
             ! [4: otherwise]
             } else {
 
             ! phrase 5
             ! [5: if the actor is visible , say ~[The actor] is already [the posture understood].~]
-             if ((((Adj_3_t1_v9(actor))))) { say__p=1;ParaContent();  print (The) actor; ParaContent();  print (PrintText) SC_54; ParaContent();  print (T58) parsed_number; ParaContent();  print (PrintText) SC_47;  new_line; .L_Say61; .L_SayX61;  }
+             if ((((Adj_3_t1_v9(actor))))) { say__p=1;ParaContent();  print (The) actor; ParaContent();  print (PrintText) SC_57; ParaContent();  print (T58) parsed_number; ParaContent();  print (PrintText) SC_50;  new_line; .L_Say64; .L_SayX64;  }
             ! phrase 6
             ! [6: end if]
             }
@@ -19081,11 +19117,11 @@ self = noun;
    if (debug_rules) DB_Rule(R_749, 749);
       ! phrase 1
       ! [1: say ~[The actor] is now [the posture of the actor][if the holder of the actor is not the location of the actor] [in-on the holder of the actor][end if].~]
-      say__p=1;ParaContent();  print (The) actor; ParaContent();  print (PrintText) SC_55; ParaContent(); @push self;  print (T58) GProperty(9, self=actor,p56_posture); @pull self; 
-	if (~~((((~~(( (HolderOf(actor))  ==  LocationOf(actor) ))))))) jump L_Say62;
-		ParaContent();  print (PrintText) SC_30; ParaContent(); (Resolver_5( (HolderOf(actor)) ,"source", 67));
-	.L_Say62; .L_SayX62;
-		ParaContent();  print (PrintText) SC_47;  new_line; .L_Say63; .L_SayX63;
+      say__p=1;ParaContent();  print (The) actor; ParaContent();  print (PrintText) SC_58; ParaContent(); @push self;  print (T58) GProperty(9, self=actor,p56_posture); @pull self; 
+	if (~~((((~~(( (HolderOf(actor))  ==  LocationOf(actor) ))))))) jump L_Say65;
+		ParaContent();  print (PrintText) SC_33; ParaContent(); (Resolver_5( (HolderOf(actor)) ,"source", 67));
+	.L_Say65; .L_SayX65;
+		ParaContent();  print (PrintText) SC_50;  new_line; .L_Say66; .L_SayX66;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_749, 749, true);
    rfalse;
@@ -19097,11 +19133,11 @@ self = noun;
    if (debug_rules) DB_Rule(R_750, 750);
       ! phrase 1
       ! [1: say ~You are now [the posture of the player][if the holder of the player is not the location] [in-on the holder of the player][end if].~]
-      say__p=1;ParaContent();  print (PrintText) SC_56; ParaContent(); @push self;  print (T58) GProperty(9, self=player,p56_posture); @pull self; 
-	if (~~((((~~(( (HolderOf(player))  == real_location))))))) jump L_Say64;
-		ParaContent();  print (PrintText) SC_30; ParaContent(); (Resolver_5( (HolderOf(player)) ,"source", 69));
-	.L_Say64; .L_SayX64;
-		ParaContent();  print (PrintText) SC_47;  new_line; .L_Say65; .L_SayX65;
+      say__p=1;ParaContent();  print (PrintText) SC_59; ParaContent(); @push self;  print (T58) GProperty(9, self=player,p56_posture); @pull self; 
+	if (~~((((~~(( (HolderOf(player))  == real_location))))))) jump L_Say67;
+		ParaContent();  print (PrintText) SC_33; ParaContent(); (Resolver_5( (HolderOf(player)) ,"source", 69));
+	.L_Say67; .L_SayX67;
+		ParaContent();  print (PrintText) SC_50;  new_line; .L_Say68; .L_SayX68;
    } ! Runs only when actor is the player
    else if (debug_rules > 1) DB_Rule(R_750, 750, true);
    rfalse;
@@ -21084,7 +21120,7 @@ Array B17_visibility --> R_764 R_35 NULL; ! 2 rule(s)
 Constant B18_persuasion = EMPTY_RULEBOOK;
 Constant B19_unsuccessful_attempt_by = EMPTY_RULEBOOK;
 Array B20_before --> R_760 R_766 R_768 R_765 R_767 R_769 R_755 R_756 R_757 R_758 NULL; ! 10 rule(s)
-Array B21_instead --> R_761 R_759 R_743 R_744 R_745 NULL; ! 5 rule(s)
+Array B21_instead --> R_761 R_770 R_759 R_743 R_744 R_745 NULL; ! 6 rule(s)
 Constant B22_check = EMPTY_RULEBOOK;
 Constant B23_carry_out = EMPTY_RULEBOOK;
 Constant B24_after = EMPTY_RULEBOOK;
@@ -21727,31 +21763,31 @@ Constant BR_264 = R_299;
 Constant BR_265 = R_749;
 Constant BR_266 = R_752;
 Constant BR_267 = R_753;
-Constant BR_750 = R_8;
-Constant BR_756 = R_9;
-Constant BR_757 = R_10;
-Constant BR_758 = R_11;
-Constant BR_759 = R_12;
-Constant BR_767 = R_16;
-Constant BR_768 = R_17;
-Constant BR_770 = R_18;
-Constant BR_773 = R_21;
-Constant BR_774 = R_19;
-Constant BR_775 = R_20;
-Constant BR_779 = R_22;
-Constant BR_783 = R_23;
-Constant BR_789 = R_35;
-Constant BR_791 = R_59;
-Constant BR_792 = R_60;
-Constant BR_794 = R_61;
-Constant BR_799 = R_69;
-Constant BR_800 = R_68;
-Constant BR_802 = R_70;
-Constant BR_803 = R_91;
-Constant BR_804 = R_148;
-Constant BR_825 = R_752;
+Constant BR_751 = R_8;
+Constant BR_757 = R_9;
+Constant BR_758 = R_10;
+Constant BR_759 = R_11;
+Constant BR_760 = R_12;
+Constant BR_768 = R_16;
+Constant BR_769 = R_17;
+Constant BR_771 = R_18;
+Constant BR_774 = R_21;
+Constant BR_775 = R_19;
+Constant BR_776 = R_20;
+Constant BR_780 = R_22;
+Constant BR_784 = R_23;
+Constant BR_790 = R_35;
+Constant BR_792 = R_59;
+Constant BR_793 = R_60;
+Constant BR_795 = R_61;
+Constant BR_800 = R_69;
+Constant BR_801 = R_68;
+Constant BR_803 = R_70;
+Constant BR_804 = R_91;
+Constant BR_805 = R_148;
 Constant BR_826 = R_752;
-Constant BR_827 = R_753;
+Constant BR_827 = R_752;
+Constant BR_828 = R_753;
 
 
 
@@ -25711,84 +25747,85 @@ Array RulebookNames -->
 		if (R == R_767) { print "Before getting off the chair"; return; } ! 747, case 2
 		if (R == R_768) { print "Before levitating the id card"; return; } ! 748, case 2
 		if (R == R_769) { print "Before sitting on the sofa"; return; } ! 749, case 2
-		if (R == R_8) { print "start in the correct scenes rule"; return; } ! 750, case 1
-		if (R == POSITION_PLAYER_IN_MODEL_R) { print "position player in model world rule"; return; } ! 751, case 1
-		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 752, case 1
-		if (R == SEED_RANDOM_NUMBER_GENERATOR_R) { print "seed random number generator rule"; return; } ! 753, case 1
-		if (R == VIRTUAL_MACHINE_STARTUP_R) { print "virtual machine startup rule"; return; } ! 754, case 1
-		if (R == INITIALISE_MEMORY_R) { print "initialise memory rule"; return; } ! 755, case 1
-		if (R == R_9) { print "when play begins stage rule"; return; } ! 756, case 1
-		if (R == R_10) { print "fix baseline scoring rule"; return; } ! 757, case 1
-		if (R == R_11) { print "display banner rule"; return; } ! 758, case 1
-		if (R == R_12) { print "initial room description rule"; return; } ! 759, case 1
-		if (R == GENERATE_ACTION_R) { print "generate action rule"; return; } ! 760, case 1
-		if (R == PARSE_COMMAND_R) { print "parse command rule"; return; } ! 761, case 1
-		if (R == TIMED_EVENTS_R) { print "timed events rule"; return; } ! 762, case 1
-		if (R == ADVANCE_TIME_R) { print "advance time rule"; return; } ! 763, case 1
-		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 764, case 1
-		if (R == ADJUST_LIGHT_R) { print "adjust light rule"; return; } ! 765, case 1
-		if (R == NOTE_OBJECT_ACQUISITIONS_R) { print "note object acquisitions rule"; return; } ! 766, case 1
-		if (R == R_16) { print "notify score changes rule"; return; } ! 767, case 1
-		if (R == R_17) { print "when play ends stage rule"; return; } ! 768, case 1
-		if (R == RESURRECT_PLAYER_IF_ASKED_R) { print "resurrect player if asked rule"; return; } ! 769, case 1
-		if (R == R_18) { print "print player's obituary rule"; return; } ! 770, case 1
-		if (R == ASK_FINAL_QUESTION_R) { print "ask the final question rule"; return; } ! 771, case 1
-		if (R == DetectSceneChange) { print "scene change machinery rule"; return; } ! 772, case 1
-		if (R == R_21) { print "before stage rule"; return; } ! 773, case 1
-		if (R == R_19) { print "set pronouns from items from multiple object lists rule"; return; } ! 774, case 1
-		if (R == R_20) { print "announce items from multiple object lists rule"; return; } ! 775, case 1
-		if (R == BASIC_VISIBILITY_R) { print "basic visibility rule"; return; } ! 776, case 1
-		if (R == BASIC_ACCESSIBILITY_R) { print "basic accessibility rule"; return; } ! 777, case 1
-		if (R == CARRYING_REQUIREMENTS_R) { print "carrying requirements rule"; return; } ! 778, case 1
-		if (R == R_22) { print "instead stage rule"; return; } ! 779, case 1
-		if (R == REQUESTED_ACTIONS_REQUIRE_R) { print "requested actions require persuasion rule"; return; } ! 780, case 1
-		if (R == CARRY_OUT_REQUESTED_ACTIONS_R) { print "carry out requested actions rule"; return; } ! 781, case 1
-		if (R == DESCEND_TO_SPECIFIC_ACTION_R) { print "descend to specific action-processing rule"; return; } ! 782, case 1
-		if (R == R_23) { print "end action-processing in success rule"; return; } ! 783, case 1
-		if (R == WORK_OUT_DETAILS_OF_SPECIFIC_R) { print "work out details of specific action rule"; return; } ! 784, case 1
-		if (R == ACCESS_THROUGH_BARRIERS_R) { print "access through barriers rule"; return; } ! 785, case 1
-		if (R == CANT_REACH_INSIDE_ROOMS_R) { print "can't reach inside rooms rule"; return; } ! 786, case 1
-		if (R == CANT_REACH_INSIDE_CLOSED_R) { print "can't reach inside closed containers rule"; return; } ! 787, case 1
-		if (R == CANT_REACH_OUTSIDE_CLOSED_R) { print "can't reach outside closed containers rule"; return; } ! 788, case 1
-		if (R == R_35) { print "can't act in the dark rule"; return; } ! 789, case 1
-		if (R == STANDARD_NAME_PRINTING_R) { print "standard name printing rule"; return; } ! 790, case 1
-		if (R == R_59) { print "standard printing the plural name rule"; return; } ! 791, case 1
-		if (R == R_60) { print "standard printing a number of something rule"; return; } ! 792, case 1
-		if (R == STANDARD_CONTENTS_LISTING_R) { print "standard contents listing rule"; return; } ! 793, case 1
-		if (R == R_61) { print "look around once light available rule"; return; } ! 794, case 1
-		if (R == ENABLE_GLULX_ACCEL_R) { print "enable Glulx acceleration rule"; return; } ! 795, case 1
-		if (R == PRINT_OBITUARY_HEADLINE_R) { print "print obituary headline rule"; return; } ! 796, case 1
-		if (R == PRINT_FINAL_SCORE_R) { print "print final score rule"; return; } ! 797, case 1
-		if (R == DISPLAY_FINAL_STATUS_LINE_R) { print "display final status line rule"; return; } ! 798, case 1
-		if (R == R_69) { print "print the final question rule"; return; } ! 799, case 1
-		if (R == R_68) { print "print the final prompt rule"; return; } ! 800, case 1
-		if (R == READ_FINAL_ANSWER_R) { print "read the final answer rule"; return; } ! 801, case 1
-		if (R == R_70) { print "standard respond to final question rule"; return; } ! 802, case 1
-		if (R == R_91) { print "can't take component parts rule"; return; } ! 803, case 1
-		if (R == R_148) { print "find what to enter rule"; return; } ! 804, case 1
-		if (R == QUIT_THE_GAME_R) { print "quit the game rule"; return; } ! 805, case 1
-		if (R == SAVE_THE_GAME_R) { print "save the game rule"; return; } ! 806, case 1
-		if (R == RESTORE_THE_GAME_R) { print "restore the game rule"; return; } ! 807, case 1
-		if (R == RESTART_THE_GAME_R) { print "restart the game rule"; return; } ! 808, case 1
-		if (R == VERIFY_THE_STORY_FILE_R) { print "verify the story file rule"; return; } ! 809, case 1
-		if (R == SWITCH_TRANSCRIPT_ON_R) { print "switch the story transcript on rule"; return; } ! 810, case 1
-		if (R == SWITCH_TRANSCRIPT_OFF_R) { print "switch the story transcript off rule"; return; } ! 811, case 1
-		if (R == ANNOUNCE_STORY_FILE_VERSION_R) { print "announce the story file version rule"; return; } ! 812, case 1
-		if (R == ANNOUNCE_SCORE_R) { print "announce the score rule"; return; } ! 813, case 1
-		if (R == PREFER_ABBREVIATED_R) { print "prefer abbreviated room descriptions rule"; return; } ! 814, case 1
-		if (R == REP_PREFER_ABBREVIATED_R) { print "standard report preferring abbreviated room descriptions rule"; return; } ! 815, case 1
-		if (R == PREFER_UNABBREVIATED_R) { print "prefer unabbreviated room descriptions rule"; return; } ! 816, case 1
-		if (R == REP_PREFER_UNABBREVIATED_R) { print "standard report preferring unabbreviated room descriptions rule"; return; } ! 817, case 1
-		if (R == PREFER_SOMETIMES_ABBREVIATED_R) { print "prefer sometimes abbreviated room descriptions rule"; return; } ! 818, case 1
-		if (R == REP_PREFER_SOMETIMES_ABBR_R) { print "standard report preferring sometimes abbreviated room descriptions rule"; return; } ! 819, case 1
-		if (R == SWITCH_SCORE_NOTIFY_ON_R) { print "switch score notification on rule"; return; } ! 820, case 1
-		if (R == REP_SWITCH_NOTIFY_ON_R) { print "standard report switching score notification on rule"; return; } ! 821, case 1
-		if (R == SWITCH_SCORE_NOTIFY_OFF_R) { print "switch score notification off rule"; return; } ! 822, case 1
-		if (R == REP_SWITCH_NOTIFY_OFF_R) { print "standard report switching score notification off rule"; return; } ! 823, case 1
-		if (R == ANNOUNCE_PRONOUN_MEANINGS_R) { print "announce the pronoun meanings rule"; return; } ! 824, case 1
-		if (R == R_752) { print "departure-posture rule"; return; } ! 825, case 1
+		if (R == R_770) { print "Instead of examining the TV"; return; } ! 750, case 2
+		if (R == R_8) { print "start in the correct scenes rule"; return; } ! 751, case 1
+		if (R == POSITION_PLAYER_IN_MODEL_R) { print "position player in model world rule"; return; } ! 752, case 1
+		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 753, case 1
+		if (R == SEED_RANDOM_NUMBER_GENERATOR_R) { print "seed random number generator rule"; return; } ! 754, case 1
+		if (R == VIRTUAL_MACHINE_STARTUP_R) { print "virtual machine startup rule"; return; } ! 755, case 1
+		if (R == INITIALISE_MEMORY_R) { print "initialise memory rule"; return; } ! 756, case 1
+		if (R == R_9) { print "when play begins stage rule"; return; } ! 757, case 1
+		if (R == R_10) { print "fix baseline scoring rule"; return; } ! 758, case 1
+		if (R == R_11) { print "display banner rule"; return; } ! 759, case 1
+		if (R == R_12) { print "initial room description rule"; return; } ! 760, case 1
+		if (R == GENERATE_ACTION_R) { print "generate action rule"; return; } ! 761, case 1
+		if (R == PARSE_COMMAND_R) { print "parse command rule"; return; } ! 762, case 1
+		if (R == TIMED_EVENTS_R) { print "timed events rule"; return; } ! 763, case 1
+		if (R == ADVANCE_TIME_R) { print "advance time rule"; return; } ! 764, case 1
+		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 765, case 1
+		if (R == ADJUST_LIGHT_R) { print "adjust light rule"; return; } ! 766, case 1
+		if (R == NOTE_OBJECT_ACQUISITIONS_R) { print "note object acquisitions rule"; return; } ! 767, case 1
+		if (R == R_16) { print "notify score changes rule"; return; } ! 768, case 1
+		if (R == R_17) { print "when play ends stage rule"; return; } ! 769, case 1
+		if (R == RESURRECT_PLAYER_IF_ASKED_R) { print "resurrect player if asked rule"; return; } ! 770, case 1
+		if (R == R_18) { print "print player's obituary rule"; return; } ! 771, case 1
+		if (R == ASK_FINAL_QUESTION_R) { print "ask the final question rule"; return; } ! 772, case 1
+		if (R == DetectSceneChange) { print "scene change machinery rule"; return; } ! 773, case 1
+		if (R == R_21) { print "before stage rule"; return; } ! 774, case 1
+		if (R == R_19) { print "set pronouns from items from multiple object lists rule"; return; } ! 775, case 1
+		if (R == R_20) { print "announce items from multiple object lists rule"; return; } ! 776, case 1
+		if (R == BASIC_VISIBILITY_R) { print "basic visibility rule"; return; } ! 777, case 1
+		if (R == BASIC_ACCESSIBILITY_R) { print "basic accessibility rule"; return; } ! 778, case 1
+		if (R == CARRYING_REQUIREMENTS_R) { print "carrying requirements rule"; return; } ! 779, case 1
+		if (R == R_22) { print "instead stage rule"; return; } ! 780, case 1
+		if (R == REQUESTED_ACTIONS_REQUIRE_R) { print "requested actions require persuasion rule"; return; } ! 781, case 1
+		if (R == CARRY_OUT_REQUESTED_ACTIONS_R) { print "carry out requested actions rule"; return; } ! 782, case 1
+		if (R == DESCEND_TO_SPECIFIC_ACTION_R) { print "descend to specific action-processing rule"; return; } ! 783, case 1
+		if (R == R_23) { print "end action-processing in success rule"; return; } ! 784, case 1
+		if (R == WORK_OUT_DETAILS_OF_SPECIFIC_R) { print "work out details of specific action rule"; return; } ! 785, case 1
+		if (R == ACCESS_THROUGH_BARRIERS_R) { print "access through barriers rule"; return; } ! 786, case 1
+		if (R == CANT_REACH_INSIDE_ROOMS_R) { print "can't reach inside rooms rule"; return; } ! 787, case 1
+		if (R == CANT_REACH_INSIDE_CLOSED_R) { print "can't reach inside closed containers rule"; return; } ! 788, case 1
+		if (R == CANT_REACH_OUTSIDE_CLOSED_R) { print "can't reach outside closed containers rule"; return; } ! 789, case 1
+		if (R == R_35) { print "can't act in the dark rule"; return; } ! 790, case 1
+		if (R == STANDARD_NAME_PRINTING_R) { print "standard name printing rule"; return; } ! 791, case 1
+		if (R == R_59) { print "standard printing the plural name rule"; return; } ! 792, case 1
+		if (R == R_60) { print "standard printing a number of something rule"; return; } ! 793, case 1
+		if (R == STANDARD_CONTENTS_LISTING_R) { print "standard contents listing rule"; return; } ! 794, case 1
+		if (R == R_61) { print "look around once light available rule"; return; } ! 795, case 1
+		if (R == ENABLE_GLULX_ACCEL_R) { print "enable Glulx acceleration rule"; return; } ! 796, case 1
+		if (R == PRINT_OBITUARY_HEADLINE_R) { print "print obituary headline rule"; return; } ! 797, case 1
+		if (R == PRINT_FINAL_SCORE_R) { print "print final score rule"; return; } ! 798, case 1
+		if (R == DISPLAY_FINAL_STATUS_LINE_R) { print "display final status line rule"; return; } ! 799, case 1
+		if (R == R_69) { print "print the final question rule"; return; } ! 800, case 1
+		if (R == R_68) { print "print the final prompt rule"; return; } ! 801, case 1
+		if (R == READ_FINAL_ANSWER_R) { print "read the final answer rule"; return; } ! 802, case 1
+		if (R == R_70) { print "standard respond to final question rule"; return; } ! 803, case 1
+		if (R == R_91) { print "can't take component parts rule"; return; } ! 804, case 1
+		if (R == R_148) { print "find what to enter rule"; return; } ! 805, case 1
+		if (R == QUIT_THE_GAME_R) { print "quit the game rule"; return; } ! 806, case 1
+		if (R == SAVE_THE_GAME_R) { print "save the game rule"; return; } ! 807, case 1
+		if (R == RESTORE_THE_GAME_R) { print "restore the game rule"; return; } ! 808, case 1
+		if (R == RESTART_THE_GAME_R) { print "restart the game rule"; return; } ! 809, case 1
+		if (R == VERIFY_THE_STORY_FILE_R) { print "verify the story file rule"; return; } ! 810, case 1
+		if (R == SWITCH_TRANSCRIPT_ON_R) { print "switch the story transcript on rule"; return; } ! 811, case 1
+		if (R == SWITCH_TRANSCRIPT_OFF_R) { print "switch the story transcript off rule"; return; } ! 812, case 1
+		if (R == ANNOUNCE_STORY_FILE_VERSION_R) { print "announce the story file version rule"; return; } ! 813, case 1
+		if (R == ANNOUNCE_SCORE_R) { print "announce the score rule"; return; } ! 814, case 1
+		if (R == PREFER_ABBREVIATED_R) { print "prefer abbreviated room descriptions rule"; return; } ! 815, case 1
+		if (R == REP_PREFER_ABBREVIATED_R) { print "standard report preferring abbreviated room descriptions rule"; return; } ! 816, case 1
+		if (R == PREFER_UNABBREVIATED_R) { print "prefer unabbreviated room descriptions rule"; return; } ! 817, case 1
+		if (R == REP_PREFER_UNABBREVIATED_R) { print "standard report preferring unabbreviated room descriptions rule"; return; } ! 818, case 1
+		if (R == PREFER_SOMETIMES_ABBREVIATED_R) { print "prefer sometimes abbreviated room descriptions rule"; return; } ! 819, case 1
+		if (R == REP_PREFER_SOMETIMES_ABBR_R) { print "standard report preferring sometimes abbreviated room descriptions rule"; return; } ! 820, case 1
+		if (R == SWITCH_SCORE_NOTIFY_ON_R) { print "switch score notification on rule"; return; } ! 821, case 1
+		if (R == REP_SWITCH_NOTIFY_ON_R) { print "standard report switching score notification on rule"; return; } ! 822, case 1
+		if (R == SWITCH_SCORE_NOTIFY_OFF_R) { print "switch score notification off rule"; return; } ! 823, case 1
+		if (R == REP_SWITCH_NOTIFY_OFF_R) { print "standard report switching score notification off rule"; return; } ! 824, case 1
+		if (R == ANNOUNCE_PRONOUN_MEANINGS_R) { print "announce the pronoun meanings rule"; return; } ! 825, case 1
 		if (R == R_752) { print "departure-posture rule"; return; } ! 826, case 1
-		if (R == R_753) { print "arrival-posture rule"; return; } ! 827, case 1
+		if (R == R_752) { print "departure-posture rule"; return; } ! 827, case 1
+		if (R == R_753) { print "arrival-posture rule"; return; } ! 828, case 1
 
 		print "(nameless rule at address ", R, ")";
 	}
@@ -27983,10 +28020,10 @@ Verb meta 'tree'
     ;
       ! phrase 1
       ! [1: if the item is a container , say ~in [the item]~]
-       if (((t_0 ofclass K5_container))) { say__p=1;ParaContent();  print (PrintText) SC_57; ParaContent();  print (the) t_0;  .L_Say66; .L_SayX66;  }
+       if (((t_0 ofclass K5_container))) { say__p=1;ParaContent();  print (PrintText) SC_60; ParaContent();  print (the) t_0;  .L_Say69; .L_SayX69;  }
       ! phrase 2
       ! [2: otherwise say ~on [the item]~]
-       else { say__p=1;ParaContent();  print (PrintText) SC_58; ParaContent();  print (the) t_0;  .L_Say67; .L_SayX67;  }
+       else { say__p=1;ParaContent();  print (PrintText) SC_61; ParaContent();  print (the) t_0;  .L_Say70; .L_SayX70;  }
    rfalse;
 ];
 ! Request 6: phrase nothing -> nothing
@@ -28021,27 +28058,27 @@ Verb meta 'tree'
    rfalse;
 ];
 [ text_routine_0;
-say__p=1;ParaContent();  print (PrintText) SC_59; ParaContent();  print (PrintShortName) noun; ParaContent();  print (PrintText) SC_60; ParaContent();  new_line; ParaContent();  print (PrintText) SC_61; 
-	if (~~(((((Adj_61_t1_v9(self))))))) jump L_Say68;
-		ParaContent();  print (PrintText) SC_62; 
-	jump L_SayX68; .L_Say68;
-		ParaContent();  print (PrintText) SC_63; 
-	.L_Say69; .L_SayX68;
-		ParaContent();  print (PrintText) SC_47;  .L_Say70; .L_SayX69;
+say__p=1;ParaContent();  print (PrintText) SC_62; ParaContent();  print (PrintShortName) noun; ParaContent();  print (PrintText) SC_63; ParaContent();  new_line; ParaContent();  print (PrintText) SC_64; 
+	if (~~(((((Adj_61_t1_v9(self))))))) jump L_Say71;
+		ParaContent();  print (PrintText) SC_65; 
+	jump L_SayX71; .L_Say71;
+		ParaContent();  print (PrintText) SC_66; 
+	.L_Say72; .L_SayX71;
+		ParaContent();  print (PrintText) SC_50;  .L_Say73; .L_SayX72;
     rtrue;
 ];
 
 [ text_routine_1;
-say__p=1;ParaContent();  style underline; ParaContent();  print (PrintText) SC_64; ParaContent();  new_line; ParaContent();  new_line; ParaContent();  print (PrintText) SC_65; ParaContent();  new_line; ParaContent();  new_line; ParaContent();  print (PrintText) SC_66; ParaContent();  new_line; ParaContent();  print (PrintText) SC_67; ParaContent();  new_line; ParaContent();  print (PrintText) SC_68; ParaContent();  new_line; ParaContent();  print (PrintText) SC_69; ParaContent();  new_line; ParaContent();  print (PrintText) SC_70; ParaContent();  new_line; ParaContent();  print (PrintText) SC_71; ParaContent();  new_line; ParaContent();  print (PrintText) SC_72; ParaContent();  new_line; ParaContent();  print (PrintText) SC_73; ParaContent();  new_line; ParaContent();  print (PrintText) SC_74; ParaContent();  new_line; ParaContent();  print (PrintText) SC_75; ParaContent();  new_line; ParaContent();  print (PrintText) SC_76; ParaContent();  new_line; ParaContent();  print (PrintText) SC_77; ParaContent();  new_line; ParaContent();  print (PrintText) SC_78; ParaContent();  new_line; ParaContent();  print (PrintText) SC_79; ParaContent();  new_line; ParaContent();  print (PrintText) SC_80; ParaContent();  new_line; ParaContent();  print (PrintText) SC_81; ParaContent();  new_line; ParaContent();  print (PrintText) SC_82;  .L_Say71; .L_SayX70;
+say__p=1;ParaContent();  style underline; ParaContent();  print (PrintText) SC_67; ParaContent();  new_line; ParaContent();  new_line; ParaContent();  print (PrintText) SC_68; ParaContent();  new_line; ParaContent();  new_line; ParaContent();  print (PrintText) SC_69; ParaContent();  new_line; ParaContent();  print (PrintText) SC_70; ParaContent();  new_line; ParaContent();  print (PrintText) SC_71; ParaContent();  new_line; ParaContent();  print (PrintText) SC_72; ParaContent();  new_line; ParaContent();  print (PrintText) SC_73; ParaContent();  new_line; ParaContent();  print (PrintText) SC_74; ParaContent();  new_line; ParaContent();  print (PrintText) SC_75; ParaContent();  new_line; ParaContent();  print (PrintText) SC_76; ParaContent();  new_line; ParaContent();  print (PrintText) SC_77; ParaContent();  new_line; ParaContent();  print (PrintText) SC_78; ParaContent();  new_line; ParaContent();  print (PrintText) SC_79; ParaContent();  new_line; ParaContent();  print (PrintText) SC_80; ParaContent();  new_line; ParaContent();  print (PrintText) SC_81; ParaContent();  new_line; ParaContent();  print (PrintText) SC_82; ParaContent();  new_line; ParaContent();  print (PrintText) SC_83; ParaContent();  new_line; ParaContent();  print (PrintText) SC_84; ParaContent();  new_line; ParaContent();  print (PrintText) SC_85;  .L_Say74; .L_SayX73;
     rtrue;
 ];
 
 [ text_routine_2;
 say__p=1;
-	if (~~(((((Adj_40_t1_v9(self))))))) jump L_Say72;
-		ParaContent();  print (PrintText) SC_83; ParaContent();  DivideParagraphPoint(); new_line; 
-	.L_Say72; .L_SayX71;
-		ParaContent();  print (PrintText) SC_84;  .L_Say73; .L_SayX72;
+	if (~~(((((Adj_40_t1_v9(self))))))) jump L_Say75;
+		ParaContent();  print (PrintText) SC_86; ParaContent();  DivideParagraphPoint(); new_line; 
+	.L_Say75; .L_SayX74;
+		ParaContent();  print (PrintText) SC_87;  .L_Say76; .L_SayX75;
     rtrue;
 ];
 
@@ -29871,104 +29908,107 @@ ArgumentTypeFailed(filename, line);
 Array ConstantListPointers --> 
  0 0;
 
-Constant SC_82 = "
+Constant SC_85 = "
 Maybe you can try others....";
-Constant SC_74 = "
-check SOMETHING";
-Constant SC_79 = "
-chocke in/on SOMETHING";
-Constant SC_72 = "
-examine SOMETHING";
 Constant SC_77 = "
-force chocke in/on SOMETHING";
-Constant SC_69 = "
-get SOMETHING";
+check SOMETHING";
+Constant SC_82 = "
+chocke in/on SOMETHING";
 Constant SC_75 = "
-give SOMETHING to SOMEONE";
-Constant SC_68 = "
-go DIRECTION";
-Constant SC_66 = "
-go DOOR's NAME";
-Constant SC_67 = "
-go through DOOR's NAME ";
-Constant SC_78 = "
-lev on/in SOMETHING";
-Constant SC_76 = "
-levitate in/on SOMETHING";
-Constant SC_70 = "
-look (to see the room)";
-Constant SC_71 = "
-look at SOMETHING";
-Constant SC_73 = "
-look under SOMETHING";
+examine SOMETHING";
 Constant SC_80 = "
-use Pyrokinesis on SOMETHING";
+force chocke in/on SOMETHING";
+Constant SC_72 = "
+get SOMETHING";
+Constant SC_78 = "
+give SOMETHING to SOMEONE";
+Constant SC_71 = "
+go DIRECTION";
+Constant SC_69 = "
+go DOOR's NAME";
+Constant SC_70 = "
+go through DOOR's NAME ";
 Constant SC_81 = "
+lev on/in SOMETHING";
+Constant SC_79 = "
+levitate in/on SOMETHING";
+Constant SC_73 = "
+look (to see the room)";
+Constant SC_74 = "
+look at SOMETHING";
+Constant SC_76 = "
+look under SOMETHING";
+Constant SC_83 = "
+use Pyrokinesis on SOMETHING";
+Constant SC_84 = "
 use evil Pyrokinesis on SOMETHING";
-Constant SC_30 = " ";
-Constant SC_52 = " can't take that position.";
-Constant SC_62 = " closed";
-Constant SC_46 = " here";
-Constant SC_54 = " is already ";
-Constant SC_60 = " is just a door, do you know how to use one?";
-Constant SC_55 = " is now ";
+Constant SC_33 = " ";
+Constant SC_55 = " can't take that position.";
+Constant SC_65 = " closed";
+Constant SC_49 = " here";
+Constant SC_57 = " is already ";
+Constant SC_63 = " is just a door, do you know how to use one?";
+Constant SC_58 = " is now ";
 Constant SC_26 = " not affect by Pyrokinesis";
 Constant SC_24 = " not affected by Telekinesis";
 Constant SC_27 = " not affected by pyrokinesis";
-Constant SC_63 = " open";
-Constant SC_36 = " or ";
-Constant SC_41 = " you ";
-Constant SC_49 = "(";
-Constant SC_37 = ", ";
-Constant SC_35 = ",";
-Constant SC_64 = "-----------------HELP PAGE------------------";
-Constant SC_47 = ".";
+Constant SC_66 = " open";
+Constant SC_39 = " or ";
+Constant SC_44 = " you ";
+Constant SC_52 = "(";
+Constant SC_40 = ", ";
+Constant SC_38 = ",";
+Constant SC_67 = "-----------------HELP PAGE------------------";
+Constant SC_50 = ".";
 Constant SC_17 = ": ";
-Constant SC_48 = ":";
-Constant SC_38 = "> ";
+Constant SC_51 = ":";
+Constant SC_41 = "> ";
 Constant SC_11 = ">";
-Constant SC_34 = "?";
+Constant SC_37 = "?";
 Constant SC_7 = "A barred door leads southeast to the prison hall.";
 Constant SC_8 = "An old wooden table is on the corner. So old and rot that you can even see the trails of termite.";
 Constant SC_3 = "An ordinary oil lamp. It is lit.";
 Constant SC_5 = "As good-looking as ever.";
 Constant SC_9 = "Dark Room";
 Constant SC_10 = "Dr. Pesadelo's Office";
-Constant SC_32 = "I can feel:";
+Constant SC_35 = "I can feel:";
 Constant SC_2 = "IM/EBA Alliance of Game Masters";
-Constant SC_40 = "In ";
+Constant SC_43 = "In ";
 Constant SC_6 = "It is made of bulletproof glass. You can see another ~patient~ wearing a straitjacket in the next room. She looks so bleak. Maybe the ~treatment~ is working...";
-Constant SC_29 = "It's only a help page, man!";
-Constant SC_42 = "On ";
+Constant SC_32 = "It's only a help page, man!";
+Constant SC_29 = "Just bullshit propaganda now...";
+Constant SC_45 = "On ";
 Constant SC_20 = "Once more you focus your telekinetic power. You easily make the id card levitate towards you.";
 Constant SC_15 = "QUIT";
 Constant SC_12 = "RESTART";
 Constant SC_13 = "RESTORE a saved game";
-Constant SC_59 = "The ";
-Constant SC_61 = "The door is";
+Constant SC_62 = "The ";
+Constant SC_64 = "The door is";
 Constant SC_22 = "The safe closed as you got off the chair.";
-Constant SC_65 = "There is some typical commIt'sands:";
-Constant SC_84 = "This cell is so dirty. It looks like a prison. It even smells like a prison. An uncomfortable iron bed is on the corner of the room. There is also a window on the east wall. You can see the other cells through it.";
-Constant SC_83 = "This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. It seems they are observing how you behave. ";
-Constant SC_31 = "Through the barred door you can see a keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes.";
+Constant SC_31 = "There is some interesting docummentary being broadcast. Maybe you should sit on the sofa and watch it...";
+Constant SC_68 = "There is some typical commIt'sands:";
+Constant SC_87 = "This cell is so dirty. It looks like a prison. It even smells like a prison. An uncomfortable iron bed is on the corner of the room. There is also a window on the east wall. You can see the other cells through it.";
+Constant SC_86 = "This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. It seems they are observing how you behave. ";
+Constant SC_34 = "Through the barred door you can see a keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes.";
 Constant SC_16 = "UNDO the last command";
-Constant SC_33 = "Would you like to ";
-Constant SC_39 = "You ";
+Constant SC_36 = "Would you like to ";
+Constant SC_42 = "You ";
 Constant SC_21 = "You activated a hidden device. The safe is open. You can see a card inside it.";
-Constant SC_53 = "You are already ";
-Constant SC_56 = "You are now ";
-Constant SC_51 = "You can't take that position ";
+Constant SC_56 = "You are already ";
+Constant SC_59 = "You are now ";
+Constant SC_54 = "You can't take that position ";
 Constant SC_28 = "You cannot reach the keeper's belt.";
 Constant SC_19 = "You cannot reach the safe from here.";
 Constant SC_25 = "You don't have learned the Pyrokinesis yet";
+Constant SC_23 = "You feel relaxed. Almost in transe. The TV programme calls your attention...";
 Constant SC_18 = "You focus you thoughts on the key. Suddenly, but gently, it starts levitating and moving towards yourself. It passess throught the barred door. You reach out and easily take it still in the air. The key is yours!";
-Constant SC_23 = "You watch a very brutal war film. Something changed inside you. You feel the power of flames rising. Now you can burn them all!";
-Constant SC_44 = "also ";
-Constant SC_43 = "can ";
-Constant SC_50 = "first standing up)";
-Constant SC_57 = "in ";
-Constant SC_58 = "on ";
-Constant SC_45 = "see ";
+Constant SC_30 = "You watch a Nazi docummentary of the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can burn them all!";
+Constant SC_47 = "also ";
+Constant SC_46 = "can ";
+Constant SC_53 = "first standing up)";
+Constant SC_60 = "in ";
+Constant SC_61 = "on ";
+Constant SC_48 = "see ";
 Constant SC_14 = "see some suggestions for AMUSING things to do";
 Constant SC_4 = "the";
 
