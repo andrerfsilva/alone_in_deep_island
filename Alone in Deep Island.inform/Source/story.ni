@@ -1,4 +1,4 @@
-"Alone in Deep Island" by "IM/EBA Alliance of Game Masters"
+"Hail Nightmare!" by "IM/EBA Alliance of Game Masters"
 
 [Boa referencia: http://eblong.com/zarf/i7index/]
 
@@ -105,7 +105,7 @@ A key is a kind of thing. It is portable. key is affectable.
 A paper is a kind of thing. paper is affectable. 
 A bottle is a kind of thing. bottle is affectable. A drink bottle is a bottle.
 A cloth is a kind of thing. cloth is affectable.
-A password is a kind of thing. It is portable. password is affectable.
+A password is a kind of thing. It is portable. A password is affectable.
 A toy is a kind of thing. It is portable. toy is affectable.
 A box is a kind of thing. box is affectable.
 A lamp is a kind of thing.
@@ -451,6 +451,20 @@ The chisel is a key. The chisel unlocks the carved door.
 [--- Bar ---]
 The Bar is a room.
 
+The bartender is a person in the Bar. The office's password is a password. The bartender carries the office's password.
+
+A bar counter is a supporter in the Bar.
+
+A vodka bottle is on the bar counter.
+A tequila bottle is on the bar counter.
+A mead bottle is on the bar counter.
+An ale bottle is on the bar counter.
+A rum bottle is on the bar counter.
+
+Instead of drinking tequila:
+	now the player has the office's password;
+	say "You feel good. The bartender gives you the secret password.".
+
 The escape door is north of Upper Corridor and south of Bar.
 The escape door is a door.
 
@@ -460,7 +474,7 @@ The Office is a room. The printed name of the office is "Dr. Pesadelo's Office".
 The golden door is south of Upper Corridor and north of The Office.
 The golden door is a door.
 The golden door is lockable, locked and closed.
-The secret password is a password. The secret password unlocks the golden door. [se der, implementar um terminal para digitar senha]
+The office's password unlocks the golden door. [se der, implementar um terminal para digitar senha]
 
 [Regions]
 Prison Sector is a region.  Carla's Cell, Ana's Cell and Prison Hall are in Prison Sector.
