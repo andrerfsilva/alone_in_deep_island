@@ -113,8 +113,18 @@ A chair is affectable.
 
 Section - Special Kinds
 
-chisel is a key.
-madness key is a key.
+A chisel is a key.
+A madness key is a key.
+
+A perception is kind of thing.
+A key perception is a kind of perception.
+A madness key perception is a kind of perception.
+A chisel perception is a kind of perception.
+
+A perception is not marked for listing.
+
+[Carry out listening to a perception:
+	say "[description of noun]".]
 
 [Definir as coisas que possuem logica especial]
 
@@ -215,6 +225,7 @@ look at SOMETHING[line break]
 examine SOMETHING[line break]
 look under SOMETHING[line break]
 check SOMETHING[line break]
+listen[line break]
 give SOMETHING to SOMEONE[line break]
 levitate in/on SOMETHING[line break]
 force chocke in/on SOMETHING[line break]
@@ -290,57 +301,113 @@ The knowledge door is lockable and closed.
 [--- Wumpus World puzzle ---]
 Wumpus World is a region. The printed name of Wumpus World is "Dark Room".
 
+Rule for printing the name of a dark room:
+	say "Wumpus World[if unvisited][line break]I'm confused, everything is dark here, i can only feel things around me.[end if]".
+
 Rule for printing the description of a dark room:
-	say "Your are in [location]".
+	say "You are in [description of location]".
 
 [Wumpus World eh uma matrix 4x4]
 
 [Primeira linha]
-Wumpus1x1 is a dark room. Wumpus1x1 is in Wumpus World.
-Wumpus1x2 is a dark room. Wumpus1x2 is in Wumpus World.
-Wumpus1x3 is a dark room. Wumpus1x3 is in Wumpus World.
-Wumpus1x4 is a dark room. Wumpus1x4 is in Wumpus World.
+Wumpus1x1 is a dark room. The description of Wumpus1x1 is "Wumpus World (1, 1)". Wumpus1x1 is in Wumpus World.
+Wumpus1x2 is a dark room.  The description of Wumpus1x2 is "Wumpus World (1, 2)". Wumpus1x2 is in Wumpus World.
+Wumpus1x3 is a dark room.  The description of Wumpus1x3 is "Wumpus World (1, 3)". Wumpus1x3 is in Wumpus World.
+Wumpus1x4 is a dark room. The description of Wumpus1x4 is "Wumpus World (1, 4)". Wumpus1x4 is in Wumpus World.
 
 [Segunda linha]
-Wumpus2x1 is a dark room. Wumpus2x1 is in Wumpus World.
-Wumpus2x2 is a dark room. Wumpus2x2 is in Wumpus World.
-Wumpus2x3 is a dark room. Wumpus2x3 is in Wumpus World.
-Wumpus2x4 is a dark room. Wumpus2x4 is in Wumpus World.
+Wumpus2x1 is a dark room. The description of Wumpus2x1 is "Wumpus World (2, 1)". Wumpus2x1 is in Wumpus World.
+Wumpus2x2 is a dark room. The description of Wumpus2x2 is "Wumpus World (2, 2)". Wumpus2x2 is in Wumpus World.
+Wumpus2x3 is a dark room. The description of Wumpus2x3 is "Wumpus World (2, 3)". Wumpus2x3 is in Wumpus World.
+Wumpus2x4 is a dark room. The description of Wumpus2x4 is "Wumpus World (2, 4)". Wumpus2x4 is in Wumpus World.
 
 [Terceira linha]
-Wumpus3x1 is a dark room. Wumpus3x1 is in Wumpus World.
-Wumpus3x2 is a dark room. Wumpus3x2 is in Wumpus World.
-Wumpus3x3 is a dark room. Wumpus3x3 is in Wumpus World.
-Wumpus3x4 is a dark room. Wumpus3x4 is in Wumpus World.
+Wumpus3x1 is a dark room. The description of Wumpus3x1 is "Wumpus World (3, 1)". Wumpus3x1 is in Wumpus World.
+Wumpus3x2 is a dark room. The description of Wumpus3x2 is "Wumpus World (3, 2)". Wumpus3x2 is in Wumpus World.
+Wumpus3x3 is a dark room. The description of Wumpus3x3 is "Wumpus World (3, 3)". Wumpus3x3 is in Wumpus World.
+Wumpus3x4 is a dark room. The description of Wumpus3x4 is "Wumpus World (3, 4)". Wumpus3x4 is in Wumpus World.
 
 [Quarta linha]
-Wumpus4x1 is a dark room. Wumpus4x1 is in Wumpus World.
-Wumpus4x2 is a dark room. Wumpus4x2 is in Wumpus World.
-Wumpus4x3 is a dark room. Wumpus4x3 is in Wumpus World.
-Wumpus4x4 is a dark room. Wumpus4x4 is in Wumpus World.
+Wumpus4x1 is a dark room. The description of Wumpus4x1 is "Wumpus World (4, 1)". Wumpus4x1 is in Wumpus World.
+Wumpus4x2 is a dark room. The description of Wumpus4x2 is "Wumpus World (4, 2)". Wumpus4x2 is in Wumpus World.
+Wumpus4x3 is a dark room. The description of Wumpus4x3 is "Wumpus World (4, 3)". Wumpus4x3 is in Wumpus World.
+Wumpus4x4 is a dark room. The description of Wumpus4x4 is "Wumpus World (4, 4)". Wumpus4x4 is in Wumpus World.
 
+[--Shadow definition--]
 shadow is not marked for listing.
 
+[-- Shadow locations--]
 There is a shadow in Wumpus2x2. There is a shadow in Wumpus3x3.
 There is a shadow in Wumpus2x4.
 
-The maddness key is in Wumpus1x3.
+[-- Key locations --]
+The madness key is in Wumpus1x3.
 The chisel is in Wumpus3x4.
 
+[-- Perceptions listening rule --]
+
+Before of listening to a dark room:
+	if there is a perception in location:
+		repeat with _perception running through the perception in location:
+			say "[description of _perception][line break]";
+		stop the action;
+	otherwise:
+		continue the action.
+
+[-- Perceptions locations --]
+
+[Primeira linha]
+There is a perception in the Wumpus1x2. The description is "I can hear a shadow on the south.".
+
+There is a madness key perception in the Wumpus1x2. The description is "I can hear a key on the east.".
+
+There is a madness key perception in the Wumpus1x4. The description is "I can hear a key on the west.".
+
+There is a perception in the Wumpus1x4. The description is "I can hear a shadow on the south.".
+
+[Segunda linha]
+There is a perception in the Wumpus2x1. The description is "I can hear a shadow on the east.".
+
+There is a perception in the Wumpus2x3. The description is "I can hear a shadow on the west.".
+
+There is a perception in the Wumpus2x3. The description is "I can hear a shadow on the east.".
+
+There is a perception in the Wumpus2x3. The description is "I can hear a shadow on the south.".
+
+There is madness key perception in the Wumpus2x3. The description is "I can hear a key on the north.".
+
+[Terceira linha]
+There is a perception in the Wumpus3x2. The description is "I can hear a shadow on the north.".
+
+There is a perception in the Wumpus3x2. The description is "I can hear a shadow on the east.".
+
+There is a perception in the Wumpus3x4. The description is "I can hear a shadow on the north.".
+
+There is a perception in the Wumpus3x4. The description is "I can hear a shadow on the west.".
+
+[Quarta linha]
+There is a perception in the Wumpus4x3. The description is "I can hear a shadow on the north.".
+
+There is a chisel perception in the Wumpus4x4. The description is "I can hear a key on the north.".
+
+[-- Wumpus World algorithm --]
 After going to a dark room:
-	say "[list of objects in location]";
 	if there is a shadow in location:
 		end the story saying "You was killed by an Shadow!";
 	otherwise if there is a chisel in location:
 		now the player has the chisel;
-		say "You got the chisel.";
+		say "[line break]You got the chisel!";
+		repeat with _perception running through chisel perception in Wumpus World:
+			remove _perception from play;
 		if the player has the madness key:
-			say "Now you can leave.";
+			say "[line break]Now you can leave.";
 	otherwise if there is a madness key in location:
 		now the player has the madness key;
-		say "You got the maddness key!";
+		say "[line break]You got the madness key!";
+		repeat with _perception running through madness key perception in Wumpus World:
+			remove _perception from play;
 		if the player has the chisel:
-			say "Now you can leave.";
+			say "[line break]Now you can leave.";
 	otherwise:
 		continue the action.
 
@@ -366,11 +433,6 @@ Wumpus4x1 is south of Wumpus3x1.
 Wumpus4x2 is east of Wumpus4x1 and south of Wumpus3x2.
 Wumpus4x3 is east of Wumpus4x2 and south of Wumpus3x3.
 Wumpus4x4 is east of Wumpus4x3 and south of Wumpus3x4.
-
-Visibility rule when in Wumpus1x1:
-	if examining: 
-		there is insufficient light;
-	there is sufficient light.
 
 The black door is east of Corridor and west of Wumpus1x1.
 The black door is a door.
