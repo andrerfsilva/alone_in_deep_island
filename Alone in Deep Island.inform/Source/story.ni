@@ -243,7 +243,7 @@ Carla's Cell is a room. "[if unvisited]This is the room you've been kept since y
 
 Carla's bed is an iron bed in Carla's Cell. 
 
-A window is in Carla's Cell. "It is made of bulletproof glass. You can see another 'patient' chained in straitjacket in the next room. She looks so bleak. Maybe the 'treatment' is working..."
+A window is in Carla's Cell. "It is made of bulletproof glass. You can see another 'patient' wearing a straitjacket in the next room. She looks so bleak. Maybe the 'treatment' is working..."
 
 A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. "A barred door leads southeast to the prison hall."
 The heavy barred door is a door. 
@@ -360,6 +360,34 @@ The black door is lockable and closed.
 
 [--- Study ---]
 The Study is a room.
+
+A table is in the Study. The table is a supporter.
+
+A safe is on the table. The safe is a locked container. The safe is closed.
+
+The id card is in the safe.
+
+A comfort chair is a chair in the Study.
+
+Before sitting on the chair:
+	now the safe is unlocked;
+	now the safe is open;
+	say "You activated a hidden device. The safe is open. You can see a card inside it."
+	
+Before of taking the id card:
+	if the player is seated on the chair:
+		say "You cannot reach the safe from here.";
+		stop the action.
+		
+Before getting off the chair:
+	now the safe is closed;
+	now the safe is locked;
+	say "The safe closed as you got off the chair.".
+	
+Before levitating the id card:
+	if the safe is open:
+		now the player has the id card;
+		say "Once more you focus your telekinetic power. You easily make the id card levitate towards you."
 
 The automatic door is north of Video Room and south of Study.
 The automatic door is a door.
