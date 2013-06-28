@@ -425,9 +425,6 @@ A brown sofa is a sofa in Video Room.
 Before sitting on the sofa:
 	say "You feel relaxed. Almost in transe. The TV programme calls your attention...".
 
-[Watching is an action applying to one thing.
-Understand "watch [something]" as watching.]
-
 Instead of examining the TV:
 	if the Pyrokinesis Power is allowed:
 		say "Just bullshit propaganda now...";
@@ -442,6 +439,8 @@ Upper Corridor is a room. Upper Corridor is up from Corridor.
 
 [--- Atelier ---]
 The Atelier is a room.
+
+A dishtowel is in the Atelier. "A dry and clean dishtowel. There is a"
 
 The carved door is west of Upper Corridor and east of Atelier.
 The carved door is a door.
@@ -461,9 +460,16 @@ A mead bottle is on the bar counter.
 An ale bottle is on the bar counter.
 A rum bottle is on the bar counter.
 
+Instead of giving the dishtowel to the bartender:
+	now the bartender has the dishtowel;
+	say "The bartender says 'Thank ye, kind ma'am. Ye ain't a pirate, so don't drink rum! Unless ye want to release the Kraken...'"
+
 Instead of drinking tequila:
-	now the player has the office's password;
-	say "You feel good. The bartender gives you the office's password.".
+	if the player does not have the office's password:
+		now the player has the office's password;
+		say "You feel good. The bartender gives you the office's password.";
+	otherwise:
+		say "Haven't you had enough?".
 
 Instead of drinking rum:
 	end the story saying "You enter alcohol coma and sleep forever!".
