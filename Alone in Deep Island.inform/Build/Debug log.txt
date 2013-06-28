@@ -1,12 +1,12 @@
 Debugging log of Inform 7
-Inform called as: /usr/lib/gnome-inform7/gnome-inform7/ni -rules /usr/share/gnome-inform7/Extensions -extension=ulx -package /home/wakim/Downloads/alone_in_deep_island/Alone in Deep Island.inform 
+Inform called as: C:\Program Files (x86)\Inform 7\Compilers\ni -rules C:\Program Files (x86)\Inform 7\Inform7\Extensions -package C:\Users\André\Documents\Acadêmico\Ciencia da Computação\jogos\Trabalhos\alone_in_deep_island\Alone in Deep Island.inform -extension=ulx 
 
 
 -----------------------------------------------------
 Phase I ... Lexical analysis
 -----------------------------------------------------
 
-I've now read your source text, which is 2612 words long.
+I've now read your source text, which is 2674 words long.
 
 
 -----------------------------------------------------

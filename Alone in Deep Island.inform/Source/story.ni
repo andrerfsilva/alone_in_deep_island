@@ -390,6 +390,16 @@ The id card unlocks the automatic door.
 [--- Video Room ---]
 Video Room is a room.
 
+A desk is in Video Room. The desk is a supporter.
+
+A TV is on the desk.
+
+A brown sofa is a sofa in Video Room.
+
+Before sitting on the sofa:
+	now the Pyrokinesis Power is allowed;
+	say "You watch a very brutal war film. Something changed inside you. You feel the power of flames rising. Now you can burn them all!".
+
 [--- Upper Corridor ---]
 Upper Corridor is a room. Upper Corridor is up from Corridor.
 
