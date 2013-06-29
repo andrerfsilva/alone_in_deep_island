@@ -258,6 +258,7 @@ The iron key unlocks the heavy barred door.
 The iron key is a key. The iron key is in Carla's Cell. [Virtualmente, é como se a chave estivesse nessa sala. Foi a solução que achei para permitir usar o poder na chave daqui. OBS: usei o verbo "levitate" para denotar o poder.]
 Before levitating the iron key:
 	now the player has the iron key;
+	increment the score;
 	say "You focus you thoughts on the key. Suddenly, but gently, it starts levitating and moving towards yourself. It passess throught the barred door. You reach out and easily take it still in the air. The key is yours!";
 	stop the action.
 Instead of taking the iron key, say "You cannot reach the keeper's belt."
@@ -396,6 +397,7 @@ After going to a dark room:
 		end the story saying "You was killed by an Shadow!";
 	otherwise if there is a chisel in location:
 		now the player has the chisel;
+		increment the score;
 		say "[line break]You got the chisel!";
 		repeat with _perception running through chisel perception in Wumpus World:
 			remove _perception from play;
@@ -403,6 +405,7 @@ After going to a dark room:
 			say "[line break]Now you can leave.";
 	otherwise if there is a madness key in location:
 		now the player has the madness key;
+		increment the score;
 		say "[line break]You got the madness key!";
 		repeat with _perception running through madness key perception in Wumpus World:
 			remove _perception from play;
@@ -492,6 +495,7 @@ Instead of examining the TV:
 		say "Just bullshit propaganda now...";
 	otherwise if the player is seated on the sofa:
 		now the Pyrokinesis Power is allowed;
+		increment the score;
 		say "You watch a Nazi docummentary of the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can burn them all!";
 	otherwise:
 		say "There is some interesting docummentary being broadcast. Maybe you should sit on the sofa and watch it..."
@@ -502,7 +506,7 @@ Upper Corridor is a room. Upper Corridor is up from Corridor.
 [--- Atelier ---]
 The Atelier is a room.
 
-A dishtowel is in the Atelier. "A dry and clean dishtowel. There is a"
+A dishtowel is in the Atelier. "A dry and clean dishtowel."
 
 The carved door is west of Upper Corridor and east of Atelier.
 The carved door is a door.
@@ -529,6 +533,7 @@ Instead of giving the dishtowel to the bartender:
 Instead of drinking tequila:
 	if the player does not have the office's password:
 		now the player has the office's password;
+		increment the score;
 		say "You feel good. The bartender gives you the office's password.";
 	otherwise:
 		say "Haven't you had enough?".
