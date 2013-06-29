@@ -180,33 +180,47 @@ Understand "set fire on [something]" or "set fire in [something]" or "set fire [
 
 Section - Powers Behaviors
 
+[Contador de frustrações. Usado para controlar a aparição de shadows.]
+The frustration is a number that varies. The frustration is 0.
+
 [Definir o que acontece ao usar a Telecinese, podemos definir kinds para cada tipo de efeito da telecinese]
 
 [Telekinesis]
 Before levitating something:
 	if something is not affectable:
-		say "[noun] not affected by Telekinesis";
-		stop the action.
+		say "[noun] not affected by Telekinesis.";
+		increment the frustration.
 
 Before force choking something:
 	if something is not affectable:
-		say "[noun] not affected by Telekinesis";
-		stop the action.
+		say "[noun] not affected by Telekinesis.";
+		increment the frustration.
 
 [Pyrokinesis]
 
 Before firing something:
 	if Pyrokinesis Power is denied:
-		say "You don't have learned the Pyrokinesis yet";
+		say "You have not learned the Pyrokinesis yet.";
 		stop the action;
 	otherwise if something is not affectable:
-		say "[noun] not affect by Pyrokinesis";
-		stop the action.
+		say "[noun] not affect by Pyrokinesis.";
+		increment the frustration.
 
 Before burning something:
 	if something is not affectable:
-		say "[noun] not affected by pyrokinesis";
-		stop the action.
+		say "[noun] not affected by Pyrokinesis.";
+		increment the frustration.
+
+[Dependendo do nível do frustração a mensagem de aviso é diferente. No fim o jogador atrai um shadow que o mata. Game Over, baby!]
+Before doing something:
+	if the frustration is 3:
+		say "How frustrating using you powers in vain...";
+	if the frustration is 5:
+		say "You have the uncomfortable feeling that someone is watching you...";
+	if the frustration is 6:
+		say "You hear footsteps somewhere nearby...";
+	if the frustration >= 8:
+		end the story saying "You were killed by a shadow!".
 
 [http://inform7.com/learn/eg/dm/source_21.html - conceito de morto, podemos usar]
 
