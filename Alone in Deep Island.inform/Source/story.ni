@@ -607,6 +607,25 @@ After force choking intern sculptor:
 	now intern sculptor's corpse is in the Atelier;
 	remove intern sculptor from play.
 
+An intern painter is an intern. The description is "This intern is not being affected by the confusion." The intern painter is in the Atelier.
+The intern painter's corpse is a corpse.
+
+Before attacking intern painter:
+	say "Do you realy want to kill her? If you want, choose some power to do this.";
+	stop the action.
+
+After firing intern painter:
+	say "You killed the [noun] with the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now intern painter's corpse is in the Atelier;
+	remove intern painter from play.
+
+After force choking intern painter:
+	say "You killed the [noun] with the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now intern painter's corpse is in the Atelier;
+	remove intern painter from play.
+
 [-- Paintings --]
 The Johannes Vermeer is a painting. The description is "The Concert by Johannes Vermeer. Property of Dr. Nightmare. [if burned]Now it's burned.[end if]". The Johannes Vermeer is in the Atelier.
 
