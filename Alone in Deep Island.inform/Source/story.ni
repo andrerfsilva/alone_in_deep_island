@@ -178,9 +178,6 @@ The StudyRoom tip is a tip. The description is "In Study, some simple objects ca
 [-- Video room tip --]
 The VideoRoom tip is a tip. The description is "In Video Room, it's better relax.".
 
-[-- Ana's Cell tip --]
-The AnaCellRoom tip is a tip. The description is "Ana's is in trouble, you can help with a key.".
-
 [-- Atelier --]
 The AtelierRoom tip is a tip. The description is "The Atelier is a calm room, some Dr. Nightmare paintings and sculpture was stolen from Museus around the World. Something is hidden there.".
 
@@ -191,7 +188,7 @@ The InternalGardenRoom tip is a tip. The description is "That cat in Internal Ga
 The ArchiveRoom tip is a tip. The description is "In Archive Room, an photo can make all the difference.".
 
 [-- Ana's Cell --]
-The AnaRoom tip is a tip. The description is "Ana is the most helpful intern of this place but she is in trouble. Help her is a good idea".
+The AnaCell tip is a tip. The description is "Ana is the most helpful intern of this place but she is in trouble. Help her is a good idea you can help with a key".
 
 Instead of asking the Minerva's painting about "help":
 	let Tips be the list of not deprecated tips;
