@@ -209,7 +209,7 @@ Part - Persons
 
 Dr Pesadelo is a man.
 Carla is a woman.
-An intern is a kind of person. it is affectable.
+An intern is a kind of woman. It is affectable.
 Ana is an intern.
 A waiter is a kind of intern.
 A shadow is a kind of animal.
@@ -436,11 +436,10 @@ The white door is a door.
 
 Section - Corridor
 
-Corridor is a room. "You find yourself in a corridor with walls painted a deep brown, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. There is hardly any furniture, making it as vacant as uninviting."
+Corridor is a room. "You find yourself in a corridor with walls painted in light gray, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. There is hardly any furniture, making it as vacant as uninviting."
 
 The knowledge door is south of Corridor and north of Study.
 The knowledge door is a door.
-The knowledge door is lockable and closed.
 
 Section - Dark Room
 
@@ -589,37 +588,38 @@ Section - Study
 
 The Study is a room. ”This room appears to drown any sound, or rather emanate silence. There is a stillness to it, as if enforced by some punishing overlord that whips whoever dares make a sound.”
 
-A table is in the Study. The table is a supporter.
+A safe is a container in the Study. "There is black safe on the table. It has a kind of electronic lock, but instead of an ordinary password keyboard it has as small antena attached to it." The safe is a locked container. The safe is closed.
 
-A safe is on the table. The safe is a locked container. The safe is closed.
+An electronic lock is a scenery in the Study. "This electronic lock has a small antena attached to it that looks like a wireless moden antena. It is pointing to the direction of the chair." Understand "antena" or "small antena" as electronic lock.
 
 The id card is in the safe.
 
 A comfort chair is a chair in the Study.
 
-The study intern is an intern. The description is "This intern is reading something about Neurocience...". The study intern is in the Study.
-The study intern's corpse is a corpse.
+The intern girl is an intern. "An intern girl is sitting on a desk so deeply concentrated on her readings that she didn't notice you." The description is "This intern is reading something about Neurocience...". The intern girl is in the Study. The intern girl's corpse is a corpse. The description of intern girl's corpse is "There she lies staring back silently at you. Deprived of live by you lack of understanding. What is the porpose of killing such an inocent girl?"
 
-Before attacking study intern:
+A study desk is a scenery. It is in the Study.
+
+Before attacking intern girl:
 	say "Do you realy want to kill her? If you want, choose some power to do this.";
 	stop the action.
 
-After firing study intern:
-	say "You killed the [noun] with the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+After firing intern girl:
+	say "You burnt her and her stupid book easily. She is dead.";
 	increment the kill score;
-	now study intern's corpse is in the Study;
-	remove study intern from play.
+	now intern girl's corpse is in the Study;
+	remove intern girl from play.
 
-After force choking study intern:
-	say "You killed the [noun] with the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+After force choking intern girl:
+	say "You choke her to death easily. She is dead.";
 	increment the kill score;
-	now study intern's corpse is in the Study;
-	remove study intern from play.
+	now intern girl's corpse is in the Study;
+	remove intern girl from play.
 
 Before sitting on the chair:
 	now the safe is unlocked;
 	now the safe is open;
-	say "You activated a hidden device. The safe is open. You can see a card inside it."
+	say "You hear a click sound coming from the safe, and than the safe opens. You can see a card inside it."
 
 Before of taking the id card:
 	if the player is seated on the chair:
@@ -635,7 +635,7 @@ Before levitating the id card:
 	if the safe is open:
 		now the player has the id card;
 		now the StudyRoom tip is deprecated;
-		say "Once more you focus your telekinetic power. You easily make the id card levitate towards you."
+		say "Once more you focus your telekinetic power. You easily make the card levitate towards yourself. Maybe this card can unlock the automatic door in the south."
 
 The automatic door is north of Video Room and south of Study.
 The automatic door is a door.
@@ -695,7 +695,7 @@ Section - Video Room
 
 Video Room is a room.
 
-A desk is in Video Room. The desk is a supporter.
+A video desk is in Video Room. The video desk is a supporter.
 
 A TV is on the desk.
 
