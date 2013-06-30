@@ -402,10 +402,10 @@ A filthy pool is a scenery in Prison Hall. "A black pool caused by the drip. Thi
 
 A drip is a scenery in Prison Hall. "You cannot risk getting closer to drip without bathing in a pool of piss!"
 
-The keeper is a man in the Prison Hall. "The man you stole the key is still snoring on his chair. You know him just as 'the keeper'." The description of the keeper is "He is wearing a black military-like uniform. You notice he is carrying a pistol on his roster. You shouldn't wake him up unless you want very painful death!". The keeper's corpse is a corpse. The description is "The remains of his burnt flesh swimming in a pool of filth. What have you done?!". The keeper carries a pistol. The pistol is affectable.
+The keeper is a man in the Prison Hall. "The man you stole the key is still snoring on his chair. You know him just as 'the keeper'." The description of the keeper is "He is wearing a black military-like uniform. You notice he is carrying a pistol on his roster. You shouldn't wake him up unless you want very painful death!". The keeper's corpse is a corpse. The description is "An empty carcass swimming in a pool of filth. What have you done?!". The keeper carries a pistol. The pistol is affectable.
 
 Instead of taking the pistol:
-	say "The keeper wakes up startled by your attempt. A sudden punch hits your face that knoks you down. When you recover conciousness, you see him pointing his gun at your head. 'You know how we do with traitors, don't you?', he says. A loud blast was the last thing you heard...";
+	say "The keeper wakes up startled by your attempt. A sudden punch hits your face that knocks you down. When you recover consciousness, you see him pointing his gun at your head. 'You know how we do with traitors, don't you?', he says. A loud blast was the last thing you heard...";
 	end the story saying "Game Over!".
 	
 Instead of levitating the pistol, try taking the pistol.
@@ -436,7 +436,7 @@ The heavy iron door is a door.
 
 Section - Corridor
 
-Corridor is a room. "You find yourself in a corridor with walls painted a deep brown, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. There is hardly any furniture, making it as vacant as uninviting.”
+Corridor is a room. "You find yourself in a corridor with walls painted a deep brown, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. There is hardly any furniture, making it as vacant as uninviting."
 
 The knowledge door is south of Corridor and north of Study.
 The knowledge door is a door.
