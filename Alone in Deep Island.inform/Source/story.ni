@@ -87,6 +87,25 @@ Check an actor going somewhere:
 		silently try the actor taking position standing; 
 		if the actor is not standing, stop the action.
 
+Section - Dead Definition
+
+The corpse is a kind of man. Understand "body" as the corpse.
+
+Instead of touching or kissing the corpse:
+	say "The concept doesn't much appeal to you."
+
+Asking the corpse about something is necromancy. Telling the corpse about something is necromancy. Answering the corpse that something is necromancy. Asking the corpse for something is necromancy. Instead of necromancy: say "You've never placed much stock in the necromantic arts."
+
+Instead of asking the corpse to try doing something: say "He belongs to the underworld now."
+
+Instead of waking the corpse: say "Asclepius may have been able to wake corpses, but you, alas, are not."
+
+Instead of giving something to the corpse:
+say "The corpse of [noun] offers no comment."
+
+Instead of showing something to the corpse:
+say "It is unclear that the spirit of [noun] can perceive things adjacent to his body. In any case, he does not answer."
+
 Part - Object definitions
 
 Section - Posture Kinds
@@ -99,17 +118,19 @@ An iron bed is a kind of bed.
 
 Section - Kinds
 
-A thing can be affectable.
+thing can be affectable. thing usually is not affectable.
+person can be affectable.
 
 A key is a kind of thing. It is portable. key is affectable.
 A paper is a kind of thing. paper is affectable. 
 A bottle is a kind of thing. bottle is affectable. A drink bottle is a bottle.
-A cloth is a kind of thing. cloth is affectable.
 A password is a kind of thing. It is portable. A password is affectable.
 A toy is a kind of thing. It is portable. toy is affectable.
-A box is a kind of thing. box is affectable.
+A box is a kind of container. box is affectable.
 A lamp is a kind of thing.
 A chair is affectable.
+A painting is a kind of thing. It is not portable. A painting is affectable.
+A sculpture is a kind of thing. It is not portable.
 
 Section - Special Kinds
 
@@ -123,15 +144,6 @@ A chisel perception is a kind of perception.
 
 A perception is not marked for listing.
 
-[Carry out listening to a perception:
-	say "[description of noun]".]
-
-[Definir as coisas que possuem logica especial]
-
-[Bebidas do bar]
-[TV da sala de video]
-[Cadeira da sala de estudo]
-
 Section - Scenery
 
 A table is a scenery.
@@ -140,16 +152,14 @@ A safe is a scenery.
 A shelf is a scenery.
 A tv is a scenery.
 A monitor is a scenery.
-A statue is a scenery.
-A painting is a scenery. painting is affectable.
 A bed is scenery.
 
 Part - Persons
 
 Dr Pesadelo is a man.
 Carla is a woman.
-Ana is a woman.
-An intern is a kind of person.
+An intern is a kind of person. it is affectable.
+Ana is an intern.
 A waiter is a kind of intern.
 A shadow is a kind of animal.
 
@@ -166,7 +176,6 @@ The Pyrokinesis Power is a power that varies. The Pyrokinesis Power is denied.
 Section - Powers Definition
 
 [Telekinesis]
-[Achei que telekinesis e evil telekinesis muito vagos. Vamos dar nomes de verbos aos poderes.]
 
 levitating is an action applying to one thing.
 Understand "levitate [something]" or "lev [something]" as levitating.
@@ -182,35 +191,41 @@ Section - Powers Behaviors
 
 [Contador de frustrações. Usado para controlar a aparição de shadows.]
 The frustration score is a number that varies. The frustration score is 0.
-
-[Definir o que acontece ao usar a Telecinese, podemos definir kinds para cada tipo de efeito da telecinese]
+The kill score is a number that varies. The kill score is 0.
 
 [Telekinesis]
-Before levitating something:
-	if something is not affectable:
+Before levitating thing:
+	if thing is affectable:
+		do nothing;
+	otherwise:
 		say "[noun] not affected by Telekinesis.";
 		increment the frustration score.
 
-Before force choking something:
-	if something is not affectable:
+Before force choking a thing:
+	if thing is affectable:
+		do nothing;
+	otherwise:
 		say "[noun] not affected by Telekinesis.";
 		increment the frustration score.
 
 [Pyrokinesis]
 
+Instead of firing corpse:
+	say "It's already dead... putting fire doesn't  make sense anymore.".
+
+Instead of force choking corpse:
+	say "It's already dead... force choking doesn't  make sense anymore.".
+
 Before firing something:
 	if Pyrokinesis Power is denied:
 		say "You have not learned the Pyrokinesis yet.";
 		stop the action;
-	otherwise if something is not affectable:
+	otherwise if something is affectable:
+		do nothing;
+	otherwise:
 		say "[noun] not affect by Pyrokinesis.";
 		increment the frustration score.
-
-Before burning something:
-	if something is not affectable:
-		say "[noun] not affected by Pyrokinesis.";
-		increment the frustration score.
-
+		
 [Dependendo do nível do frustração a mensagem de aviso é diferente. No fim o jogador atrai um shadow que o mata. Game Over, baby!]
 Before doing something:
 	if the frustration score is 3:
@@ -221,8 +236,6 @@ Before doing something:
 		say "You hear footsteps somewhere nearby...";
 	if the frustration score >= 8:
 		end the story saying "You were killed by a shadow!".
-
-[http://inform7.com/learn/eg/dm/source_21.html - conceito de morto, podemos usar]
 
 Part - Help
 
@@ -237,7 +250,6 @@ get SOMETHING[line break]
 look (to see the room)[line break]
 look at SOMETHING[line break]
 examine SOMETHING[line break]
-look under SOMETHING[line break]
 check SOMETHING[line break]
 listen[line break]
 give SOMETHING to SOMEONE[line break]
@@ -249,7 +261,6 @@ set fire in/on SOMETHING[line break]
 fire in/on SOMETHING[line break]
 set fire SOMETHING[line break]
 fire SOMETHING[line break]
-burn SOMETHING[line break]
 Maybe you can try others....".
 
 Part - The Game
@@ -277,8 +288,8 @@ Before levitating the iron key:
 	stop the action.
 Instead of taking the iron key, say "You cannot reach the keeper's belt."
 
-Before listing nondescript items: 
-	if the iron key is marked for listing: 
+Before listing nondescript items:
+	if the iron key is marked for listing:
 		say "Through the barred door you can see a keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes."; 
 		change the iron key to not marked for listing.
 
@@ -286,13 +297,50 @@ Before listing nondescript items:
 Ana's Cell is a room.
 
 The Ana's bed is an iron bed in Ana's Cell.
+[Colocar o tratamento do corpo da Ana também, possivelmente com o boneco junto. Uma dica é olhar o tratamento do keeper ou da interna do study ou do bar ou do bartender]
+
+The description of Ana is "Ana is the oldest intern in this hell...". Ana is in the Ana's Cell.
+Ana's corpse is a corpse. Understand "Ana" as Ana's corpse.
+
+Before attacking Ana:
+	say "Do you really wants to kill Ana?!?";
+	stop the action.
+
+After firing Ana:
+	say "Ana now is dead by the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now Ana's corpse is in the Ana's Cell;
+	remove Ana from play.
+
+After force choking Ana:
+	say "Ana now is dead by the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now Ana's corpse is in the Ana's Cell;
+	remove Ana from play.
 
 [--- Prison Hall ---]
 Prison Hall is a room.
 
 A wooden chair is a chair. The wooden char is in the Prison Hall.
-In the Prison Hall is a man called the keeper.
-[The iron key is a key. The keeper carries the iron key.]
+In the Prison Hall is a man called the keeper. keeper is affectable.
+The keeper's corpse is a corpse. The description is "The keeper's corpse is in the floor. I feel strange after killing him...".
+Understand "keeper" as keeper's corpse.
+
+Before attacking keeper:
+	say "What type of power do you want to use?";
+	stop the action.
+
+After firing keeper:
+	say "The keeper now is dead by the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now keeper's corpse is in the Prison Hall;
+	remove keeper from play.
+
+After force choking keeper:
+	say "The keeper now is dead by the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now keeper's corpse is in the Prison Hall;
+	remove keeper from play.
 
 The old table is here. "An old wooden table is on the corner. So old and rot that you can even see the trails of termite."
 
@@ -317,7 +365,7 @@ The knowledge door is lockable and closed.
 Wumpus World is a region. The printed name of Wumpus World is "Dark Room".
 
 Rule for printing the name of a dark room:
-	say "Wumpus World[if unvisited][line break]I'm confused, everything is dark here, i can only feel things around me.[end if]".
+	say "Dark Room[if unvisited][line break]I'm confused, everything is dark here, i can only hear things around me.[end if]".
 
 Rule for printing the description of a dark room:
 	say "You are in [description of location]".
@@ -325,28 +373,28 @@ Rule for printing the description of a dark room:
 [Wumpus World eh uma matrix 4x4]
 
 [Primeira linha]
-Wumpus1x1 is a dark room. The description of Wumpus1x1 is "Wumpus World (1, 1)". Wumpus1x1 is in Wumpus World.
-Wumpus1x2 is a dark room.  The description of Wumpus1x2 is "Wumpus World (1, 2)". Wumpus1x2 is in Wumpus World.
-Wumpus1x3 is a dark room.  The description of Wumpus1x3 is "Wumpus World (1, 3)". Wumpus1x3 is in Wumpus World.
-Wumpus1x4 is a dark room. The description of Wumpus1x4 is "Wumpus World (1, 4)". Wumpus1x4 is in Wumpus World.
+Wumpus1x1 is a dark room. The description of Wumpus1x1 is "Dark Room (1, 1)". Wumpus1x1 is in Wumpus World.
+Wumpus1x2 is a dark room.  The description of Wumpus1x2 is "Dark Room (1, 2)". Wumpus1x2 is in Wumpus World.
+Wumpus1x3 is a dark room.  The description of Wumpus1x3 is "Dark Room (1, 3)". Wumpus1x3 is in Wumpus World.
+Wumpus1x4 is a dark room. The description of Wumpus1x4 is "Dark Room (1, 4)". Wumpus1x4 is in Wumpus World.
 
 [Segunda linha]
-Wumpus2x1 is a dark room. The description of Wumpus2x1 is "Wumpus World (2, 1)". Wumpus2x1 is in Wumpus World.
-Wumpus2x2 is a dark room. The description of Wumpus2x2 is "Wumpus World (2, 2)". Wumpus2x2 is in Wumpus World.
-Wumpus2x3 is a dark room. The description of Wumpus2x3 is "Wumpus World (2, 3)". Wumpus2x3 is in Wumpus World.
-Wumpus2x4 is a dark room. The description of Wumpus2x4 is "Wumpus World (2, 4)". Wumpus2x4 is in Wumpus World.
+Wumpus2x1 is a dark room. The description of Wumpus2x1 is "Dark Room (2, 1)". Wumpus2x1 is in Wumpus World.
+Wumpus2x2 is a dark room. The description of Wumpus2x2 is "Dark Room (2, 2)". Wumpus2x2 is in Wumpus World.
+Wumpus2x3 is a dark room. The description of Wumpus2x3 is "Dark Room (2, 3)". Wumpus2x3 is in Wumpus World.
+Wumpus2x4 is a dark room. The description of Wumpus2x4 is "Dark Room (2, 4)". Wumpus2x4 is in Wumpus World.
 
 [Terceira linha]
-Wumpus3x1 is a dark room. The description of Wumpus3x1 is "Wumpus World (3, 1)". Wumpus3x1 is in Wumpus World.
-Wumpus3x2 is a dark room. The description of Wumpus3x2 is "Wumpus World (3, 2)". Wumpus3x2 is in Wumpus World.
-Wumpus3x3 is a dark room. The description of Wumpus3x3 is "Wumpus World (3, 3)". Wumpus3x3 is in Wumpus World.
-Wumpus3x4 is a dark room. The description of Wumpus3x4 is "Wumpus World (3, 4)". Wumpus3x4 is in Wumpus World.
+Wumpus3x1 is a dark room. The description of Wumpus3x1 is "Dark Room (3, 1)". Wumpus3x1 is in Wumpus World.
+Wumpus3x2 is a dark room. The description of Wumpus3x2 is "Dark Room (3, 2)". Wumpus3x2 is in Wumpus World.
+Wumpus3x3 is a dark room. The description of Wumpus3x3 is "Dark Room (3, 3)". Wumpus3x3 is in Wumpus World.
+Wumpus3x4 is a dark room. The description of Wumpus3x4 is "Dark Room (3, 4)". Wumpus3x4 is in Wumpus World.
 
 [Quarta linha]
-Wumpus4x1 is a dark room. The description of Wumpus4x1 is "Wumpus World (4, 1)". Wumpus4x1 is in Wumpus World.
-Wumpus4x2 is a dark room. The description of Wumpus4x2 is "Wumpus World (4, 2)". Wumpus4x2 is in Wumpus World.
-Wumpus4x3 is a dark room. The description of Wumpus4x3 is "Wumpus World (4, 3)". Wumpus4x3 is in Wumpus World.
-Wumpus4x4 is a dark room. The description of Wumpus4x4 is "Wumpus World (4, 4)". Wumpus4x4 is in Wumpus World.
+Wumpus4x1 is a dark room. The description of Wumpus4x1 is "Dark Room (4, 1)". Wumpus4x1 is in Wumpus World.
+Wumpus4x2 is a dark room. The description of Wumpus4x2 is "Dark Room (4, 2)". Wumpus4x2 is in Wumpus World.
+Wumpus4x3 is a dark room. The description of Wumpus4x3 is "Dark Room (4, 3)". Wumpus4x3 is in Wumpus World.
+Wumpus4x4 is a dark room. The description of Wumpus4x4 is "Dark Room (4, 4)". Wumpus4x4 is in Wumpus World.
 
 [--Shadow definition--]
 shadow is not marked for listing.
@@ -466,11 +514,30 @@ The id card is in the safe.
 
 A comfort chair is a chair in the Study.
 
+The study intern is an intern. The description is "This Intern is reading something about Neurocience...". The study intern is in the Study.
+The study intern's corpse is a corpse.
+
+Before attacking study intern:
+	say "Do you realy want to kill her? If you want, choose some power to do this.";
+	stop the action.
+
+After firing study intern:
+	say "You killed the [noun] with the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now study intern's corpse is in the Study;
+	remove study intern from play.
+
+After force choking study intern:
+	say "You killed the [noun] with the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now study intern's corpse is in the Study;
+	remove study intern from play.
+
 Before sitting on the chair:
 	now the safe is unlocked;
 	now the safe is open;
 	say "You activated a hidden device. The safe is open. You can see a card inside it."
-	
+
 Before of taking the id card:
 	if the player is seated on the chair:
 		say "You cannot reach the safe from here.";
@@ -518,9 +585,98 @@ Instead of examining the TV:
 Upper Corridor is a room. Upper Corridor is up from Corridor.
 
 [--- Atelier ---]
-The Atelier is a room.
+The Atelier is a room. The description is "Here is the Atelier, some interns come to relax and pratice your hobby too. Wow!! there are some stolen paintings by the Nazis and famous sculptures here too...[if unvisited][line break]Huh ??? What's is happening with me i'm confused again?!?!?[line break]Oh my god!!! Some interns are stucked inside the paintings and sculptures... I must help them to get out this hell!!![end if]".
 
-A dishtowel is in the Atelier. "A dry and clean dishtowel."
+[-- Interns in Atelier --]
+An intern sculptor is an intern. The description is "This intern is not being affected by the confusion." The intern sculptor is in the Atelier.
+The intern sculptor's corpse is a corpse.
+
+Before attacking intern sculptor:
+	say "Do you realy want to kill her? If you want, choose some power to do this.";
+	stop the action.
+
+After firing intern sculptor:
+	say "You killed the [noun] with the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now intern sculptor's corpse is in the Atelier;
+	remove intern sculptor from play.
+
+After force choking intern sculptor:
+	say "You killed the [noun] with the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now intern sculptor's corpse is in the Atelier;
+	remove intern sculptor from play.
+
+An intern painter is an intern. The description is "This intern is not being affected by the confusion." The intern painter is in the Atelier.
+The intern painter's corpse is a corpse.
+
+Before attacking intern painter:
+	say "Do you realy want to kill her? If you want, choose some power to do this.";
+	stop the action.
+
+After firing intern painter:
+	say "You killed the [noun] with the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now intern painter's corpse is in the Atelier;
+	remove intern painter from play.
+
+After force choking intern painter:
+	say "You killed the [noun] with the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now intern painter's corpse is in the Atelier;
+	remove intern painter from play.
+
+[-- Paintings --]
+The Johannes Vermeer is a painting. The description is "The Concert by Johannes Vermeer. Property of Dr. Nightmare. [if burned]Now it's burned.[end if]". The Johannes Vermeer is in the Atelier.
+
+The Rembrandt van Rijn is a painting. Understand "Rembrandt" as Rembrandt van Rijn. The description is "The Storm on the sea of Galilee by Johannes Vermeer. Property of Dr. Nightmare.[if burned]Now it's burned.[end if]". The Rembrandt van Rijn is in the Atelier.
+
+The Gustav Klimt is a painting. Understand "Gustav" as Gustav Klimt. The description is "Portrait of Adele Bloch-Bauer of Gustav Klimt. Property of Dr. Nightmare. [if burned]Now it's burned.[end if]". The Gustav Klimt is in the Atelier.
+
+The Raphael is a painting. The description is "Portrait of a Young Man by Raphael. Property of Dr. Nightmare. [if burned]Now it's burned.[end if]". The Raphael is in the Atelier.
+
+A painting can be burned.
+
+Before levitating painting:
+	say "I don't want to move this paintings.";
+	stop the action.
+
+Before force choking painting:
+	say "I don't want to move this paintings.";
+	stop the action.
+
+After firing a painting:
+	if painting is burned:
+		say "This [noun] is already burned, it does not make sense anymore.";
+		stop the action;
+	otherwise:
+		now the noun is burned;
+		say "You've burned [noun] painting but there is no evil growing inside you.".
+
+The hole is a container. The hole is not portable.
+The secret box is a box. the secret box is openable, closed and inside the hole.
+A dishtowel is inside the secret box. "A dry and clean dishtowel."
+
+[-- Podemos colocar mais itens aqui --]
+
+After firing Raphael:
+	say "You can see a hole behind [noun] painting...";
+	now the hole is in the Atelier.
+
+[-- Sculptures --]
+
+The Perseus is a sculpture. The description is "Perseus with the head of Medusa Sculpture. Property of Dr. Nightmare.". The Perseus is in the Atelier.
+The Athena is a sculpture. The description is "Athena Parthenos Sculpture. Property of Dr. Nightmare.". The Athena is in the Atelier.
+The Mary  is a sculpture. The description is "Mary holding Jesus Sculpture. Property of Dr. Nightmare.". The Mary is in the Atelier.
+The Little Mermaind is a sculpture. The description is "The Little Mermaid Sculpture. Property of Dr. Nightmare.". The Little Mermaind is in the Atelier.
+
+Before taking a painting:
+	say "I don't want to take [noun]. I must help them to get out of this painting.";
+	stop the action.
+
+Before taking a sculpture:
+	say "I don't want to take [noun]. I must help them to get out of this sculpture.";
+	stop the action.
 
 The carved door is west of Upper Corridor and east of Atelier.
 The carved door is a door.
@@ -531,6 +687,26 @@ The chisel is a key. The chisel unlocks the carved door.
 The Bar is a room.
 
 The bartender is a person in the Bar. The office's password is a password. The bartender carries the office's password.
+The bartender's corpse is a corpse.
+
+Before attacking bartender:
+	if the bartender carry the dishtowel:
+		say "Do you really want to kill her? If you want, choose some power to do this...";
+	otherwise:
+		say "Do you realy want to kill her, she can help you? If you want, choose some power to do this.";
+	stop the action.
+
+After firing bartender:
+	say "You killed the [noun] with the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now bartender's corpse is in the Bar;
+	remove bartender from play.
+
+After force choking bartender:
+	say "You killed the [noun] with the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+	increment the kill score;
+	now bartender's corpse is in the Bar;
+	remove bartender from play.
 
 A bar counter is a supporter in the Bar.
 
@@ -574,6 +750,12 @@ The golden door is south of Upper Corridor and north of The Office.
 The golden door is a door.
 The golden door is lockable, locked and closed.
 The office's password unlocks the golden door. [se der, implementar um terminal para digitar senha]
+
+After entering the Office:
+	if player carry a toy:
+		say "Final D";
+	otherwise if the kill score >= 3:
+		say "Final C".
 
 [Regions]
 Prison Sector is a region.  Carla's Cell, Ana's Cell and Prison Hall are in Prison Sector.
