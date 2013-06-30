@@ -118,15 +118,15 @@ An iron bed is a kind of bed.
 
 Section - Kinds
 
-thing can be affectable. thing usually is not affectable.
-person can be affectable.
+A thing can be affectable. A thing is usually not affectable.
+A person is usually affectable.
 
-A key is a kind of thing. It is portable. key is affectable.
-A paper is a kind of thing. paper is affectable. 
-A bottle is a kind of thing. bottle is affectable. A drink bottle is a bottle.
+A key is a kind of thing. It is portable. A key is affectable.
+A paper is a kind of thing. A paper is affectable. 
+A bottle is a kind of thing. A bottle is affectable. A drink bottle is a bottle.
 A password is a kind of thing. It is portable. A password is affectable.
-A toy is a kind of thing. It is portable. toy is affectable.
-A box is a kind of container. box is affectable.
+A toy is a kind of thing. It is portable. A toy is affectable.
+A box is a kind of container. A box is affectable.
 A lamp is a kind of thing.
 A chair is affectable.
 A painting is a kind of thing. It is not portable. A painting is affectable.
@@ -148,9 +148,7 @@ Section - Scenery
 
 A table is a scenery.
 A window is a scenery.
-A safe is a scenery.
 A shelf is a scenery.
-A tv is a scenery.
 A monitor is a scenery.
 A bed is scenery.
 
@@ -176,15 +174,14 @@ The Pyrokinesis Power is a power that varies. The Pyrokinesis Power is denied.
 Section - Powers Definition
 
 [Telekinesis]
-
-levitating is an action applying to one thing.
+Levitating is an action applying to one thing.
 Understand "levitate [something]" or "lev [something]" as levitating.
 
-force choking is an action applying to one thing.
+Force choking is an action applying to one thing.
 Understand "force choke [something]" or "fc [something]" as force choking.
 
 [Pyrokinesis]
-firing is an action applying to one thing.
+Firing is an action applying to one thing.
 Understand "set fire on [something]" or "set fire in [something]" or "set fire [something]" or "fire on [something]" or "fire in [something]" or "fire [something]" as firing.
 
 Section - Powers Behaviors
@@ -194,22 +191,17 @@ The frustration score is a number that varies. The frustration score is 0.
 The kill score is a number that varies. The kill score is 0.
 
 [Telekinesis]
-Before levitating thing:
-	if thing is affectable:
-		do nothing;
-	otherwise:
+Before levitating something:
+	if something is not affectable:
 		say "[noun] not affected by Telekinesis.";
 		increment the frustration score.
 
-Before force choking a thing:
-	if thing is affectable:
-		do nothing;
-	otherwise:
+Before force choking something:
+	if something is not affectable:
 		say "[noun] not affected by Telekinesis.";
 		increment the frustration score.
 
 [Pyrokinesis]
-
 Instead of firing corpse:
 	say "It's already dead... putting fire doesn't  make sense anymore.".
 
@@ -220,9 +212,7 @@ Before firing something:
 	if Pyrokinesis Power is denied:
 		say "You have not learned the Pyrokinesis yet.";
 		stop the action;
-	otherwise if something is affectable:
-		do nothing;
-	otherwise:
+	otherwise if something is not affectable:
 		say "[noun] not affect by Pyrokinesis.";
 		increment the frustration score.
 		
@@ -239,7 +229,7 @@ Before doing something:
 
 Part - Help
 
-helping is an action applying to nothing. Understand "help" as helping.
+Helping is an action applying to nothing. Understand "help" as helping.
 
 Instead of helping:
 	say "[italic type]-----------------HELP PAGE------------------[line break][line break]There is some typical commIt'sands:[line break][line break]
@@ -263,33 +253,46 @@ set fire SOMETHING[line break]
 fire SOMETHING[line break]
 Maybe you can try others....".
 
+Part - Game States
+
+[Essa variáveis indicam se os ojetivos individuais foram concluídos.]
+Completed first puzzle is a truth state that varies. Completed first puzzle is false.
+Watched Holocaust Documentary is a truth state that varies. Watched Holocaust Documentary is false.
+Got Drunk is a truth state that varies. Got Drunk is false.
+
 Part - The Game
 
 [Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
 The description of door is "The [noun] is just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
 
 [--- Carla's Cell, first puzzle ---]
-Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. It seems they are observing how you behave. [paragraph break][end if]This cell is so dirty. It looks like a prison. It even smells like a prison. An uncomfortable iron bed is on the corner of the room. There is also a window on the east wall. You can see the other cells through it."
+Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. It seems they are observing how you behave. [paragraph break][end if]This cell is so dirty. It looks like a prison. It even smells like a prison. An iron framed bed is on the corner of the room. There is also a window on the east wall. You can see the other cells through it."
 
-Carla's bed is an iron bed in Carla's Cell. 
+Carla's bed is an iron bed in Carla's Cell. "An old iron framed bed with a thin mattress. Just looking at that makes your back ache..." A thin mattress is scenery on Carla's bed. "A thin mattress made of cotton. You notice stains of blood and cum all over it. How can you sleep on such filth?"
 
-A window is in Carla's Cell. "It is made of bulletproof glass. You can see another 'patient' wearing a straitjacket in the next room. She looks so bleak. Maybe the 'treatment' is working..."
+A window is in Carla's Cell. "A window made of bulletproof glass. You can see another 'patient' wearing a straitjacket in the next room. She looks so bleak. Maybe the 'treatment' is working..."
 
-A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. "A barred door leads southeast to the prison hall."
-The heavy barred door is a door. 
-The heavy barred door is lockable and locked.
-The iron key unlocks the heavy barred door.
+A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. "A barred door leads southeast to the prison hall." The heavy barred door is a door. The heavy barred door is lockable and locked. The iron key unlocks the heavy barred door.
+
+A pillow is in Carla's Cell. It is affectable.
 
 The iron key is a key. The iron key is in Carla's Cell. [Virtualmente, é como se a chave estivesse nessa sala. Foi a solução que achei para permitir usar o poder na chave daqui. OBS: usei o verbo "levitate" para denotar o poder.]
-Before levitating the iron key:
+Instead of levitating the iron key:
 	now the player has the iron key;
-	increment the score;
-	say "You focus you thoughts on the key. Suddenly, but gently, it starts levitating and moving towards yourself. It passess throught the barred door. You reach out and easily take it still in the air. The key is yours!";
-	stop the action.
-Instead of taking the iron key, say "You cannot reach the keeper's belt."
+	if completed first puzzle is false:
+		increment the score;
+		now completed first puzzle is true;
+		say "You focus you thoughts on the key. Suddenly, but gently, it starts levitating and moving towards yourself. It passess throught the barred door. You reach out and easily take it still in the air. The key is yours!";
+	otherwise:
+		say "The iron key is yours.".
+		
+Before taking the iron key:
+	if completed first puzzle is false:
+		say "You try streching out your arms thorugh the barred door, but cannot reach the keeper's belt.";
+		stop the action.
 
 Before listing nondescript items:
-	if the iron key is marked for listing:
+	if (the iron key is marked for listing) and (completed first puzzle is false):
 		say "Through the barred door you can see a keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes."; 
 		change the iron key to not marked for listing.
 
