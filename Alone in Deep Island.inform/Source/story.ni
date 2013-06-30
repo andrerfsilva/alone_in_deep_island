@@ -132,6 +132,9 @@ A chair is affectable.
 A painting is a kind of thing. It is not portable. A painting is affectable.
 A sculpture is a kind of thing. It is not portable.
 
+[Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
+The description of door is "The [noun] is just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
+
 Section - Special Kinds
 
 A chisel is a key.
@@ -152,8 +155,10 @@ A shelf is a scenery.
 A monitor is a scenery.
 A bed is scenery.
 
-[Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
-The description of door is "The [noun] is just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
+Section - Minerva
+
+The Minerva's painting is a painting. Understand "minerva" as minerva's painting.
+The minerva is not affectable.
 
 Part - Persons
 
@@ -272,6 +277,8 @@ Carla's bed is an iron bed in Carla's Cell. "An old iron framed bed with a thin 
 A window is in Carla's Cell. "A window made of bulletproof glass. You can see another 'patient' wearing a straitjacket in the next room. She looks so bleak. Maybe the 'treatment' is working..."
 
 A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. "A barred door leads southeast to the prison hall." The heavy barred door is a door. The heavy barred door is lockable and locked. The iron key unlocks the heavy barred door.
+
+A pillow is in Carla's Cell. It is affectable.
 
 The iron key is a key. The iron key is in Carla's Cell. [Virtualmente, é como se a chave estivesse nessa sala. Foi a solução que achei para permitir usar o poder na chave daqui. OBS: usei o verbo "levitate" para denotar o poder.]
 Instead of levitating the iron key:
@@ -567,7 +574,7 @@ Video Room is a room.
 
 A desk is in Video Room. The desk is a supporter.
 
-A TV is on the desk. 
+A TV is on the desk.
 
 A brown sofa is a sofa in Video Room.
 
@@ -587,6 +594,8 @@ Instead of examining the TV:
 Section - Upper Corridor
 
 Upper Corridor is a room. “This room looks much like its lower counterpart.” Upper Corridor is up from Corridor.
+The minerva is in the Upper Corridor.
+The player is in the Upper Corridor.
 
 Section - Atelier
 
