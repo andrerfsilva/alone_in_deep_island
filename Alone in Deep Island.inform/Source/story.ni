@@ -274,8 +274,6 @@ A window is in Carla's Cell. "A window made of bulletproof glass. You can see an
 
 A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. "A barred door leads southeast to the prison hall." The heavy barred door is a door. The heavy barred door is lockable and locked. The iron key unlocks the heavy barred door.
 
-A pillow is in Carla's Cell. It is affectable.
-
 The iron key is a key. The iron key is in Carla's Cell. [Virtualmente, é como se a chave estivesse nessa sala. Foi a solução que achei para permitir usar o poder na chave daqui. OBS: usei o verbo "levitate" para denotar o poder.]
 Instead of levitating the iron key:
 	now the player has the iron key;
@@ -358,7 +356,7 @@ A heavy iron door is south of Prison Hall and north of Corridor.
 The heavy iron door is a door.
 
 [--- Corridor ---]
-Corridor is a room.
+Corridor is a room. ”You find yourself in a corridor with walls painted a deep brown, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. There is hardly any furniture, making it as vacant as uninviting.”
 
 The knowledge door is south of Corridor and north of Study.
 The knowledge door is a door.
@@ -507,7 +505,7 @@ The black door is a door.
 The black door is lockable and closed.
 
 [--- Study ---]
-The Study is a room.
+The Study is a room. ”This room appears to drown any sound, or rather emanate silence. There is a stillness to it, as if enforced by some punishing overlord that whips whoever dares make a sound.”
 
 A table is in the Study. The table is a supporter.
 
@@ -567,7 +565,7 @@ Video Room is a room.
 
 A desk is in Video Room. The desk is a supporter.
 
-A TV is on the desk.
+A TV is on the desk. 
 
 A brown sofa is a sofa in Video Room.
 
@@ -585,7 +583,7 @@ Instead of examining the TV:
 		say "There is some interesting docummentary being broadcast. Maybe you should sit on the sofa and watch it..."
 
 [--- Upper Corridor ---]
-Upper Corridor is a room. Upper Corridor is up from Corridor.
+Upper Corridor is a room. “This room looks much like its lower counterpart.” Upper Corridor is up from Corridor.
 
 [--- Atelier ---]
 The Atelier is a room. The description is "Here is the Atelier, some interns come to relax and pratice your hobby too. Wow!! there are some stolen paintings by the Nazis and famous sculptures here too...[if unvisited][line break]Huh ??? What's is happening with me i'm confused again?!?!?[line break]Oh my god!!! Some interns are stucked inside the paintings and sculptures... I must help them to get out this hell!!![end if]".
