@@ -158,13 +158,52 @@ A bed is scenery.
 
 Section - Minerva
 
-The Minerva's painting is a painting.
-The description is "Minerva is an live painting. Right hand of Dr. Nightmare, but likes me and help me with some tips to beat the puzzles of this hell".
+The Minerva's painting is a woman. It is not affectable.
+The description is "Minerva is an live painting. Right hand of Dr. Nightmare, but i can ask about help to beat the puzzle's of this hell.".
 
 Understand "minerva" as Minerva's painting.
 The Minerva's painting is not affectable.
 
-[remove entry N from Tips]
+A tip is a kind of thing. A tip can be deprecated. A tip is usually not deprecated.
+
+[-- Wumpus tip --]
+The DarkRoom tip is a tip. The description is "In Dark Room, you should be very careful. Some things inside can kill you, try to listen to these things before.".
+
+[-- Bar tip --]
+The BarRoom tip is a tip. The description is "In the Bar, try to don't be greed. Few drinks can make you regret of have drunk.".
+
+[-- Study tip --]
+The StudyRoom tip is a tip. The description is "In Study, some simple objects can help you to reach the success.".
+
+[-- Video room tip --]
+The VideoRoom tip is a tip. The description is "In Video Room, it's better relax.".
+
+[-- Ana's Cell tip --]
+The AnaCellRoom tip is a tip. The description is "Ana's is in trouble, you can help with a key.".
+
+[-- Atelier --]
+The AtelierRoom tip is a tip. The description is "The Atelier is a calm room, some Dr. Nightmare paintings and sculpture was stolen from Museus around the World. Something is hidden there.".
+
+[-- Internal Garden --]
+The InternalGardenRoom tip is a tip. The description is "That cat in Internal Garde have something special. I think wants to tell something.".
+
+[-- Archive Room --]
+The ArchiveRoom tip is a tip. The description is "In Archive Room, an photo can make all the difference.".
+
+[-- Ana's Cell --]
+The AnaRoom tip is a tip. The description is "Ana is the most helpful intern of this place but she is in trouble. Help her is a good idea".
+
+Instead of asking the Minerva's painting about "help":
+	let Tips be the list of not deprecated tips;
+	if Tips is empty:
+		say "I have nothing to say right now...";
+	otherwise:
+		sort Tips in random order;
+		sort Tips in random order;
+		sort Tips in random order;
+		repeat with _tip running through Tips:
+			say "[description of _tip][line break]";
+			stop the action.
 
 Part - Persons
 
@@ -202,7 +241,7 @@ Understand "set fire on [something]" or "set fire in [something]" or "set fire [
 
 [Telepathy]
 telepathing is an action applying to one thing.
-Understand "tele [something]" or "use telepathy on [something]" or "telepathy on [something]" as telepathing.
+Understand "tele [something]" or "telepathy on [something]" or "telepathy in [something]" as telepathing.
 
 Section - Powers Behaviors
 
@@ -271,15 +310,21 @@ look at SOMETHING[line break]
 examine SOMETHING[line break]
 check SOMETHING[line break]
 listen[line break]
+ask SOMETHING about TOPIC[line break]
 give SOMETHING to SOMEONE[line break]
 levitate in/on SOMETHING[line break]
 lev on/in SOMETHING[line break]
+fc SOMETHING[line break]
 force chocke in/on SOMETHING[line break]
 chocke in/on SOMETHING[line break]
+tele SOMETHING[line break]
+telepathy on SOMETHING[line break]
+telepathy in SOMETHING[line break]
 set fire in/on SOMETHING[line break]
 set fire SOMETHING[line break]
 fire in/on SOMETHING[line break]
 fire SOMETHING[line break]
+
 Maybe you can try others....".
 
 Part - Game States
@@ -295,15 +340,11 @@ Section - Carla's Cell
 
 Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. It seems they are observing how you behave. [paragraph break][end if]This cell is so dirty. It looks like a prison. It even smells like a prison. An iron framed bed is on the corner of the room. There is also a window on the east wall. You can see the other cells through it."
 
-The player is in Carla's Cell.
-
 Carla's bed is an iron bed in Carla's Cell. "An old iron framed bed with a thin mattress. Just looking at that makes your back ache..." A thin mattress is scenery on Carla's bed. "A thin mattress made of cotton. You notice stains of blood and cum all over it. How can you sleep on such filth?"
 
 A window is in Carla's Cell. "A window made of bulletproof glass. You can see another 'patient' wearing a straitjacket in the next room. She looks so bleak. Maybe the 'treatment' is working..."
 
 A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. "A barred door leads southeast to the prison hall." The heavy barred door is a door. The heavy barred door is lockable and locked. The iron key unlocks the heavy barred door.
-
-A pillow is in Carla's Cell. It is affectable.
 
 The iron key is a key. The iron key is in Carla's Cell. [Virtualmente, é como se a chave estivesse nessa sala. Foi a solução que achei para permitir usar o poder na chave daqui. OBS: usei o verbo "levitate" para denotar o poder.]
 Instead of levitating the iron key:
@@ -498,6 +539,7 @@ After going to a dark room:
 			remove _perception from play;
 		if the player has the madness key:
 			say "[line break]Now you can leave.";
+			now the DarkRoom tip is deprecated;
 	otherwise if there is a madness key in location:
 		now the player has the madness key;
 		increment the score;
@@ -506,6 +548,7 @@ After going to a dark room:
 			remove _perception from play;
 		if the player has the chisel:
 			say "[line break]Now you can leave.";
+			now the DarkRoom tip is deprecated;
 	otherwise:
 		continue the action.
 
@@ -585,6 +628,7 @@ Before getting off the chair:
 Before levitating the id card:
 	if the safe is open:
 		now the player has the id card;
+		now the StudyRoom tip is deprecated;
 		say "Once more you focus your telekinetic power. You easily make the id card levitate towards you."
 
 The automatic door is north of Video Room and south of Study.
@@ -603,6 +647,7 @@ The glass door is east of Study and west of Internal Garden.
 The glass door is a door.
 
 After telepathing the black cat:
+	now the InternalGardenRoom is deprecated;
 	say "The cat promptly turns its head towards you and starts to talk in an deep ethereal voice: [line break][line break]-Hello, young one. You must be new here. My name is Mr. Zazzles, and I'm here keeping company to the Doctor since the beggining. [line break][line break]It then proceeds to stretch its long legs and back, and continues: [line break][line break]-You don't seem as startled as most, that's good... Or perhaps will be your undoing. Only your actions can determine that, and you will be the maker of those. Now, before I bore you, there is something you must know. They keep archives on the... How do they say it?... Patients around here. It stands beyond the hall of endless cased papers. How you will get there? Well, that is beyong my knowledge. I am just a cat.".
 
 Section - Library
@@ -635,10 +680,10 @@ A Ana's Folder is on the iron table."Name: Ana Macedo[line break]Age: 24[line br
 A photo is on the iron table."A photo of your family".
 
 After taking the photo:
+	now the ArchiveRoom tip is deprecated;
 	say "You feel a lightness in your hearth, like a renewed hope for escaping this place and returning to your loved ones. You know all you've done so far was necessary.".;
 	now frustration score is 0;
 	now kill score is 0.
-
 
 Section - Video Room
 
@@ -657,6 +702,7 @@ Instead of examining the TV:
 	if the Pyrokinesis Power is allowed:
 		say "Just bullshit propaganda now...";
 	otherwise if the player is seated on the sofa:
+		now the VideoRoom tip is deprecated;
 		now the Pyrokinesis Power is allowed;
 		increment the score;
 		say "You watch a Nazi docummentary of the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can burn them all!";
@@ -739,6 +785,7 @@ After firing a painting:
 		say "You've burned [noun] painting but there is no evil growing inside you.";
 	if the noun is Raphael:
 		if the hole is not in the Atelier:
+			now the AtelierRoom tip is deprecated;
 			say "You can see a hole behind [noun] painting...";
 			now the hole is in the Atelier;
 
@@ -746,10 +793,6 @@ The hole is a container. The hole is not portable.
 The secret box is a box. the secret box is openable, closed and inside the hole.
 A dishtowel is inside the secret box. "A dry and clean dishtowel."
 A screwdriver is in the secret box. it is a password."A red screwdriver, just as you expected."
-
-After firing Raphael:
-	say "You can see a hole behind [noun] painting...";
-	now the hole is in the Atelier.
 
 [-- Sculptures --]
 
@@ -811,6 +854,7 @@ Instead of giving the dishtowel to the bartender:
 
 Instead of drinking tequila:
 	if the player does not have the office's password:
+		now the BarRoom tip is deprecated;
 		now the player has the office's password;
 		increment the score;
 		say "You feel good. The bartender gives you the office's password.";
@@ -850,3 +894,4 @@ After entering the Office:
 Section - Regions
 
 Prison Sector is a region.  Carla's Cell, Ana's Cell and Prison Hall are in Prison Sector.
+The player is in the Carla's Cell.
