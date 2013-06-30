@@ -120,7 +120,7 @@ Section - General Kinds
 
 A thing can be affectable. A thing is usually not affectable.
 A person is usually affectable.
-animal can be affectable.
+An animal can be affectable.
 
 A key is a kind of thing. It is portable. A key is affectable.
 A paper is a kind of thing. A paper is affectable. 
@@ -204,6 +204,7 @@ Instead of asking the Minerva's painting about "help":
 		repeat with _tip running through Tips:
 			say "[description of _tip][line break]";
 			stop the action.
+
 Part - Persons
 
 Dr Pesadelo is a man.
@@ -250,8 +251,8 @@ The kill score is a number that varies. The kill score is 0.
 
 [Telekinesis]
 Before levitating something not affectable:
-		say "[noun] not affected by Telekinesis.";
-		increment the frustration score.
+	say "[noun] not affected by Telekinesis.";
+	increment the frustration score.
 
 Before force choking something not affectable:
 	say "[noun] not affected by Telekinesis.";
@@ -401,14 +402,20 @@ A filthy pool is a scenery in Prison Hall. "A black pool caused by the drip. Thi
 
 A drip is a scenery in Prison Hall. "You cannot risk getting closer to drip without bathing in a pool of piss!"
 
-The keeper is a man in the Prison Hall. "The man you stole the key is still snoring on his chair. You know him just as 'the keeper'." The description of the keeper is "He is wearing a black military-like uniform. You notice he is carrying a pistol on his roster. You shouldn't wake him up unless you want very painful death!". The keeper's corpse is a corpse. The description is "The keeper's corpse is in the floor. I feel strange after killing him...".
+The keeper is a man in the Prison Hall. "The man you stole the key is still snoring on his chair. You know him just as 'the keeper'." The description of the keeper is "He is wearing a black military-like uniform. You notice he is carrying a pistol on his roster. You shouldn't wake him up unless you want very painful death!". The keeper's corpse is a corpse. The description is "The remains of his burnt flesh swimming in a pool of filth. What have you done?!". The keeper carries a pistol. The pistol is affectable.
+
+Instead of taking the pistol:
+	say "The keeper wakes up startled by your attempt. A sudden punch hits your face that knoks you down. When you recover conciousness, you see him pointing his gun at your head. 'You know how we do with traitors, don't you?', he says. A loud blast was the last thing you heard...";
+	end the story saying "Game Over!".
+	
+Instead of levitating the pistol, try taking the pistol.
 
 Instead of attacking keeper:
 	say "You hit him in his face with your bare hands, but that was not a powerful enough punch for girl like yourself. He falls from his chair and wakes up. 'What?! Traitor!', he shouts staring at you. He draws his gun quicker than a lightning and pulls the trigger...";
 	end the story saying "Game Over!".
 
 After firing keeper:
-	say "The keeper now is dead by the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
+	say "You focus your rage on him. His clothes are on fire now. He wakes up suddenly, but it is too late. The flames of your anger spreads quickly through his flesh and bones. He screams desperately and jumps in the filthy pool, but the flames won't give up. These are the flames of Hell! You watch the spectacle for a few minutes until his body is totally consumed. The keeper is dead. You didn't now you were capable of such cruelty...";
 	increment the kill score;
 	now keeper's corpse is in the Prison Hall;
 	remove keeper from play.
