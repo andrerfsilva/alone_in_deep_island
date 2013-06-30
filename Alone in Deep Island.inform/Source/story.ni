@@ -120,6 +120,7 @@ Section - Kinds
 
 A thing can be affectable. A thing is usually not affectable.
 A person is usually affectable.
+animal can be affectable.
 
 A key is a kind of thing. It is portable. A key is affectable.
 A paper is a kind of thing. A paper is affectable. 
@@ -168,6 +169,7 @@ An intern is a kind of person. it is affectable.
 Ana is an intern.
 A waiter is a kind of intern.
 A shadow is a kind of animal.
+A cat is a kind of animal. it is affectable.
 
 Part - Powers
 
@@ -178,6 +180,7 @@ The power is a kind of value. The power are allowed and denied.
 
 The Telekinesis Power is a power that varies. The Telekinesis Power is allowed.
 The Pyrokinesis Power is a power that varies. The Pyrokinesis Power is denied.
+The Telepathy Power is a power that varies. The Telepathy Power is allowed.
 
 Section - Powers Definition
 
@@ -191,6 +194,10 @@ Understand "force choke [something]" or "fc [something]" as force choking.
 [Pyrokinesis]
 Firing is an action applying to one thing.
 Understand "set fire on [something]" or "set fire in [something]" or "set fire [something]" or "fire on [something]" or "fire in [something]" or "fire [something]" as firing.
+
+[Telepathy]
+telepathing is an action applying to one thing.
+Understand "tele [something]" or "use telepathy on [something]" or "telepathy on [something]" as telepathing.
 
 Section - Powers Behaviors
 
@@ -221,6 +228,16 @@ Before firing something:
 	otherwise if something is not affectable:
 		say "[noun] not affect by Pyrokinesis.";
 		increment the frustration score.
+
+[Telepathy]
+Before telepathing thing:
+	if thing is affectable and thing is a animal:
+		do nothing;
+	otherwise if thing is a person and thing is affectable:
+		say "This person has such a damaged psyche that you can't understand its thoughts";
+	otherwise:
+		say "[noun] not affected by Telepathy.";
+		increment the frustration score.		
 		
 [Dependendo do nível do frustração a mensagem de aviso é diferente. No fim o jogador atrai um shadow que o mata. Game Over, baby!]
 Before doing something:
@@ -271,6 +288,8 @@ Part - The Game
 Section - Carla's Cell
 
 Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. It seems they are observing how you behave. [paragraph break][end if]This cell is so dirty. It looks like a prison. It even smells like a prison. An iron framed bed is on the corner of the room. There is also a window on the east wall. You can see the other cells through it."
+
+The player is in Carla's Cell.
 
 Carla's bed is an iron bed in Carla's Cell. "An old iron framed bed with a thin mattress. Just looking at that makes your back ache..." A thin mattress is scenery on Carla's bed. "A thin mattress made of cotton. You notice stains of blood and cum all over it. How can you sleep on such filth?"
 
@@ -568,6 +587,51 @@ The automatic door is lockable, locked and closed.
 The id card is a password.
 The id card unlocks the automatic door.
 
+Section - Internal Garden
+
+Internal Garden is a room."You enter a room that seems most detached from the others. Rows of incandescent light bulbs hang from the ceiling, above crates of common garden plants. Even though most of then are empty or dry, this place is probably the most livid one in this hell hole. A cat sits on a bench nearby lazily, as if all the nightmare going on around this place is just a tale one hears by the campfire."
+
+A black cat is a cat in Internal Garden.
+
+The glass door is east of Study and west of Internal Garden.
+The glass door is a door.
+
+After telepathing the black cat:
+	say "The cat promptly turns its head towards you and starts to talk in an deep ethereal voice: [line break][line break]-Hello, young one. You must be new here. My name is Mr. Zazzles, and I'm here keeping company to the Doctor since the beggining. [line break][line break]It then proceeds to stretch its long legs and back, and continues: [line break][line break]-You don't seem as startled as most, that's good... Or perhaps will be your undoing. Only your actions can determine that, and you will be the maker of those. Now, before I bore you, there is something you must know. They keep archives on the... How do they say it?... Patients around here. It stands beyond the hall of endless cased papers. How you will get there? Well, that is beyong my knowledge. I am just a cat.".
+
+[--- Library ---]
+Library is a room."As you enter the room, the smell of old books and dust makes your nostrils ache. Several bookshelves are lined in rows and collumns on the entire expanse of the room. The lighting here is poorly mantained, having only one of the many shelves being lit enough for you to see anything."
+
+A bookshelf is in the Library. it is a container. it is not portable. "The bookshelf contains several uninteresting books and documents. One, however, catches your eyes. Entitled 'Logs and history of Withered Leg', it is encased in black leather, raw at the edges and with a faint scent of mold. Screwed on one of the sides of the shelf you see a curious wooden panel, engraved with something that looks like a face.".
+A wood panel is in the bookshelf. it is a locked container.
+The metal key is in the wood panel.
+The black book is in the bookshelf. Understand "leather book" as black book. Understand "Logs and history of Withered Leg" as black book. The description is "Most of the book is composed of yellowed pages, eaten away. However, you see a couple of entries that shed some light on your situation: [line break][line break]'Founded in 1959 with the purpose of treating mental illness and diseases, this institute employs cutting edge techniques for its purpose and is a leading example in Latin America and the first of its kind in Brazil. Being based on Fundão Island, it is administrated by Universidade Federal do Rio de Janeiro.' [line break]'The Doctor has been in charge ever since.'[line break]".
+
+The screwdriver unlocks the wood panel.
+
+The book door is west of Study and east of Library.
+The book door is a door.
+The metal door is north of Library and south of Archive Room.
+The metal door is a door. it is locked.
+The metal key unlocks the metal door.
+
+[--- Archive Room ---]
+Archive Room is a room."You feel you are not supposed to be in this room. In fact, it seems no one is ever meant to be here, as if the room itself was looking at you in disaproval, trying to make you go away. Besides that, or perhaps because of it, you have a feeling that something inside this room can be of help.".
+
+The iron table is in Archive Room. The iron table is a supporter.
+
+A Carla's Folder is on the iron table."Name: Carla Silva[line break]Age: 22[line break]Date of entry:08/05/12[line break]Eugenic Result: POSITIVE[line break]Diagnose: Prepare for eugenic reproduction phase as soon as possible.".
+
+A Ana's Folder is on the iron table."Name: Ana Macedo[line break]Age: 24[line break]Date of entry:21/03/10[line break]Eugenic Result: NEGATIVE[line break]Diagnose: Subject to be mantained for further tests and experiments for the time being.".
+
+A photo is on the iron table."A photo of your family".
+
+After taking the photo:
+	say "You feel a lightness in your hearth, like a renewed hope for escaping this place and returning to your loved ones. You know all you've done so far was necessary.".;
+	now frustration score is 0;
+	now kill score is 0.
+
+
 Section - Video Room
 
 Video Room is a room.
@@ -595,7 +659,7 @@ Section - Upper Corridor
 
 Upper Corridor is a room. “This room looks much like its lower counterpart.” Upper Corridor is up from Corridor.
 The minerva is in the Upper Corridor.
-The player is in the Upper Corridor.
+
 
 Section - Atelier
 
@@ -670,7 +734,7 @@ After firing a painting:
 The hole is a container. The hole is not portable.
 The secret box is a box. the secret box is openable, closed and inside the hole.
 A dishtowel is inside the secret box. "A dry and clean dishtowel."
-
+A screwdriver is in the secret box. it is a password."A red screwdriver, just as you expected."
 [-- Podemos colocar mais itens aqui --]
 
 After firing Raphael:
