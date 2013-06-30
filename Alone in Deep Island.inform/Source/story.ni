@@ -152,6 +152,9 @@ A shelf is a scenery.
 A monitor is a scenery.
 A bed is scenery.
 
+[Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
+The description of door is "The [noun] is just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
+
 Part - Persons
 
 Dr Pesadelo is a man.
@@ -191,13 +194,11 @@ The frustration score is a number that varies. The frustration score is 0.
 The kill score is a number that varies. The kill score is 0.
 
 [Telekinesis]
-Before levitating something:
-	if something is not affectable:
+Before levitating something not affectable:
 		say "[noun] not affected by Telekinesis.";
 		increment the frustration score.
 
-Before force choking something:
-	if something is not affectable:
+Before force choking something not affectable:
 		say "[noun] not affected by Telekinesis.";
 		increment the frustration score.
 
@@ -262,10 +263,8 @@ Got Drunk is a truth state that varies. Got Drunk is false.
 
 Part - The Game
 
-[Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
-The description of door is "The [noun] is just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
+Section - Carla's Cell
 
-[--- Carla's Cell, first puzzle ---]
 Carla's Cell is a room. "[if unvisited]This is the room you've been kept since you arrived in this cursed place. Here you witnessed the suffering and despair of many subjects. Yesterday a poor girl was so cruelly abused that she died. Whenever an experience like that fails these guards start patrolling more often. It seems they are observing how you behave. [paragraph break][end if]This cell is so dirty. It looks like a prison. It even smells like a prison. An iron framed bed is on the corner of the room. There is also a window on the east wall. You can see the other cells through it."
 
 Carla's bed is an iron bed in Carla's Cell. "An old iron framed bed with a thin mattress. Just looking at that makes your back ache..." A thin mattress is scenery on Carla's bed. "A thin mattress made of cotton. You notice stains of blood and cum all over it. How can you sleep on such filth?"
@@ -294,7 +293,8 @@ Before listing nondescript items:
 		say "Through the barred door you can see a keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes."; 
 		change the iron key to not marked for listing.
 
-[--- Ana's Cell ---]
+Section - Ana's Cell
+
 Ana's Cell is a room.
 
 The Ana's bed is an iron bed in Ana's Cell.
@@ -319,13 +319,13 @@ After force choking Ana:
 	now Ana's corpse is in the Ana's Cell;
 	remove Ana from play.
 
-[--- Prison Hall ---]
+Section - Prison Hall
+
 Prison Hall is a room.
 
 A wooden chair is a chair. The wooden char is in the Prison Hall.
 In the Prison Hall is a man called the keeper. keeper is affectable.
 The keeper's corpse is a corpse. The description is "The keeper's corpse is in the floor. I feel strange after killing him...".
-Understand "keeper" as keeper's corpse.
 
 Before attacking keeper:
 	say "What type of power do you want to use?";
@@ -355,14 +355,16 @@ The iron key is a key. The iron key unlocks the rusty barred door.
 A heavy iron door is south of Prison Hall and north of Corridor.
 The heavy iron door is a door.
 
-[--- Corridor ---]
-Corridor is a room. ”You find yourself in a corridor with walls painted a deep brown, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. There is hardly any furniture, making it as vacant as uninviting.”
+Section - Corridor
+
+Corridor is a room.
 
 The knowledge door is south of Corridor and north of Study.
 The knowledge door is a door.
 The knowledge door is lockable and closed.
 
-[--- Wumpus World puzzle ---]
+Section - Dark Room
+
 Wumpus World is a region. The printed name of Wumpus World is "Dark Room".
 
 Rule for printing the name of a dark room:
@@ -370,8 +372,6 @@ Rule for printing the name of a dark room:
 
 Rule for printing the description of a dark room:
 	say "You are in [description of location]".
-
-[Wumpus World eh uma matrix 4x4]
 
 [Primeira linha]
 Wumpus1x1 is a dark room. The description of Wumpus1x1 is "Dark Room (1, 1)". Wumpus1x1 is in Wumpus World.
@@ -504,7 +504,8 @@ The black door is east of Corridor and west of Wumpus1x1.
 The black door is a door.
 The black door is lockable and closed.
 
-[--- Study ---]
+Section - Study
+
 The Study is a room. ”This room appears to drown any sound, or rather emanate silence. There is a stillness to it, as if enforced by some punishing overlord that whips whoever dares make a sound.”
 
 A table is in the Study. The table is a supporter.
@@ -560,7 +561,8 @@ The automatic door is lockable, locked and closed.
 The id card is a password.
 The id card unlocks the automatic door.
 
-[--- Video Room ---]
+Section - Video Room
+
 Video Room is a room.
 
 A desk is in Video Room. The desk is a supporter.
@@ -582,10 +584,12 @@ Instead of examining the TV:
 	otherwise:
 		say "There is some interesting docummentary being broadcast. Maybe you should sit on the sofa and watch it..."
 
-[--- Upper Corridor ---]
+Section - Upper Corridor
+
 Upper Corridor is a room. “This room looks much like its lower counterpart.” Upper Corridor is up from Corridor.
 
-[--- Atelier ---]
+Section - Atelier
+
 The Atelier is a room. The description is "Here is the Atelier, some interns come to relax and pratice your hobby too. Wow!! there are some stolen paintings by the Nazis and famous sculptures here too...[if unvisited][line break]Huh ??? What's is happening with me i'm confused again?!?!?[line break]Oh my god!!! Some interns are stucked inside the paintings and sculptures... I must help them to get out this hell!!![end if]".
 
 [-- Interns in Atelier --]
@@ -684,7 +688,8 @@ The carved door is a door.
 The carved door is lockable, locked and closed.
 The chisel is a key. The chisel unlocks the carved door.
 
-[--- Bar ---]
+Section - Bar
+
 The Bar is a room.
 
 The bartender is a person in the Bar. The office's password is a password. The bartender carries the office's password.
@@ -744,7 +749,8 @@ Instead of drinking mead:
 The escape door is north of Upper Corridor and south of Bar.
 The escape door is a door.
 
-[--- The Office ---]
+Section - Office
+
 The Office is a room. The printed name of the office is "Dr. Pesadelo's Office".
 
 The golden door is south of Upper Corridor and north of The Office.
@@ -758,5 +764,6 @@ After entering the Office:
 	otherwise if the kill score >= 3:
 		say "Final C".
 
-[Regions]
+Section - Regions
+
 Prison Sector is a region.  Carla's Cell, Ana's Cell and Prison Hall are in Prison Sector.
