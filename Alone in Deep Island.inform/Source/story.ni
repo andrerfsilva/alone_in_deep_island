@@ -415,13 +415,13 @@ Instead of attacking keeper:
 	end the story saying "Game Over!".
 
 After firing keeper:
-	say "You focus your rage on him. His clothes are on fire now. He wakes up suddenly, but it is too late. The flames of your anger spreads quickly through his flesh and bones. He screams desperately and jumps in the filthy pool, but the flames won't give up. These are the flames of Hell! You watch the spectacle for a few minutes until his body is totally consumed. The keeper is dead. You didn't now you were capable of such cruelty...";
+	say "You focus your rage on him. His clothes are on fire now. He wakes up suddenly, but it is too late. The flames of your anger spreads quickly through his flesh and bones. He screams desperately and jumps in the filthy pool, but the flames won't give up. These are the flames of Hell! You watch the spectacle for a few minutes until his body is totally consumed. The keeper is dead.";
 	increment the kill score;
 	now keeper's corpse is in the Prison Hall;
 	remove keeper from play.
 
 After force choking keeper:
-	say "The keeper now is dead by the Telekinesis!! I'm feeling the evil growing inside me... Why?";
+	say "You press hard you mind's power against his neck. With a burst of rage you make the keeper levitate. He wakes up and tries to draw his gun, but you were quicker than him and made his gun explode on his hands! He fights desprately a few more seconds for his life, and then stops. You release his corpse on the pool of filth.";
 	increment the kill score;
 	now keeper's corpse is in the Prison Hall;
 	remove keeper from play.
@@ -431,8 +431,8 @@ The rusty barred door is a door.
 The rusty barred door is lockable, locked and closed.
 The iron key unlocks the rusty barred door.
 
-A heavy iron door is south of Prison Hall and north of Corridor.
-The heavy iron door is a door.
+A white door is south of Prison Hall and north of Corridor.
+The white door is a door.
 
 Section - Corridor
 
