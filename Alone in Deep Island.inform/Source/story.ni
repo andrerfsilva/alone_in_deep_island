@@ -116,7 +116,7 @@ A bed is a kind of supporter. A bed is always enterable. Every bed allows seated
 
 An iron bed is a kind of bed.
 
-Section - Kinds
+Section - General Kinds
 
 A thing can be affectable. A thing is usually not affectable.
 A person is usually affectable.
@@ -131,6 +131,12 @@ A lamp is a kind of thing.
 A chair is affectable.
 A painting is a kind of thing. It is not portable. A painting is affectable.
 A sculpture is a kind of thing. It is not portable.
+
+[Descrição geral para todas as portas]
+The initial appearance of a door is usually "[An item described] leads [if the other side of the item described is visited][direction of the item described from the location] to [the other side][otherwise][direction of the item described from the location][end if]. [run paragraph on]"
+
+[Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
+The description of door is "The [noun] is just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
 
 Section - Special Kinds
 
@@ -151,9 +157,6 @@ A window is a scenery.
 A shelf is a scenery.
 A monitor is a scenery.
 A bed is scenery.
-
-[Descricao default para qualquer porta. E possivel sobreescrever definindo para uma porta em especifico]
-The description of door is "The [noun] is just a door, do you know how to use one?[line break]The door is[if closed] closed[otherwise] open[end if].".
 
 Part - Persons
 
@@ -209,13 +212,13 @@ Instead of firing corpse:
 Instead of force choking corpse:
 	say "It's already dead... force choking doesn't  make sense anymore.".
 
-Before firing something:
+Before firing something affectable:
 	if Pyrokinesis Power is denied:
 		say "You have not learned the Pyrokinesis yet.";
-		stop the action;
-	otherwise if something is not affectable:
-		say "[noun] not affect by Pyrokinesis.";
-		increment the frustration score.
+		stop the action.
+Before firing something not affectable:
+	say "[noun] not affect by Pyrokinesis.";
+	increment the frustration score.
 		
 [Dependendo do nível do frustração a mensagem de aviso é diferente. No fim o jogador atrai um shadow que o mata. Game Over, baby!]
 Before doing something:
@@ -271,7 +274,7 @@ Carla's bed is an iron bed in Carla's Cell. "An old iron framed bed with a thin 
 
 A window is in Carla's Cell. "A window made of bulletproof glass. You can see another 'patient' wearing a straitjacket in the next room. She looks so bleak. Maybe the 'treatment' is working..."
 
-A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. "A barred door leads southeast to the prison hall." The heavy barred door is a door. The heavy barred door is lockable and locked. The iron key unlocks the heavy barred door.
+A heavy barred door is southeast of Carla's Cell and northwest of Prison Hall. The heavy barred door is a door. The heavy barred door is lockable and locked. The iron key unlocks the heavy barred door.
 
 The iron key is a key. The iron key is in Carla's Cell. [Virtualmente, é como se a chave estivesse nessa sala. Foi a solução que achei para permitir usar o poder na chave daqui. OBS: usei o verbo "levitate" para denotar o poder.]
 Instead of levitating the iron key:
@@ -290,7 +293,7 @@ Before taking the iron key:
 
 Before listing nondescript items:
 	if (the iron key is marked for listing) and (completed first puzzle is false):
-		say "Through the barred door you can see a keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes."; 
+		say "Through the barred door you can see the keeper sleeping noisily outside. He is sitting on a chair on the corner of the prison hall. An iron key hanging on his belt catches your eyes."; 
 		change the iron key to not marked for listing.
 
 Section - Ana's Cell
@@ -321,15 +324,19 @@ After force choking Ana:
 
 Section - Prison Hall
 
-Prison Hall is a room.
+Prison Hall is a room. "It looks like you are in the middle of a construction site. Hanging on a wall is an intermittent lamp struggling in vain to shine upon you. The walls are dirty and not painted yet. You see only raw bricks in the unfinished walls. There is also an annoying drip in the ceiling causing a filthy pool in the middle of the room. An awful smell of sewage permeates the air."
 
-A wooden chair is a chair. The wooden char is in the Prison Hall.
-In the Prison Hall is a man called the keeper. keeper is affectable.
-The keeper's corpse is a corpse. The description is "The keeper's corpse is in the floor. I feel strange after killing him...".
+A wooden chair is a chair. The wooden chair is a scenery. "It is an old wooden chair. So old and rot that you can even see the trails of termite. You wonder how it hasn't broken under that fat keeper's ass..." The wooden chair is in the Prison Hall.
 
-Before attacking keeper:
-	say "What type of power do you want to use?";
-	stop the action.
+A filthy pool is a scenery in Prison Hall. "A black pool caused by the drip. This scent of piss and shit nauseates you. They should fix the sewage system of the upper floor..."
+
+A drip is a scenery in Prison Hall. "You cannot risk getting closer to drip without bathing in a pool of piss!"
+
+The keeper is a man in the Prison Hall. "The man you stole the key is still snoring on his chair. You know him just as 'the keeper'." The description of the keeper is "He is wearing a black military-like uniform. You notice he is carrying a pistol on his roster. You shouldn't wake him up unless you want very painful death!". The keeper's corpse is a corpse. The description is "The keeper's corpse is in the floor. I feel strange after killing him...".
+
+Instead of attacking keeper:
+	say "You hit him in his face with your bare hands, but that was not a powerful enough punch for girl like yourself. He falls from his chair and wakes up. 'What?! Traitor!', he shouts staring at you. He draws his gun quicker than a lightning and pulls the trigger...";
+	end the story saying "Game Over!".
 
 After firing keeper:
 	say "The keeper now is dead by the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
@@ -343,21 +350,17 @@ After force choking keeper:
 	now keeper's corpse is in the Prison Hall;
 	remove keeper from play.
 
-The old table is here. "An old wooden table is on the corner. So old and rot that you can even see the trails of termite."
-
-The description of the lamp is "An ordinary oil lamp. It is lit.".
-
 A rusty barred door is northeast of Prison Hall and southwest of Ana's Cell.
 The rusty barred door is a door.
 The rusty barred door is lockable, locked and closed.
-The iron key is a key. The iron key unlocks the rusty barred door.
+The iron key unlocks the rusty barred door.
 
 A heavy iron door is south of Prison Hall and north of Corridor.
 The heavy iron door is a door.
 
 Section - Corridor
 
-Corridor is a room.
+Corridor is a room. "You find yourself in a corridor with walls painted a deep brown, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. There is hardly any furniture, making it as vacant as uninviting.”
 
 The knowledge door is south of Corridor and north of Study.
 The knowledge door is a door.
@@ -516,7 +519,7 @@ The id card is in the safe.
 
 A comfort chair is a chair in the Study.
 
-The study intern is an intern. The description is "This Intern is reading something about Neurocience...". The study intern is in the Study.
+The study intern is an intern. The description is "This intern is reading something about Neurocience...". The study intern is in the Study.
 The study intern's corpse is a corpse.
 
 Before attacking study intern:
