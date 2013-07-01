@@ -654,11 +654,11 @@ The glass door is a door.
 
 After telepathing the black cat:
 	now the InternalGardenRoom is deprecated;
-	say "The cat promptly turns its head towards you and starts to talk in an deep ethereal voice: [line break][line break]-Hello, young one. You must be new here. My name is Mr. Zazzles, and I'm here keeping company to the Doctor since the beggining. [line break][line break]It then proceeds to stretch its long legs and back, and continues: [line break][line break]-You don't seem as startled as most, that's good... Or perhaps will be your undoing. Only your actions can determine that, and you will be the maker of those. Now, before I bore you, there is something you must know. They keep archives on the... How do they say it?... Patients around here. It stands beyond the hall of endless cased papers. How you will get there? Well, that is beyong my knowledge. I am just a cat.".
+	say "The cat promptly turns its head towards you and starts to talk in an deep ethereal voice. [paragraph break]'Hello, young one. You must be new here. My name is Mr. Zazzles, and I'm here keeping company to the Doctor since the beginning.' It then proceeds to stretch its long legs and back, and continues. [paragraph break]'You don't seem as startled as most, that's good... Or perhaps it will be your undoing. Only your actions can determine that, and you will be the maker of those. Now, before I bore you, there is something you must know. They keep archives on the... How do they call it?... Patients around here. It stands beyond the hall of endless cased papers. How will you get there? Well, that is beyond my knowledge. I am just a cat.'".
 
 Section - Library
 
-Library is a room."As you enter the room, the smell of old books and dust makes your nostrils ache. Several bookshelves are lined in rows and collumns on the entire expanse of the room. The lighting here is poorly mantained, having only one of the many shelves being lit enough for you to see anything."
+Library is a room."As you enter the room, the smell of old books and dust makes your nostrils ache. Several bookshelves are lined in rows and columns on the entire expanse of the room. The lighting here is poorly maintained, having only one of the many shelves being lit enough for you to see anything."
 
 A bookshelf is in the Library. it is a container. it is not portable. "The bookshelf contains several uninteresting books and documents. One, however, catches your eyes. Entitled 'Logs and history of Withered Leg', it is encased in black leather, raw at the edges and with a faint scent of mold. Screwed on one of the sides of the shelf you see a curious wooden panel, engraved with something that looks like a face.".
 A wood panel is in the bookshelf. it is a locked container.
@@ -675,13 +675,13 @@ The metal key unlocks the metal door.
 
 Section - Archive Room
 
-Archive Room is a room."You feel you are not supposed to be in this room. In fact, it seems no one is ever meant to be here, as if the room itself was looking at you in disaproval, trying to make you go away. Besides that, or perhaps because of it, you have a feeling that something inside this room can be of help.".
+Archive Room is a room."You feel you are not supposed to be in this room. In fact, it seems no one is ever meant to be here, as if the room itself was looking at you in disapproval, trying to make you go away. Besides that, or perhaps because of it, you have a feeling that something inside this room can be of help.".
 
 The iron table is in Archive Room. The iron table is a supporter.
 
 A Carla's Folder is on the iron table."Name: Carla Silva[line break]Age: 22[line break]Date of entry:08/05/12[line break]Eugenic Result: POSITIVE[line break]Diagnose: Prepare for eugenic reproduction phase as soon as possible.".
 
-A Ana's Folder is on the iron table."Name: Ana Macedo[line break]Age: 24[line break]Date of entry:21/03/10[line break]Eugenic Result: NEGATIVE[line break]Diagnose: Subject to be mantained for further tests and experiments for the time being.".
+A Ana's Folder is on the iron table."Name: Ana Macedo[line break]Age: 24[line break]Date of entry:21/03/10[line break]Eugenic Result: NEGATIVE[line break]Diagnose: Subject to be maintained for further tests and experiments for the time being.".
 
 A photo is on the iron table."A photo of your family".
 
