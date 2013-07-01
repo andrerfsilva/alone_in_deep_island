@@ -101,10 +101,10 @@ Instead of asking the corpse to try doing something: say "He belongs to the unde
 Instead of waking the corpse: say "Asclepius may have been able to wake corpses, but you, alas, are not."
 
 Instead of giving something to the corpse:
-say "The corpse of [noun] offers no comment."
+say "The corpse offers no comment."
 
 Instead of showing something to the corpse:
-say "It is unclear that the spirit of [noun] can perceive things adjacent to his body. In any case, he does not answer."
+say "It is unclear that the spirit can perceive things adjacent to his body. In any case, he does not answer."
 
 Part - Object definitions
 
@@ -275,13 +275,15 @@ Before firing something not affectable:
 	increment the frustration score.
 
 [Telepathy]
-Before telepathing thing:
-	if thing is affectable and thing is a animal:
+Before of telepathing something not affectable:
+	say "[noun] not affect by Telepathy.";
+	increment the frustration score.
+
+Before telepathing something affectable:
+	if something is a animal:
 		do nothing;
-	otherwise if thing is a person and thing is affectable:
-		say "This person has such a damaged psyche that you can't understand its thoughts";
-	otherwise:
-		say "[noun] not affected by Telepathy.";
+	otherwise if something is a person:
+		say "[noun] not affected by Telepathy. You should try this power on lesse minds.";
 		increment the frustration score.		
 		
 [Dependendo do nível do frustração a mensagem de aviso é diferente. No fim o jogador atrai um shadow que o mata. Game Over, baby!]
@@ -385,16 +387,26 @@ After firing Ana:
 	say "Ana now is dead by the Pyrokinesis!! I'm feeling the evil growing inside me... Why?";
 	increment the kill score;
 	now Ana's corpse is in the Ana's Cell;
-	remove Ana from play.
+	remove Ana from play;
+	if player has a toy:
+		do nothing;
+	otherwise:
+		now the action-figure is in the Ana's Cell;
+		say "Something falls to the ground as her corpse burns.".
 
 After force choking Ana:
 	say "Ana now is dead by the Telekinesis!! I'm feeling the evil growing inside me... Why?";
 	increment the kill score;
+	remove Ana from play;
 	now Ana's corpse is in the Ana's Cell;
-	remove Ana from play.
+	if player has a toy:
+		do nothing;
+	otherwise:
+		now the action-figure is in the Ana's Cell;
+		say "Something falls to the ground as her broken corpse hits the floor.".
 
 Instead of giving madness key to Ana:
-	say "Ana is weak, but still manages to sit on her bed. Her hair and face are ruins of what once was a young woman. She grabs something from a pocket and gives it to you. A toy.[line break][line break]-Take it with you. Trust me, it is going to be useful.[line break][line break]She reclines on the wall, to weak for anything else.";
+	say "Ana is weak, but still manages to sit on her bed. Her hair and face are ruins of what once was a young woman. She grabs something from a pocket and gives it to you. A toy.[line break][line break]-Take it with you. Trust me, it is going to be useful.[line break][line break]She reclines on the wall, too weak for anything else.";
 	now the player has action-figure.
 
 Section - Prison Hall
