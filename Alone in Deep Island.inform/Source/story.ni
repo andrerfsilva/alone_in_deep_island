@@ -375,6 +375,7 @@ The Ana's bed is an iron bed in Ana's Cell.
 
 The description of Ana is "Ana is the oldest intern in this hell...". Ana is in the Ana's Cell.
 Ana's corpse is a corpse. Understand "Ana" as Ana's corpse.
+The action-figure is a toy. The description is "Made in China with plastic and child labor".
 
 Before attacking Ana:
 	say "Do you really wants to kill Ana?!?";
@@ -391,6 +392,10 @@ After force choking Ana:
 	increment the kill score;
 	now Ana's corpse is in the Ana's Cell;
 	remove Ana from play.
+
+Instead of giving madness key to Ana:
+	say "Ana is weak, but still manages to sit on her bed. Her hair and face are ruins of what once was a young woman. She grabs something from a pocket and gives it to you. A toy.[line break][line break]-Take it with you. Trust me, it is going to be useful.[line break][line break]She reclines on the wall, to weak for anything else.";
+	now the player has action-figure.
 
 Section - Prison Hall
 
