@@ -453,7 +453,7 @@ The white door is a door.
 
 Section - Corridor
 
-Corridor is a room. "You find yourself in a corridor with walls painted in light gray, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. There is hardly any furniture, making it as vacant as uninviting."
+Corridor is a room. "You find yourself in a corridor with walls painted in light gray, chunks of it flaking from its age. The floor is made of some dark wood, all crooked and dented, but surprisingly silent to the step. A stair leads to a room up from here. There is hardly any furniture, making it as vacant as uninviting."
 
 The knowledge door is south of Corridor and north of Study.
 The knowledge door is a door.
@@ -500,7 +500,7 @@ There is a shadow in Wumpus2x2. There is a shadow in Wumpus3x3.
 There is a shadow in Wumpus2x4.
 
 [-- Key locations --]
-The madness key is in Wumpus1x3.
+The madness key is in Wumpus1x3. The description is "This key has a distorted face engraved. Perhaps you should give it to someone who suffered more than you".
 The chisel is in Wumpus3x4.
 
 [-- Perceptions listening rule --]
