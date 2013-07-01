@@ -446,7 +446,7 @@ Section - Dark Room
 Wumpus World is a region. The printed name of Wumpus World is "Dark Room".
 
 Rule for printing the name of a dark room:
-	say "Dark Room[if unvisited][line break]I'm confused, everything is dark here, i can only hear things around me.[end if]".
+	say "Dark Room[if unvisited][line break]I'm confused. Everything is dark here. I can only hear things around me.[end if]".
 
 Rule for printing the description of a dark room:
 	say "You are in [description of location]".
@@ -535,11 +535,11 @@ There is a chisel perception in the Wumpus4x4. The description is "I can hear a 
 [-- Wumpus World algorithm --]
 After going to a dark room:
 	if there is a shadow in location:
-		end the story saying "You was killed by an Shadow!";
+		end the story saying "You were killed by a Shadow!";
 	otherwise if there is a chisel in location:
 		now the player has the chisel;
 		increment the score;
-		say "[line break]You got the chisel!";
+		say "[line break]You found the chisel!";
 		repeat with _perception running through chisel perception in Wumpus World:
 			remove _perception from play;
 		if the player has the madness key:
@@ -548,7 +548,7 @@ After going to a dark room:
 	otherwise if there is a madness key in location:
 		now the player has the madness key;
 		increment the score;
-		say "[line break]You got the madness key!";
+		say "[line break]You found the madness key!";
 		repeat with _perception running through madness key perception in Wumpus World:
 			remove _perception from play;
 		if the player has the chisel:
