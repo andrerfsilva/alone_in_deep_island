@@ -368,7 +368,7 @@ Before listing nondescript items:
 
 Section - Ana's Cell
 
-Ana's Cell is a room.
+Ana's Cell is a room. "This room looks a lot like yours. Even the smell and the dirt stains seem alike."
 
 The Ana's bed is an iron bed in Ana's Cell.
 [Colocar o tratamento do corpo da Ana também, possivelmente com o boneco junto. Uma dica é olhar o tratamento do keeper ou da interna do study ou do bar ou do bartender]
@@ -658,7 +658,7 @@ After telepathing the black cat:
 
 Section - Library
 
-Library is a room."As you enter the room, the smell of old books and dust makes your nostrils ache. Several bookshelves are lined in rows and columns on the entire expanse of the room. The lighting here is poorly maintained, having only one of the many shelves being lit enough for you to see anything."
+Library is a room."As you enter the room, the smell of old books and dust makes your nostrils ache. Several bookshelves are lined in rows and columns over the entire expanse of the room. The lighting here is poorly maintained, having only one of the many shelves being lit enough for you to see anything."
 
 A bookshelf is in the Library. it is a container. it is not portable. "The bookshelf contains several uninteresting books and documents. One, however, catches your eyes. Entitled 'Logs and history of Withered Leg', it is encased in black leather, raw at the edges and with a faint scent of mold. Screwed on one of the sides of the shelf you see a curious wooden panel, engraved with something that looks like a face.".
 A wood panel is in the bookshelf. it is a locked container.
@@ -693,7 +693,7 @@ After taking the photo:
 
 Section - Video Room
 
-Video Room is a room. "A small ordinary looking room."
+Video Room is a room. "A small ordinary looking room. There is a TV that looks like its from the 80's. The voices and sounds it broadcasts are barely audible, even in the quietness the room is immersed in."
 
 A video desk is in Video Room. The video desk is a supporter.
 
@@ -822,7 +822,7 @@ The chisel is a key. The chisel unlocks the carved door.
 
 Section - Bar
 
-The Bar is a room.
+The Bar is a room.  "This is an old bar. A radio on one side of the counter produces static sounds as if stuck on a loop. Bad neon patches hold hands with lit ones near the top of the room, giving an odd and assymetric blue glow to the chandelier that sprouts from the center of the ceiling."
 
 The bartender is a person in the Bar. The office's password is a password. The bartender carries the office's password.
 The bartender's corpse is a corpse.
