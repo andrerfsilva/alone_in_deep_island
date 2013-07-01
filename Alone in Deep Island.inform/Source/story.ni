@@ -748,7 +748,7 @@ An intern painter is an intern. The description is "This intern is not being aff
 The intern painter's corpse is a corpse.
 
 Before attacking intern painter:
-	say "Do you early want to kill her? If you want, choose some power to do this.";
+	say "Do you really want to kill her? If you want, choose some power to do this.";
 	stop the action.
 
 After firing intern painter:
