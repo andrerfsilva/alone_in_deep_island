@@ -586,22 +586,22 @@ The black door is lockable and closed.
 
 Section - Study
 
-The Study is a room. ”This room appears to drown any sound, or rather emanate silence. There is a stillness to it, as if enforced by some punishing overlord that whips whoever dares make a sound.”
+The Study is a room. "This room appears to drown any sound, or rather emanate silence. There is a stillness to it, as if enforced by some punishing overlord that whips whoever dares make a sound."
 
-A safe is a container in the Study. "There is black safe on the table. It has a kind of electronic lock, but instead of an ordinary password keyboard it has as small antena attached to it." The safe is a locked container. The safe is closed.
+A safe is a container in the Study. "There is black safe on the table. It has a kind of electronic lock, but instead of an ordinary password keyboard it has as small antenna attached to it." The safe is a locked container. The safe is closed.
 
-An electronic lock is a scenery in the Study. "This electronic lock has a small antena attached to it that looks like a wireless moden antena. It is pointing to the direction of the chair." Understand "antena" or "small antena" as electronic lock.
+An electronic lock is a scenery in the Study. "This electronic lock has a small antenna attached to it that looks like a wireless modem antenna. It is pointing to the direction of the chair." Understand "antenna" or "small antenna" as electronic lock.
 
 The id card is in the safe.
 
 A comfort chair is a chair in the Study.
 
-The intern girl is an intern. "An intern girl is sitting on a desk so deeply concentrated on her readings that she didn't notice you." The description is "This intern is reading something about Neurocience...". The intern girl is in the Study. The intern girl's corpse is a corpse. The description of intern girl's corpse is "There she lies staring back silently at you. Deprived of live by you lack of understanding. What is the porpose of killing such an inocent girl?"
+The intern girl is an intern. "An intern girl is sitting on a desk so deeply concentrated on her readings that she didn't notice you." The description is "This intern is reading something about Neuroscience...". The intern girl is in the Study. The intern girl's corpse is a corpse. The description of intern girl's corpse is "There she lies staring back silently at you. Deprived of live by you lack of understanding. What is the purpose of killing such an innocent girl?"
 
 A study desk is a scenery. It is in the Study.
 
 Before attacking intern girl:
-	say "Do you realy want to kill her? If you want, choose some power to do this.";
+	say "Do you really want to kill her? If you want, choose some power to do this.";
 	stop the action.
 
 After firing intern girl:
@@ -693,7 +693,7 @@ After taking the photo:
 
 Section - Video Room
 
-Video Room is a room.
+Video Room is a room. "A small ordinary looking room."
 
 A video desk is in Video Room. The video desk is a supporter.
 
@@ -711,13 +711,13 @@ Instead of examining the TV:
 		now the VideoRoom tip is deprecated;
 		now the Pyrokinesis Power is allowed;
 		increment the score;
-		say "You watch a Nazi docummentary of the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can burn them all!";
+		say "You watch a Nazi docummentary about the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can use Pyrokinesis Powers.";
 	otherwise:
 		say "There is some interesting docummentary being broadcast. Maybe you should sit on the sofa and watch it..."
 
 Section - Upper Corridor
 
-Upper Corridor is a room. “This room looks much like its lower counterpart.” Upper Corridor is up from Corridor.
+Upper Corridor is a room. "This room looks much like its lower counterpart." Upper Corridor is up from Corridor.
 The Minerva's painting is in the Upper Corridor.
 
 Section - Atelier
