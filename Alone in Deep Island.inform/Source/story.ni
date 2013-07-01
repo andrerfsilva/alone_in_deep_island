@@ -702,7 +702,7 @@ A TV is on the desk.
 A brown sofa is a sofa in Video Room.
 
 Before sitting on the sofa:
-	say "You feel relaxed. Almost in transe. The TV programme calls your attention...".
+	say "You feel relaxed. Almost in trance. The TV show calls your attention...".
 
 Instead of examining the TV:
 	if the Pyrokinesis Power is allowed:
@@ -711,9 +711,9 @@ Instead of examining the TV:
 		now the VideoRoom tip is deprecated;
 		now the Pyrokinesis Power is allowed;
 		increment the score;
-		say "You watch a Nazi docummentary about the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can use Pyrokinesis Powers.";
+		say "You watch a Nazi documentary about the Holocaust. Something changed inside you. You feel the power of flames rising. Now you can use Pyrokinesis Powers.";
 	otherwise:
-		say "There is some interesting docummentary being broadcast. Maybe you should sit on the sofa and watch it..."
+		say "There is some interesting documentary being broadcast. Maybe you should sit on the sofa and watch it..."
 
 Section - Upper Corridor
 
@@ -722,14 +722,14 @@ The Minerva's painting is in the Upper Corridor.
 
 Section - Atelier
 
-The Atelier is a room. The description is "Here is the Atelier, some interns come to relax and pratice your hobby too. Wow!! there are some stolen paintings by the Nazis and famous sculptures here too...[if unvisited][line break]Huh ??? What's is happening with me i'm confused again?!?!?[line break]Oh my god!!! Some interns are stucked inside the paintings and sculptures... I must help them to get out this hell!!![end if]".
+The Atelier is a room. The description is "Here is the Atelier, some interns come to relax and practice your hobby too. Wow!! there are some stolen paintings by the Nazis and famous sculptures here too...[if unvisited][line break]Huh ??? What's is happening with me I'm confused again?!?!?[line break]Oh my god!!! Some interns are stuck inside the paintings and sculptures... I must help them to get out this hell!!![end if]".
 
 [-- Interns in Atelier --]
 An intern sculptor is an intern. The description is "This intern is not being affected by the confusion." The intern sculptor is in the Atelier.
 The intern sculptor's corpse is a corpse.
 
 Before attacking intern sculptor:
-	say "Do you realy want to kill her? If you want, choose some power to do this.";
+	say "Do you really want to kill her? If you want, choose some power to do this.";
 	stop the action.
 
 After firing intern sculptor:
@@ -748,7 +748,7 @@ An intern painter is an intern. The description is "This intern is not being aff
 The intern painter's corpse is a corpse.
 
 Before attacking intern painter:
-	say "Do you realy want to kill her? If you want, choose some power to do this.";
+	say "Do you early want to kill her? If you want, choose some power to do this.";
 	stop the action.
 
 After firing intern painter:
@@ -805,7 +805,7 @@ A screwdriver is in the secret box. it is a password."A red screwdriver, just as
 The Perseus is a sculpture. The description is "Perseus with the head of Medusa Sculpture. Property of Dr. Nightmare.". The Perseus is in the Atelier.
 The Athena is a sculpture. The description is "Athena Parthenos Sculpture. Property of Dr. Nightmare.". The Athena is in the Atelier.
 The Mary  is a sculpture. The description is "Mary holding Jesus Sculpture. Property of Dr. Nightmare.". The Mary is in the Atelier.
-The Little Mermaind is a sculpture. The description is "The Little Mermaid Sculpture. Property of Dr. Nightmare.". The Little Mermaind is in the Atelier.
+The Little Mermaid is a sculpture. The description is "The Little Mermaid Sculpture. Property of Dr. Nightmare.". The Little Jermain is in the Atelier.
 
 Before taking a painting:
 	say "I don't want to take [noun]. I must help them to get out of this painting.";
@@ -831,7 +831,7 @@ Before attacking bartender:
 	if the bartender carry the dishtowel:
 		say "Do you really want to kill her? If you want, choose some power to do this...";
 	otherwise:
-		say "Do you realy want to kill her, she can help you? If you want, choose some power to do this.";
+		say "Do you really want to kill her, she can help you? If you want, choose some power to do this.";
 	stop the action.
 
 After firing bartender:
